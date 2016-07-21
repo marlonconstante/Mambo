@@ -42,9 +42,9 @@
       <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
       <Private>False</Private>
     </ProjectReference>
-    <ProjectReference Include="..\Droid\Mambo.Droid.csproj">
+    <ProjectReference Include="..\Android\Mambo.Android.csproj">
       <Project>{E290173A-A1D1-4463-955B-760C5A7CCB51}</Project>
-      <Name>Mambo.Droid</Name>
+      <Name>Mambo.Android</Name>
       <ReferenceOutputAssembly>False</ReferenceOutputAssembly>
       <Private>False</Private>
     </ProjectReference>
