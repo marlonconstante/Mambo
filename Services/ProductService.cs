@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Fusillade;
 using Mambo.Models;
 using Mambo.Repositories.Vtex;
 
@@ -17,7 +18,7 @@ namespace Mambo.Services
 		/// <param name="name">Name.</param>
 		public Task<IList<Product>> SearchProducts(string name)
 		{
-			return Service.SearchProducts(name);
+			return GetService(Priority.Background).SearchProducts(name);
 		}
 	}
 }
