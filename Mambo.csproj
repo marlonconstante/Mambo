@@ -38,6 +38,7 @@
     <Compile Include="Core\Http\IRestService.cs" />
     <Compile Include="Repositories\Vtex\VtexClient.cs" />
     <Compile Include="Services\ProductService.cs" />
+    <Compile Include="Core\Http\PriorityRequest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
