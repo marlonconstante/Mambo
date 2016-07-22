@@ -10,7 +10,7 @@ namespace Mambo.Core.Http
 	/// <summary>
 	/// Rest client.
 	/// </summary>
-	public abstract class RestClient<TRestService> where TRestService : IRestService
+	public abstract class RestClient<TRestRepository> where TRestRepository : IRestRepository
 	{
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:Mambo.Core.Http.RestClient`1"/> class.
@@ -20,18 +20,18 @@ namespace Mambo.Core.Http
 		{
 			BaseAddress = baseAddress;
 
-			ServiceMap = new Dictionary<PriorityRequest, Lazy<TRestService>>();
+			ServiceMap = new Dictionary<PriorityRequest, Lazy<TRestRepository>>();
 			ServiceMap.Add(BuildLazyService(PriorityRequest.Minimum));
 			ServiceMap.Add(BuildLazyService(PriorityRequest.Intermediate));
 			ServiceMap.Add(BuildLazyService(PriorityRequest.Maximum));
 		}
 
 		/// <summary>
-		/// Gets the service.
+		/// Gets the repository.
 		/// </summary>
-		/// <returns>The service.</returns>
+		/// <returns>The repository.</returns>
 		/// <param name="priority">Priority.</param>
-		protected TRestService GetService(PriorityRequest priority)
+		protected TRestRepository GetRepository(PriorityRequest priority)
 		{
 			return ServiceMap[priority].Value;
 		}
@@ -64,9 +64,9 @@ namespace Mambo.Core.Http
 		/// </summary>
 		/// <returns>The lazy service.</returns>
 		/// <param name="priority">Priority.</param>
-		KeyValuePair<PriorityRequest, Lazy<TRestService>> BuildLazyService(PriorityRequest priority)
+		KeyValuePair<PriorityRequest, Lazy<TRestRepository>> BuildLazyService(PriorityRequest priority)
 		{
-			return new KeyValuePair<PriorityRequest, Lazy<TRestService>>(priority, new Lazy<TRestService>(() => BuildService(priority)));
+			return new KeyValuePair<PriorityRequest, Lazy<TRestRepository>>(priority, new Lazy<TRestRepository>(() => BuildService(priority)));
 		}
 
 		/// <summary>
@@ -74,21 +74,21 @@ namespace Mambo.Core.Http
 		/// </summary>
 		/// <returns>The service.</returns>
 		/// <param name="priority">Priority.</param>
-		TRestService BuildService(PriorityRequest priority)
+		TRestRepository BuildService(PriorityRequest priority)
 		{
 			var handler = new RateLimitedHttpMessageHandler(new NativeMessageHandler(), GetPriority(priority));
 			var client = new HttpClient(handler) {
 				BaseAddress = new Uri(BaseAddress)
 			};
 
-			return RestService.For<TRestService>(client);
+			return RestService.For<TRestRepository>(client);
 		}
 
 		/// <summary>
 		/// Gets or sets the service map.
 		/// </summary>
 		/// <value>The service map.</value>
-		IDictionary<PriorityRequest, Lazy<TRestService>> ServiceMap {
+		IDictionary<PriorityRequest, Lazy<TRestRepository>> ServiceMap {
 			get;
 			set;
 		}

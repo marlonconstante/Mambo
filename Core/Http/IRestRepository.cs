@@ -1,9 +1,9 @@
 ﻿namespace Mambo.Core.Http
 {
 	/// <summary>
-	/// Rest service.
+	/// Rest repository.
 	/// </summary>
-	public interface IRestService
+	public interface IRestRepository
 	{
 	}
 }
