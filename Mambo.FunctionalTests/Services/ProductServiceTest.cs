@@ -35,7 +35,7 @@ namespace Mambo.FunctionalTests.Services
 		{
 			var name = "banana";
 			var products = await service.SearchProducts(name).ConfigureAwait(false);
-			Assert.That(products.Select(p => p.Name.ToLower()), Has.All.Contains(name), "Bananas foram encontradas.");
+			Assert.That(products.Select(p => p.Name.ToLower()), Has.All.Contains(name));
 		}
 	}
 }
