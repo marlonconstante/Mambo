@@ -1,4 +1,5 @@
 ﻿using Foundation;
+using Mambo.FunctionalTests.Services;
 using UIKit;
 
 namespace Mambo.FunctionalTests.iOS
@@ -22,7 +23,7 @@ namespace Mambo.FunctionalTests.iOS
 			var nunit = new NUnit.Runner.App {
 				AutoRun = true
 			};
-			//nunit.AddTestAssembly(typeof(FunctionalTests).Assembly);
+			nunit.AddTestAssembly(typeof(ProductServiceTest).Assembly);
 			LoadApplication(nunit);
 
 			return base.FinishedLaunching(app, options);

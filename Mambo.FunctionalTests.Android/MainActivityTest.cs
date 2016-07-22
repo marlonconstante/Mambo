@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using Mambo.FunctionalTests.Services;
 
 namespace Mambo.FunctionalTests.Android
 {
@@ -24,7 +25,7 @@ namespace Mambo.FunctionalTests.Android
 			var nunit = new NUnit.Runner.App {
 				AutoRun = true
 			};
-			//nunit.AddTestAssembly(typeof(FunctionalTests).Assembly);
+			nunit.AddTestAssembly(typeof(ProductServiceTest).Assembly);
 			LoadApplication(nunit);
 		}
 	}
