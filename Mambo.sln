@@ -23,7 +23,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mambo.FunctionalTests", "Ma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mambo.FunctionalTests.Android", "Mambo.FunctionalTests.Android\Mambo.FunctionalTests.Android.csproj", "{8AF82B78-A883-4774-AE4A-79B6FCE1AA78}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mambo.FunctionalTests.iOS", "Mambo.FunctionalTests.Android\Mambo.FunctionalTests.iOS\Mambo.FunctionalTests.iOS.csproj", "{D2258105-7278-455D-AFCF-9E04AF60D814}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mambo.FunctionalTests.iOS", "Mambo.FunctionalTests.iOS\Mambo.FunctionalTests.iOS.csproj", "{D2258105-7278-455D-AFCF-9E04AF60D814}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
