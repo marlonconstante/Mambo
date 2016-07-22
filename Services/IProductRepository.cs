@@ -2,20 +2,21 @@
 using System.Threading.Tasks;
 using Mambo.Core.Http;
 using Mambo.Models;
+using Refit;
 
 namespace Mambo.Services
 {
 	/// <summary>
-	/// Product service.
+	/// Product repository.
 	/// </summary>
-	public interface IProductService
+	public interface IProductRepository : IRestRepository
 	{
 		/// <summary>
 		/// Searchs the products.
 		/// </summary>
 		/// <returns>The products.</returns>
 		/// <param name="name">Name.</param>
-		/// <param name="priority">Priority.</param>
-		Task<IList<Product>> SearchProducts(string name, PriorityRequest priority = PriorityRequest.Intermediate);
+		[Get("/products/search/?fq=productName:{name}")]
+		Task<IList<Product>> SearchProducts(string name);
 	}
 }
