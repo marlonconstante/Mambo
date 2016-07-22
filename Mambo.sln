@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mambo.FunctionalTests", "Ma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mambo.FunctionalTests.Android", "Mambo.FunctionalTests.Android\Mambo.FunctionalTests.Android.csproj", "{8AF82B78-A883-4774-AE4A-79B6FCE1AA78}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mambo.FunctionalTests.iOS", "Mambo.FunctionalTests.Android\Mambo.FunctionalTests.iOS\Mambo.FunctionalTests.iOS.csproj", "{D2258105-7278-455D-AFCF-9E04AF60D814}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,6 +107,18 @@ Global
 		{8AF82B78-A883-4774-AE4A-79B6FCE1AA78}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{8AF82B78-A883-4774-AE4A-79B6FCE1AA78}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{8AF82B78-A883-4774-AE4A-79B6FCE1AA78}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{D2258105-7278-455D-AFCF-9E04AF60D814}.Debug|Any CPU.ActiveCfg = Debug|iPhoneSimulator
+		{D2258105-7278-455D-AFCF-9E04AF60D814}.Debug|Any CPU.Build.0 = Debug|iPhoneSimulator
+		{D2258105-7278-455D-AFCF-9E04AF60D814}.Release|Any CPU.ActiveCfg = Release|iPhone
+		{D2258105-7278-455D-AFCF-9E04AF60D814}.Release|Any CPU.Build.0 = Release|iPhone
+		{D2258105-7278-455D-AFCF-9E04AF60D814}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{D2258105-7278-455D-AFCF-9E04AF60D814}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{D2258105-7278-455D-AFCF-9E04AF60D814}.Release|iPhone.ActiveCfg = Release|iPhone
+		{D2258105-7278-455D-AFCF-9E04AF60D814}.Release|iPhone.Build.0 = Release|iPhone
+		{D2258105-7278-455D-AFCF-9E04AF60D814}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{D2258105-7278-455D-AFCF-9E04AF60D814}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{D2258105-7278-455D-AFCF-9E04AF60D814}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{D2258105-7278-455D-AFCF-9E04AF60D814}.Debug|iPhone.Build.0 = Debug|iPhone
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{D0C72370-D4F1-43AA-9D11-E8F2728DE2F5} = {3BECC2EC-772B-4A8F-AE0B-4FCD071260C9}
@@ -115,5 +129,6 @@ Global
 		{3BECC2EC-772B-4A8F-AE0B-4FCD071260C9} = {69C4F5D2-27E1-4B1B-B1F4-D4F39118B4CA}
 		{516777E1-973A-4610-9783-62A45CDE798E} = {3BECC2EC-772B-4A8F-AE0B-4FCD071260C9}
 		{8AF82B78-A883-4774-AE4A-79B6FCE1AA78} = {BFE01070-FB79-4B8C-8FF9-387B95077F74}
+		{D2258105-7278-455D-AFCF-9E04AF60D814} = {BFE01070-FB79-4B8C-8FF9-387B95077F74}
 	EndGlobalSection
 EndGlobal
