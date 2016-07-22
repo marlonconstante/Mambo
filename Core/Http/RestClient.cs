@@ -20,10 +20,10 @@ namespace Mambo.Core.Http
 		{
 			BaseAddress = baseAddress;
 
-			ServiceMap = new Dictionary<Priority, Lazy<TRestService>>();
-			ServiceMap.Add(BuildLazyService(Priority.Background));
-			ServiceMap.Add(BuildLazyService(Priority.UserInitiated));
-			ServiceMap.Add(BuildLazyService(Priority.Speculative));
+			ServiceMap = new Dictionary<PriorityRequest, Lazy<TRestService>>();
+			ServiceMap.Add(BuildLazyService(PriorityRequest.Minimum));
+			ServiceMap.Add(BuildLazyService(PriorityRequest.Intermediate));
+			ServiceMap.Add(BuildLazyService(PriorityRequest.Maximum));
 		}
 
 		/// <summary>
@@ -31,14 +31,32 @@ namespace Mambo.Core.Http
 		/// </summary>
 		/// <returns>The service.</returns>
 		/// <param name="priority">Priority.</param>
-		public TRestService GetService(Priority priority)
+		protected TRestService GetService(PriorityRequest priority)
 		{
-			if (!ServiceMap.ContainsKey(priority))
-			{
-				throw new ArgumentException($"Prioridade {priority} não é suportada.");
-			}
-
 			return ServiceMap[priority].Value;
+		}
+
+		/// <summary>
+		/// Gets the priority.
+		/// </summary>
+		/// <returns>The priority.</returns>
+		/// <param name="priority">Priority.</param>
+		Priority GetPriority(PriorityRequest priority)
+		{
+			switch (priority)
+			{
+			case PriorityRequest.Minimum:
+				return Priority.Speculative;
+
+			case PriorityRequest.Intermediate:
+				return Priority.Background;
+
+			case PriorityRequest.Maximum:
+				return Priority.UserInitiated;
+
+			default:
+				return Priority.Explicit;
+			}
 		}
 
 		/// <summary>
@@ -46,9 +64,9 @@ namespace Mambo.Core.Http
 		/// </summary>
 		/// <returns>The lazy service.</returns>
 		/// <param name="priority">Priority.</param>
-		KeyValuePair<Priority, Lazy<TRestService>> BuildLazyService(Priority priority)
+		KeyValuePair<PriorityRequest, Lazy<TRestService>> BuildLazyService(PriorityRequest priority)
 		{
-			return new KeyValuePair<Priority, Lazy<TRestService>>(priority, new Lazy<TRestService>(() => BuildService(priority)));
+			return new KeyValuePair<PriorityRequest, Lazy<TRestService>>(priority, new Lazy<TRestService>(() => BuildService(priority)));
 		}
 
 		/// <summary>
@@ -56,9 +74,9 @@ namespace Mambo.Core.Http
 		/// </summary>
 		/// <returns>The service.</returns>
 		/// <param name="priority">Priority.</param>
-		TRestService BuildService(Priority priority)
+		TRestService BuildService(PriorityRequest priority)
 		{
-			var handler = new RateLimitedHttpMessageHandler(new NativeMessageHandler(), priority);
+			var handler = new RateLimitedHttpMessageHandler(new NativeMessageHandler(), GetPriority(priority));
 			var client = new HttpClient(handler) {
 				BaseAddress = new Uri(BaseAddress)
 			};
@@ -70,7 +88,7 @@ namespace Mambo.Core.Http
 		/// Gets or sets the service map.
 		/// </summary>
 		/// <value>The service map.</value>
-		IDictionary<Priority, Lazy<TRestService>> ServiceMap {
+		IDictionary<PriorityRequest, Lazy<TRestService>> ServiceMap {
 			get;
 			set;
 		}
