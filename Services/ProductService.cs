@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Mambo.Core.Http;
 using Mambo.Models;
+using Mambo.Repositories;
 using Mambo.Repositories.Vtex;
 
 namespace Mambo.Services

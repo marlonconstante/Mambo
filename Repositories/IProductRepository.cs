@@ -4,7 +4,7 @@ using Mambo.Core.Http;
 using Mambo.Models;
 using Refit;
 
-namespace Mambo.Services
+namespace Mambo.Repositories
 {
 	/// <summary>
 	/// Product repository.

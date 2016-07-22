@@ -32,7 +32,6 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\IProductRepository.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Core\Http\RestClient.cs" />
     <Compile Include="Core\Http\IRestRepository.cs" />
@@ -40,6 +39,7 @@
     <Compile Include="Services\ProductService.cs" />
     <Compile Include="Core\Http\PriorityRequest.cs" />
     <Compile Include="Services\IProductService.cs" />
+    <Compile Include="Repositories\IProductRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
