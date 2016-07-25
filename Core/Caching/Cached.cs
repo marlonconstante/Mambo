@@ -25,5 +25,14 @@ namespace Mambo.Core.Caching
 				return elapsed > TimeSpan.FromMinutes(cacheValidityInMinutes);
 			}).FirstOrDefaultAsync();
 		}
+
+		/// <summary>
+		/// Invalidates all.
+		/// </summary>
+		/// <returns>The all.</returns>
+		public static void InvalidateAll()
+		{
+			BlobCache.LocalMachine.InvalidateAll();
+		}
 	}
 }
