@@ -41,6 +41,8 @@
     <Compile Include="Services\IProductService.cs" />
     <Compile Include="Repositories\IProductRepository.cs" />
     <Compile Include="AkavacheSqliteLinkerOverride.cs" />
+    <Compile Include="Core\Logging\Caller.cs" />
+    <Compile Include="Core\Caching\Cached.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
@@ -111,6 +113,8 @@
     <Folder Include="Core\Http\" />
     <Folder Include="Repositories\" />
     <Folder Include="Repositories\Vtex\" />
+    <Folder Include="Core\Logging\" />
+    <Folder Include="Core\Caching\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="packages\Xamarin.Forms.2.3.0.107\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('packages\Xamarin.Forms.2.3.0.107\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
