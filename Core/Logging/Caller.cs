@@ -9,13 +9,13 @@ namespace Mambo.Core.Logging
 	public static class Caller
 	{
 		/// <summary>
-		/// Gets the method info.
+		/// Gets the method signature.
 		/// </summary>
-		/// <returns>The method info.</returns>
+		/// <returns>The method signature.</returns>
 		/// <param name="filePath">File path.</param>
 		/// <param name="memberName">Member name.</param>
 		/// <param name="parameters">Parameters.</param>
-		public static string GetMethodInfo([CallerFilePath] string filePath = "", [CallerMemberName] string memberName = "", params object[] parameters)
+		public static string GetMethodSignature([CallerFilePath] string filePath = "", [CallerMemberName] string memberName = "", params object[] parameters)
 		{
 			var fileName = filePath.Substring(filePath.LastIndexOf("/", StringComparison.CurrentCulture) + 1);
 			var className = fileName.Replace(".cs", "");

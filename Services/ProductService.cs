@@ -22,7 +22,7 @@ namespace Mambo.Services
 		/// <param name="priority">Priority.</param>
 		public Task<IList<Product>> SearchProducts(string name, PriorityRequest priority)
 		{
-			return Cached.GetValue(Caller.GetMethodInfo(parameters: name), () => GetRepository(priority).SearchProducts(name));
+			return Cached.GetValue(Caller.GetMethodSignature(parameters: name), () => GetRepository(priority).SearchProducts(name));
 		}
 	}
 }
