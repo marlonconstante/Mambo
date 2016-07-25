@@ -1,7 +1,10 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
+using Mambo.Core.Caching;
 using Mambo.Services;
 using NUnit.Framework;
+using NUnit.Framework.Compatibility;
 
 namespace Mambo.FunctionalTests.Services
 {
@@ -23,6 +26,7 @@ namespace Mambo.FunctionalTests.Services
 		[SetUp]
 		public void SetUp()
 		{
+			Cached.InvalidateAll();
 			service = new ProductService();
 		}
 
@@ -38,6 +42,27 @@ namespace Mambo.FunctionalTests.Services
 
 			Assert.That(products.Select(p => p.Id), Has.All.Not.Empty);
 			Assert.That(products.Select(p => p.Name.ToLower()), Has.All.Contains(name));
+		}
+
+		/// <summary>
+		/// Shoulds the find cached apples.
+		/// </summary>
+		/// <returns>The find cached apples.</returns>
+		[Test]
+		public async Task ShouldFindCachedApples()
+		{
+			Func<Task<long>> getElapsedMilliseconds = async () => {
+				var watch = Stopwatch.StartNew();
+				await service.SearchProducts("maça").ConfigureAwait(false);
+				watch.Stop();
+
+				return watch.ElapsedMilliseconds;
+			};
+
+			var firstTime = await getElapsedMilliseconds();
+			var secondTime = await getElapsedMilliseconds();
+
+			Assert.That(firstTime > (secondTime * 10));
 		}
 	}
 }
