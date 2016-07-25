@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Mambo.Core.Caching;
 using Mambo.Core.Http;
+using Mambo.Core.Logging;
 using Mambo.Models;
 using Mambo.Repositories;
 using Mambo.Repositories.Vtex;
@@ -20,7 +22,7 @@ namespace Mambo.Services
 		/// <param name="priority">Priority.</param>
 		public Task<IList<Product>> SearchProducts(string name, PriorityRequest priority)
 		{
-			return GetRepository(priority).SearchProducts(name);
+			return Cached.GetValue(Caller.GetInfo(), () => GetRepository(priority).SearchProducts(name));
 		}
 	}
 }
