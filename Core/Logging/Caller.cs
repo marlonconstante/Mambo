@@ -9,18 +9,19 @@ namespace Mambo.Core.Logging
 	public static class Caller
 	{
 		/// <summary>
-		/// Gets the info.
+		/// Gets the method info.
 		/// </summary>
-		/// <returns>The info.</returns>
+		/// <returns>The method info.</returns>
 		/// <param name="filePath">File path.</param>
 		/// <param name="memberName">Member name.</param>
-		/// <param name="lineNumber">Line number.</param>
-		public static string GetInfo([CallerFilePath] string filePath = "", [CallerMemberName] string memberName = "", [CallerLineNumber] int lineNumber = 0)
+		/// <param name="parameters">Parameters.</param>
+		public static string GetMethodInfo([CallerFilePath] string filePath = "", [CallerMemberName] string memberName = "", params object[] parameters)
 		{
 			var fileName = filePath.Substring(filePath.LastIndexOf("/", StringComparison.CurrentCulture) + 1);
 			var className = fileName.Replace(".cs", "");
+			var methodParameters = string.Join(",", parameters);
 
-			return $"{className}.{memberName}:{lineNumber}";
+			return $"{className}.{memberName}({methodParameters})";
 		}
 	}
 }
