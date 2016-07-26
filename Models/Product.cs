@@ -1,10 +1,12 @@
 ﻿using Newtonsoft.Json;
+using PropertyChanged;
 
 namespace Mambo.Models
 {
 	/// <summary>
 	/// Product.
 	/// </summary>
+	[ImplementPropertyChanged]
 	public class Product
 	{
 		/// <summary>
