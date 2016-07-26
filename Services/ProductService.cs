@@ -20,9 +20,9 @@ namespace Mambo.Services
 		/// <returns>The products.</returns>
 		/// <param name="name">Name.</param>
 		/// <param name="priority">Priority.</param>
-		public Task<IList<Product>> SearchProducts(string name, PriorityRequest priority)
+		public async Task<IList<Product>> SearchProducts(string name, PriorityRequest priority)
 		{
-			return Cached.GetValue(Logger.GetMethodSignature(parameters: name), () => {
+			return await Cached.GetValue(Logger.GetMethodSignature(parameters: name), () => {
 				return HttpHandler.ExecuteAsync(() => GetRepository(priority).SearchProducts(name));
 			});
 		}
