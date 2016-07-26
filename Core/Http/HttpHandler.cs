@@ -12,13 +12,12 @@ namespace Mambo.Core.Http
 	public static class HttpHandler
 	{
 		/// <summary>
-		/// Executes the async.
+		/// Execute the specified remoteFunction and attempts.
 		/// </summary>
-		/// <returns>The async.</returns>
 		/// <param name="remoteFunction">Remote function.</param>
 		/// <param name="attempts">Attempts.</param>
 		/// <typeparam name="TResult">The 1st type parameter.</typeparam>
-		public static Task<TResult> ExecuteAsync<TResult>(Func<Task<TResult>> remoteFunction, int attempts = 5)
+		public static Task<TResult> Execute<TResult>(Func<Task<TResult>> remoteFunction, int attempts = 5)
 		{
 			if (CrossConnectivity.Current.IsConnected)
 			{

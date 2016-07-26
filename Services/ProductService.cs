@@ -23,7 +23,7 @@ namespace Mambo.Services
 		public Task<IList<Product>> SearchProducts(string name, PriorityRequest priority)
 		{
 			return Cached.GetValue(Logger.GetMethodSignature(parameters: name), () => {
-				return HttpHandler.ExecuteAsync(() => GetRepository(priority).SearchProducts(name));
+				return HttpHandler.Execute(() => GetRepository(priority).SearchProducts(name));
 			});
 		}
 	}
