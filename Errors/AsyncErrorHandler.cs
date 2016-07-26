@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace Mambo.Core.Errors
+namespace Mambo.Errors
 {
 	/// <summary>
 	/// Async error handler.
