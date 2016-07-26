@@ -18,16 +18,16 @@ namespace Mambo.Core.Http
 		/// <param name="remoteFunction">Remote function.</param>
 		/// <param name="attempts">Attempts.</param>
 		/// <typeparam name="TResult">The 1st type parameter.</typeparam>
-		public static async Task<TResult> ExecuteAsync<TResult>(Func<Task<TResult>> remoteFunction, int attempts = 5)
+		public static Task<TResult> ExecuteAsync<TResult>(Func<Task<TResult>> remoteFunction, int attempts = 5)
 		{
 			if (CrossConnectivity.Current.IsConnected)
 			{
-				return await Policy.Handle<WebException>()
-								   .WaitAndRetryAsync(attempts, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)))
-								   .ExecuteAsync(remoteFunction);
+				return Policy.Handle<WebException>()
+							 .WaitAndRetryAsync(attempts, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)))
+							 .ExecuteAsync(remoteFunction);
 			}
 
-			return default(TResult);
+			return Task.FromResult(default(TResult));
 		}
 	}
 }
