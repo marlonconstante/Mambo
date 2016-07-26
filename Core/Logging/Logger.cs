@@ -4,9 +4,9 @@ using System.Runtime.CompilerServices;
 namespace Mambo.Core.Logging
 {
 	/// <summary>
-	/// Caller.
+	/// Logger.
 	/// </summary>
-	public static class Caller
+	public static class Logger
 	{
 		/// <summary>
 		/// Gets the method signature.

@@ -41,7 +41,7 @@
     <Compile Include="Services\IProductService.cs" />
     <Compile Include="Repositories\IProductRepository.cs" />
     <Compile Include="AkavacheSqliteLinkerOverride.cs" />
-    <Compile Include="Core\Logging\Caller.cs" />
+    <Compile Include="Core\Logging\Logger.cs" />
     <Compile Include="Core\Caching\Cached.cs" />
   </ItemGroup>
   <ItemGroup>
