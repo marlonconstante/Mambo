@@ -17,8 +17,8 @@ namespace Mambo.Core.Http
 		/// <returns>The async.</returns>
 		/// <param name="remoteFunction">Remote function.</param>
 		/// <param name="attempts">Attempts.</param>
-		/// <typeparam name="T">The 1st type parameter.</typeparam>
-		public static async Task<T> ExecuteAsync<T>(Func<Task<T>> remoteFunction, int attempts = 5)
+		/// <typeparam name="TResult">The 1st type parameter.</typeparam>
+		public static async Task<TResult> ExecuteAsync<TResult>(Func<Task<TResult>> remoteFunction, int attempts = 5)
 		{
 			if (CrossConnectivity.Current.IsConnected)
 			{
@@ -27,7 +27,7 @@ namespace Mambo.Core.Http
 								   .ExecuteAsync(remoteFunction);
 			}
 
-			return default(T);
+			return default(TResult);
 		}
 	}
 }
