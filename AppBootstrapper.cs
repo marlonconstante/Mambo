@@ -1,16 +1,17 @@
-﻿using Splat;
+﻿using Mambo.Services;
+using Splat;
 
-namespace Mambo.Services
+namespace Mambo
 {
 	/// <summary>
-	/// Service locator.
+	/// App bootstrapper.
 	/// </summary>
-	public static class ServiceLocator
+	public static class AppBootstrapper
 	{
 		/// <summary>
-		/// Register this instance.
+		/// Initialize this instance.
 		/// </summary>
-		public static void Register()
+		public static void Initialize()
 		{
 			Locator.CurrentMutable.RegisterLazySingleton(() => new ProductService(), typeof(IProductService));
 		}

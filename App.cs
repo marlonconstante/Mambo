@@ -1,5 +1,4 @@
-﻿using Mambo.Services;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace Mambo
 {
@@ -36,7 +35,7 @@ namespace Mambo
 		/// <returns>The start.</returns>
 		protected override void OnStart()
 		{
-			ServiceLocator.Register();
+			AppBootstrapper.Initialize();
 		}
 
 		/// <summary>

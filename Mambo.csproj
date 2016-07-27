@@ -45,7 +45,7 @@
     <Compile Include="Core\Caching\Cached.cs" />
     <Compile Include="Core\Http\HttpHandler.cs" />
     <Compile Include="Errors\AsyncErrorHandler.cs" />
-    <Compile Include="Services\ServiceLocator.cs" />
+    <Compile Include="AppBootstrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
