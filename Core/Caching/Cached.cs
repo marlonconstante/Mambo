@@ -11,6 +11,15 @@ namespace Mambo.Core.Caching
 	public static class Cached
 	{
 		/// <summary>
+		/// Initialize the specified name.
+		/// </summary>
+		/// <param name="name">Name.</param>
+		public static void Initialize(string name)
+		{
+			BlobCache.ApplicationName = name;
+		}
+
+		/// <summary>
 		/// Gets the value.
 		/// </summary>
 		/// <returns>The value.</returns>

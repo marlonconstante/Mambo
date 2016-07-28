@@ -1,4 +1,5 @@
-﻿using Mambo.Services;
+﻿using Mambo.Core.Caching;
+using Mambo.Services;
 using Splat;
 
 namespace Mambo
@@ -13,6 +14,8 @@ namespace Mambo
 		/// </summary>
 		public static void Initialize()
 		{
+			Cached.Initialize("Mambo");
+
 			Locator.CurrentMutable.RegisterLazySingleton(() => new ProductService(), typeof(IProductService));
 		}
 	}

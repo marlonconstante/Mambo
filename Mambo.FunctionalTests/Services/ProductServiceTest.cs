@@ -20,6 +20,14 @@ namespace Mambo.FunctionalTests.Services
 		IProductService service;
 
 		/// <summary>
+		/// Initializes a new instance of the <see cref="T:Mambo.FunctionalTests.Services.ProductServiceTest"/> class.
+		/// </summary>
+		public ProductServiceTest()
+		{
+			Cached.Initialize("Mambo");
+		}
+
+		/// <summary>
 		/// Sets up.
 		/// </summary>
 		/// <returns>The up.</returns>
