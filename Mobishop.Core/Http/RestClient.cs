@@ -5,7 +5,7 @@ using Fusillade;
 using ModernHttpClient;
 using Refit;
 
-namespace Mambo.Core.Http
+namespace Mobishop.Core.Http
 {
 	/// <summary>
 	/// Rest client.
@@ -13,7 +13,7 @@ namespace Mambo.Core.Http
 	public abstract class RestClient<TRestRepository> where TRestRepository : IRestRepository
 	{
 		/// <summary>
-		/// Initializes a new instance of the <see cref="T:Mambo.Core.Http.RestClient`1"/> class.
+		/// Initializes a new instance of the <see cref="T:Mobishop.Core.Http.RestClient`1"/> class.
 		/// </summary>
 		/// <param name="baseAddress">Base address.</param>
 		public RestClient(string baseAddress)

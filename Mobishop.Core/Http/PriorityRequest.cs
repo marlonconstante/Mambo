@@ -1,4 +1,4 @@
-﻿namespace Mambo.Core.Http
+﻿namespace Mobishop.Core.Http
 {
 	/// <summary>
 	/// Priority request.

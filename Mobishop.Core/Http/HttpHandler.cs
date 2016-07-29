@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Plugin.Connectivity;
 using Polly;
 
-namespace Mambo.Core.Http
+namespace Mobishop.Core.Http
 {
 	/// <summary>
 	/// Http handler.

@@ -3,7 +3,7 @@ using System.Reactive.Threading.Tasks;
 using System.Threading.Tasks;
 using Akavache;
 
-namespace Mambo.Core.Caching
+namespace Mobishop.Core.Caching
 {
 	/// <summary>
 	/// Cached.

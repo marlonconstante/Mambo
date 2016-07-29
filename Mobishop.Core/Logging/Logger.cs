@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
 
-namespace Mambo.Core.Logging
+namespace Mobishop.Core.Logging
 {
 	/// <summary>
 	/// Logger.
