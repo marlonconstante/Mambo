@@ -2,10 +2,10 @@
 using System.Threading.Tasks;
 using Mambo.Models;
 using Mambo.Repositories;
-using Mambo.Repositories.Vtex;
 using Mobishop.Core.Caching;
 using Mobishop.Core.Http;
 using Mobishop.Core.Logging;
+using Mobishop.Core.Vtex;
 
 namespace Mambo.Services
 {
