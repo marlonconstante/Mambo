@@ -10,7 +10,7 @@ namespace Mobishop.Core
 	public static class LinkerPreserve
 	{
 		/// <summary>
-		/// Initializes the <see cref="T:Mambo.LinkerPreserve"/> class.
+		/// Initializes the <see cref="T:Mobishop.Core.LinkerPreserve"/> class.
 		/// </summary>
 		static LinkerPreserve()
 		{
