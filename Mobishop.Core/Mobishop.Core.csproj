@@ -29,6 +29,17 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Caching\Cached.cs" />
+    <Compile Include="Http\HttpHandler.cs" />
+    <Compile Include="Http\IRestRepository.cs" />
+    <Compile Include="Http\PriorityRequest.cs" />
+    <Compile Include="Http\RestClient.cs" />
+    <Compile Include="Logging\Logger.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Caching\" />
+    <Folder Include="Http\" />
+    <Folder Include="Logging\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>
