@@ -1,5 +1,5 @@
-﻿using Mambo.Core.Caching;
-using Mambo.Services;
+﻿using Mambo.Services;
+using Mobishop.Core.Caching;
 using Splat;
 
 namespace Mambo

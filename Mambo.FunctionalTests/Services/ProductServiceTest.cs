@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Mambo.Core.Caching;
+using Mobishop.Core.Caching;
 using Mambo.Services;
 using NUnit.Framework;
 using NUnit.Framework.Compatibility;

@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Mambo.Core.Caching;
-using Mambo.Core.Http;
-using Mambo.Core.Logging;
 using Mambo.Models;
 using Mambo.Repositories;
 using Mambo.Repositories.Vtex;
+using Mobishop.Core.Caching;
+using Mobishop.Core.Http;
+using Mobishop.Core.Logging;
 
 namespace Mambo.Services
 {

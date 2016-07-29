@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Mambo.Core.Http;
 using Mambo.Models;
+using Mobishop.Core.Http;
 using Refit;
 
 namespace Mambo.Repositories

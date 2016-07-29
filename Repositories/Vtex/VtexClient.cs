@@ -1,4 +1,4 @@
-﻿using Mambo.Core.Http;
+﻿using Mobishop.Core.Http;
 
 namespace Mambo.Repositories.Vtex
 {
