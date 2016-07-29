@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using Akavache.Sqlite3;
 
-namespace Mambo
+namespace Mobishop.Core
 {
 	/// <summary>
 	/// Linker preserve.
