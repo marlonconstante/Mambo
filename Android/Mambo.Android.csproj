@@ -141,6 +141,10 @@
       <Project>{61B6752D-EBFA-4AB3-80C4-3EC80F135BF1}</Project>
       <Name>Mambo</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Mobishop.UI\Mobishop.UI.csproj">
+      <Project>{EBF47729-9702-455F-9CD7-B608B2C68BA3}</Project>
+      <Name>Mobishop.UI</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
