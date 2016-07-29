@@ -36,11 +36,13 @@
     <Compile Include="Http\RestClient.cs" />
     <Compile Include="Logging\Logger.cs" />
     <Compile Include="AkavacheSqliteLinkerOverride.cs" />
+    <Compile Include="Vtex\VtexClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Caching\" />
     <Folder Include="Http\" />
     <Folder Include="Logging\" />
+    <Folder Include="Vtex\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Reactive.Interfaces">

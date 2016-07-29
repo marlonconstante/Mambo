@@ -1,6 +1,6 @@
 ﻿using Mobishop.Core.Http;
 
-namespace Mambo.Repositories.Vtex
+namespace Mobishop.Core.Vtex
 {
 	/// <summary>
 	/// Vtex client.
@@ -13,7 +13,7 @@ namespace Mambo.Repositories.Vtex
 		const string Address = "http://www.mambo.com.br/api/catalog_system/pub";
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="T:Mambo.Repositories.Vtex.VtexClient`1"/> class.
+		/// Initializes a new instance of the <see cref="T:Mobishop.Core.Vtex.VtexClient`1"/> class.
 		/// </summary>
 		public VtexClient() : base(Address)
 		{
