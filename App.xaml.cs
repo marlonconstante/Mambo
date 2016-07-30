@@ -1,7 +1,9 @@
 ﻿using FreshMvvm;
 using Mambo.PageModels;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
+[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Mambo
 {
 	/// <summary>
