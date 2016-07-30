@@ -7,13 +7,14 @@ namespace Mambo
 	/// <summary>
 	/// App.
 	/// </summary>
-	public class App : Application
+	public partial class App : Application
 	{
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:Mambo.App"/> class.
 		/// </summary>
 		public App()
 		{
+			InitializeComponent();
 			AppBootstrapper.Initialize();
 
 			var homePage = FreshPageModelResolver.ResolvePageModel<HomePageModel>();
