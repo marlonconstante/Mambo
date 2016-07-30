@@ -2,7 +2,10 @@
 <ContentPage
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:controls="clr-namespace:Mobishop.UI.Controls;assembly=Mobishop.UI"
 	x:Class="Mambo.Pages.HomePage">
 	<ContentPage.Content>
+		<controls:PriceLabel>
+		</controls:PriceLabel>
 	</ContentPage.Content>
 </ContentPage>
