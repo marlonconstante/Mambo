@@ -2,29 +2,11 @@
 <ContentView
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:themes="clr-namespace:Mobishop.UI.Themes;assembly=Mobishop.UI"
 	x:Class="Mobishop.UI.Controls.PriceLabel">
 	<ContentView.Resources>
-		<ResourceDictionary>
-			<OnPlatform
-				x:Key="fontFamilyLight"
-				x:TypeArguments="x:String"
-				iOS="HelveticaNeue-Light"
-				Android="sans-serif-light" />
-			<OnPlatform
-				x:Key="fontFamilyRegular"
-				x:TypeArguments="x:String"
-				iOS="HelveticaNeue"
-				Android="sans-serif" />
-			<OnPlatform
-				x:Key="fontFamilyMedium"
-				x:TypeArguments="x:String"
-				iOS="HelveticaNeue-Medium"
-				Android="sans-serif-medium" />
-			<OnPlatform
-				x:Key="fontFamilyBold"
-				x:TypeArguments="x:String"
-				iOS="HelveticaNeue-Bold"
-				Android="sans-serif-black" />
+		<ResourceDictionary
+			MergedWith="themes:Standard">
 		</ResourceDictionary>
 	</ContentView.Resources>
 	<ContentView.Content>
