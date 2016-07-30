@@ -3,6 +3,76 @@
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	x:Class="Mobishop.UI.Controls.PriceLabel">
+	<ContentView.Resources>
+		<ResourceDictionary>
+			<OnPlatform
+				x:Key="fontFamilyLight"
+				x:TypeArguments="x:String"
+				iOS="HelveticaNeue-Light"
+				Android="sans-serif-light" />
+			<OnPlatform
+				x:Key="fontFamilyRegular"
+				x:TypeArguments="x:String"
+				iOS="HelveticaNeue"
+				Android="sans-serif" />
+			<OnPlatform
+				x:Key="fontFamilyMedium"
+				x:TypeArguments="x:String"
+				iOS="HelveticaNeue-Medium"
+				Android="sans-serif-medium" />
+			<OnPlatform
+				x:Key="fontFamilyBold"
+				x:TypeArguments="x:String"
+				iOS="HelveticaNeue-Bold"
+				Android="sans-serif-black" />
+		</ResourceDictionary>
+	</ContentView.Resources>
 	<ContentView.Content>
+		<StackLayout
+			BackgroundColor="Green"
+			Orientation="Horizontal"
+			HorizontalOptions="Start"
+			VerticalOptions="Start"
+			Spacing="0">
+			<Label
+				VerticalTextAlignment="End"
+				FontFamily="{StaticResource fontFamilyRegular}"
+				FontSize="10"
+				Text="R$">
+				<Label.Margin>
+					<OnPlatform
+						x:TypeArguments="Thickness"
+						iOS="0, 0, 2, 4"
+						Android="0, 0, 3, 5" />
+				</Label.Margin>
+			</Label>
+			<Label
+				FontFamily="{StaticResource fontFamilyMedium}"
+				FontSize="25"
+				Text="0">
+			</Label>
+			<Label
+				FontFamily="{StaticResource fontFamilyMedium}"
+				FontSize="25"
+				Text=",">
+				<Label.Margin>
+					<OnPlatform
+						x:TypeArguments="Thickness"
+						iOS="-2, 0, 0, 0"
+						Android="-1, 0, 0, 0" />
+				</Label.Margin>
+			</Label>
+			<Label
+				FontFamily="{StaticResource fontFamilyMedium}"
+				FontSize="14"
+				Text="00">
+				<Label.Margin>
+					<OnPlatform
+						x:TypeArguments="Thickness"
+						iOS="-1, 3, 0, 0"
+						Android="0, 3, 0, 0" />
+				</Label.Margin>
+			</Label>
+		</StackLayout>
 	</ContentView.Content>
 </ContentView>
