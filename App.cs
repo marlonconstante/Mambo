@@ -1,4 +1,6 @@
-﻿using Xamarin.Forms;
+﻿using FreshMvvm;
+using Mambo.PageModels;
+using Xamarin.Forms;
 
 namespace Mambo
 {
@@ -12,21 +14,10 @@ namespace Mambo
 		/// </summary>
 		public App()
 		{
-			// The root page of your application
-			var content = new ContentPage {
-				Title = "Mambo",
-				Content = new StackLayout {
-					VerticalOptions = LayoutOptions.Center,
-					Children = {
-						new Label {
-							HorizontalTextAlignment = TextAlignment.Center,
-							Text = "Welcome to Xamarin Forms!"
-						}
-					}
-				}
-			};
+			AppBootstrapper.Initialize();
 
-			MainPage = new NavigationPage(content);
+			var homePage = FreshPageModelResolver.ResolvePageModel<HomePageModel>();
+			MainPage = new FreshNavigationContainer(homePage);
 		}
 
 		/// <summary>
@@ -35,7 +26,6 @@ namespace Mambo
 		/// <returns>The start.</returns>
 		protected override void OnStart()
 		{
-			AppBootstrapper.Initialize();
 		}
 
 		/// <summary>
@@ -44,7 +34,6 @@ namespace Mambo
 		/// <returns>The sleep.</returns>
 		protected override void OnSleep()
 		{
-			// Handle when your app sleeps
 		}
 
 		/// <summary>
@@ -53,7 +42,6 @@ namespace Mambo
 		/// <returns>The resume.</returns>
 		protected override void OnResume()
 		{
-			// Handle when your app resumes
 		}
 	}
 }
