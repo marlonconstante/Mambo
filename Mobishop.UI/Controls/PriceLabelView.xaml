@@ -3,15 +3,18 @@
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	xmlns:themes="clr-namespace:Mobishop.UI.Themes;assembly=Mobishop.UI"
-	x:Class="Mobishop.UI.Controls.PriceLabel">
+	xmlns:viewModels="clr-namespace:Mobishop.UI.ViewModels;assembly=Mobishop.UI"
+	x:Class="Mobishop.UI.Controls.PriceLabelView">
 	<ContentView.Resources>
 		<ResourceDictionary
 			MergedWith="themes:Standard">
 		</ResourceDictionary>
 	</ContentView.Resources>
+	<ContentView.BindingContext>
+		<viewModels:PriceLabelViewModel />
+	</ContentView.BindingContext>
 	<ContentView.Content>
 		<StackLayout
-			BackgroundColor="Green"
 			Orientation="Horizontal"
 			HorizontalOptions="Start"
 			VerticalOptions="Start"
@@ -20,7 +23,7 @@
 				VerticalTextAlignment="End"
 				FontFamily="{StaticResource fontFamilyRegular}"
 				FontSize="10"
-				Text="R$">
+				Text="{Binding Symbol}">
 				<Label.Margin>
 					<OnPlatform
 						x:TypeArguments="Thickness"
@@ -31,12 +34,12 @@
 			<Label
 				FontFamily="{StaticResource fontFamilyMedium}"
 				FontSize="25"
-				Text="0">
+				Text="{Binding IntegerAmount}">
 			</Label>
 			<Label
 				FontFamily="{StaticResource fontFamilyMedium}"
 				FontSize="25"
-				Text=",">
+				Text="{Binding Separator}">
 				<Label.Margin>
 					<OnPlatform
 						x:TypeArguments="Thickness"
@@ -47,7 +50,7 @@
 			<Label
 				FontFamily="{StaticResource fontFamilyMedium}"
 				FontSize="14"
-				Text="00">
+				Text="{Binding DecimalAmount}">
 				<Label.Margin>
 					<OnPlatform
 						x:TypeArguments="Thickness"
