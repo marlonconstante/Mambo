@@ -1,7 +1,7 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mambo", "Mambo.csproj", "{61B6752D-EBFA-4AB3-80C4-3EC80F135BF1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mambo", "Mambo\Mambo.csproj", "{61B6752D-EBFA-4AB3-80C4-3EC80F135BF1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mambo.iOS", "iOS\Mambo.iOS.csproj", "{889E65CC-78C7-48E5-9EE5-1FF8407EB631}"
 EndProject
