@@ -135,11 +135,11 @@
     <Folder Include="PageModels\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Mobishop.Core\Mobishop.Core.csproj">
+    <ProjectReference Include="..\Mobishop.Core\Mobishop.Core.csproj">
       <Project>{75D10ED0-B784-4BAB-81E1-792D88126078}</Project>
       <Name>Mobishop.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="Mobishop.UI\Mobishop.UI.csproj">
+    <ProjectReference Include="..\Mobishop.UI\Mobishop.UI.csproj">
       <Project>{EBF47729-9702-455F-9CD7-B608B2C68BA3}</Project>
       <Name>Mobishop.UI</Name>
     </ProjectReference>

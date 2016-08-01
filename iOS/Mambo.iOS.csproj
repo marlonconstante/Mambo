@@ -159,7 +159,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Mambo.csproj">
+    <ProjectReference Include="..\Mambo\Mambo.csproj">
       <Project>{61B6752D-EBFA-4AB3-80C4-3EC80F135BF1}</Project>
       <Name>Mambo</Name>
     </ProjectReference>
