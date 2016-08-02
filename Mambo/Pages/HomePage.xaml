@@ -7,7 +7,7 @@
 	<ContentPage.Content>
 		<controls:PriceLabelView
 			TextColor="Red"
-			FontSize="100"
+			FontSize="Large"
 			Amount="19.99">
 		</controls:PriceLabelView>
 	</ContentPage.Content>
