@@ -53,10 +53,49 @@ namespace Mobishop.UI.ViewModels
 		}
 
 		/// <summary>
+		/// Gets the size of the symbol font.
+		/// </summary>
+		/// <value>The size of the symbol font.</value>
+		public double SymbolFontSize {
+			get {
+				return 10d * (FontSize / 25d);
+			}
+		}
+
+		/// <summary>
+		/// Gets the size of the integer font.
+		/// </summary>
+		/// <value>The size of the integer font.</value>
+		public double IntegerFontSize {
+			get {
+				return 25d * (FontSize / 25d);
+			}
+		}
+
+		/// <summary>
+		/// Gets the size of the decimal font.
+		/// </summary>
+		/// <value>The size of the decimal font.</value>
+		public double DecimalFontSize {
+			get {
+				return 14d * (FontSize / 25d);
+			}
+		}
+
+		/// <summary>
 		/// Gets or sets the amount.
 		/// </summary>
 		/// <value>The amount.</value>
 		public double Amount {
+			get;
+			set;
+		}
+
+		/// <summary>
+		/// Gets or sets the size of the font.
+		/// </summary>
+		/// <value>The size of the font.</value>
+		public double FontSize {
 			get;
 			set;
 		}

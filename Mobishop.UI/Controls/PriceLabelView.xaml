@@ -22,7 +22,7 @@
 			<Label
 				VerticalTextAlignment="End"
 				FontFamily="{StaticResource fontFamilyRegular}"
-				FontSize="10"
+				FontSize="{Binding SymbolFontSize}"
 				TextColor="{Binding TextColor}"
 				Text="{Binding Symbol}">
 				<Label.Margin>
@@ -34,13 +34,13 @@
 			</Label>
 			<Label
 				FontFamily="{StaticResource fontFamilyMedium}"
-				FontSize="25"
+				FontSize="{Binding IntegerFontSize}"
 				TextColor="{Binding TextColor}"
 				Text="{Binding IntegerAmount}">
 			</Label>
 			<Label
 				FontFamily="{StaticResource fontFamilyMedium}"
-				FontSize="25"
+				FontSize="{Binding IntegerFontSize}"
 				TextColor="{Binding TextColor}"
 				Text="{Binding Separator}">
 				<Label.Margin>
@@ -52,7 +52,7 @@
 			</Label>
 			<Label
 				FontFamily="{StaticResource fontFamilyMedium}"
-				FontSize="14"
+				FontSize="{Binding DecimalFontSize}"
 				TextColor="{Binding TextColor}"
 				Text="{Binding DecimalAmount}">
 				<Label.Margin>

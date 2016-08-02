@@ -30,6 +30,19 @@ namespace Mobishop.UI.Controls
 		}
 
 		/// <summary>
+		/// Gets or sets the size of the font.
+		/// </summary>
+		/// <value>The size of the font.</value>
+		public double FontSize {
+			get {
+				return (BindingContext as PriceLabelViewModel).FontSize;
+			}
+			set {
+				(BindingContext as PriceLabelViewModel).FontSize = value;
+			}
+		}
+
+		/// <summary>
 		/// Gets or sets the color of the text.
 		/// </summary>
 		/// <value>The color of the text.</value>
