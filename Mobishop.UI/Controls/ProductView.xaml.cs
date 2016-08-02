@@ -17,6 +17,19 @@ namespace Mobishop.UI.Controls
 		}
 
 		/// <summary>
+		/// Gets or sets the image source.
+		/// </summary>
+		/// <value>The image source.</value>
+		public string ImageSource {
+			get {
+				return (BindingContext as ProductViewModel).ImageSource;
+			}
+			set {
+				(BindingContext as ProductViewModel).ImageSource = value;
+			}
+		}
+
+		/// <summary>
 		/// Gets or sets the name.
 		/// </summary>
 		/// <value>The name.</value>

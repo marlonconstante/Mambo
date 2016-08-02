@@ -14,8 +14,13 @@
 		<viewModels:ProductViewModel />
 	</ContentView.BindingContext>
 	<ContentView.Content>
-		<Label
-			Text="{Binding Name}">
-		</Label>
+		<StackLayout>
+			<Image
+				Source="{Binding ImageSource}">
+			</Image>
+			<Label
+				Text="{Binding Name}">
+			</Label>
+		</StackLayout>
 	</ContentView.Content>
 </ContentView>
