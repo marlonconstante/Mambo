@@ -16,8 +16,6 @@
 	<ContentView.Content>
 		<StackLayout
 			Orientation="Horizontal"
-			HorizontalOptions="Start"
-			VerticalOptions="Start"
 			Spacing="0">
 			<Label
 				VerticalTextAlignment="End"
