@@ -3,6 +3,7 @@
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	xmlns:themes="clr-namespace:Mobishop.UI.Themes;assembly=Mobishop.UI"
+	xmlns:controls="clr-namespace:Mobishop.UI.Controls;assembly=Mobishop.UI"
 	xmlns:viewModels="clr-namespace:Mobishop.UI.ViewModels;assembly=Mobishop.UI"
 	x:Class="Mobishop.UI.Controls.ProductView">
 	<ContentView.Resources>
@@ -19,8 +20,16 @@
 				Source="{Binding ImageSource}">
 			</Image>
 			<Label
+				HorizontalTextAlignment="Center"
+				FontFamily="{StaticResource fontFamilyLight}"
+				FontSize="Micro"
 				Text="{Binding Name}">
 			</Label>
+			<controls:PriceLabelView
+				HorizontalOptions="Center"
+				FontSize="Large"
+				Amount="9.99">
+			</controls:PriceLabelView>
 		</StackLayout>
 	</ContentView.Content>
 </ContentView>
