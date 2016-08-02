@@ -21,16 +21,11 @@
 			Spacing="0">
 			<Label
 				VerticalTextAlignment="End"
+				Margin="{Binding SymbolMargin}"
 				FontFamily="{StaticResource fontFamilyRegular}"
 				FontSize="{Binding SymbolFontSize}"
 				TextColor="{Binding TextColor}"
 				Text="{Binding Symbol}">
-				<Label.Margin>
-					<OnPlatform
-						x:TypeArguments="Thickness"
-						iOS="0, 0, 2, 4"
-						Android="0, 0, 3, 5" />
-				</Label.Margin>
 			</Label>
 			<Label
 				FontFamily="{StaticResource fontFamilyMedium}"
@@ -39,28 +34,18 @@
 				Text="{Binding IntegerAmount}">
 			</Label>
 			<Label
+				Margin="{Binding SeparatorMargin}"
 				FontFamily="{StaticResource fontFamilyMedium}"
 				FontSize="{Binding IntegerFontSize}"
 				TextColor="{Binding TextColor}"
 				Text="{Binding Separator}">
-				<Label.Margin>
-					<OnPlatform
-						x:TypeArguments="Thickness"
-						iOS="-2, 0, 0, 0"
-						Android="-1, 0, 0, 0" />
-				</Label.Margin>
 			</Label>
 			<Label
+				Margin="{Binding DecimalMargin}"
 				FontFamily="{StaticResource fontFamilyMedium}"
 				FontSize="{Binding DecimalFontSize}"
 				TextColor="{Binding TextColor}"
 				Text="{Binding DecimalAmount}">
-				<Label.Margin>
-					<OnPlatform
-						x:TypeArguments="Thickness"
-						iOS="-1, 3, 0, 0"
-						Android="0, 3, 0, 0" />
-				</Label.Margin>
 			</Label>
 		</StackLayout>
 	</ContentView.Content>

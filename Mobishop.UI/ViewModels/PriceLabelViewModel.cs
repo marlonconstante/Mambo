@@ -83,6 +83,51 @@ namespace Mobishop.UI.ViewModels
 		}
 
 		/// <summary>
+		/// Gets the symbol margin.
+		/// </summary>
+		/// <value>The symbol margin.</value>
+		public Thickness SymbolMargin {
+			get {
+				if (Device.OS == TargetPlatform.Android)
+				{
+					return GetRelativeMargin(new Thickness(0d, 0d, 3d, 5d));
+				}
+
+				return GetRelativeMargin(new Thickness(0d, 0d, 2d, 4d));
+			}
+		}
+
+		/// <summary>
+		/// Gets the separator margin.
+		/// </summary>
+		/// <value>The separator margin.</value>
+		public Thickness SeparatorMargin {
+			get {
+				if (Device.OS == TargetPlatform.Android)
+				{
+					return GetRelativeMargin(new Thickness(-1d, 0d, 0d, 0d));
+				}
+
+				return GetRelativeMargin(new Thickness(-2d, 0d, 0d, 0d));
+			}
+		}
+
+		/// <summary>
+		/// Gets the decimal margin.
+		/// </summary>
+		/// <value>The decimal margin.</value>
+		public Thickness DecimalMargin {
+			get {
+				if (Device.OS == TargetPlatform.Android)
+				{
+					return GetRelativeMargin(new Thickness(0d, 3d, 0d, 0d));
+				}
+
+				return GetRelativeMargin(new Thickness(-1d, 3d, 0d, 0d));
+			}
+		}
+
+		/// <summary>
 		/// Gets or sets the amount.
 		/// </summary>
 		/// <value>The amount.</value>
@@ -107,6 +152,21 @@ namespace Mobishop.UI.ViewModels
 		public Color TextColor {
 			get;
 			set;
+		}
+
+		/// <summary>
+		/// Gets the relative margin.
+		/// </summary>
+		/// <returns>The relative margin.</returns>
+		/// <param name="margin">Margin.</param>
+		Thickness GetRelativeMargin(Thickness margin)
+		{
+			var left = GetRelativeFontSize(margin.Left);
+			var top = GetRelativeFontSize(margin.Top);
+			var right = GetRelativeFontSize(margin.Right);
+			var bottom = GetRelativeFontSize(margin.Bottom);
+
+			return new Thickness(left, top, right, bottom);
 		}
 
 		/// <summary>
