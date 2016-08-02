@@ -58,7 +58,7 @@ namespace Mobishop.UI.ViewModels
 		/// <value>The size of the symbol font.</value>
 		public double SymbolFontSize {
 			get {
-				return 10d * (FontSize / 25d);
+				return GetRelativeFontSize(10d);
 			}
 		}
 
@@ -68,7 +68,7 @@ namespace Mobishop.UI.ViewModels
 		/// <value>The size of the integer font.</value>
 		public double IntegerFontSize {
 			get {
-				return 25d * (FontSize / 25d);
+				return GetRelativeFontSize(25d);
 			}
 		}
 
@@ -78,7 +78,7 @@ namespace Mobishop.UI.ViewModels
 		/// <value>The size of the decimal font.</value>
 		public double DecimalFontSize {
 			get {
-				return 14d * (FontSize / 25d);
+				return GetRelativeFontSize(14d);
 			}
 		}
 
@@ -107,6 +107,16 @@ namespace Mobishop.UI.ViewModels
 		public Color TextColor {
 			get;
 			set;
+		}
+
+		/// <summary>
+		/// Gets the size of the relative font.
+		/// </summary>
+		/// <returns>The relative font size.</returns>
+		/// <param name="value">Value.</param>
+		double GetRelativeFontSize(double value)
+		{
+			return value * (FontSize / 25d);
 		}
 	}
 }
