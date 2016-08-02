@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Linq;
 using PropertyChanged;
+using Xamarin.Forms;
 
 namespace Mobishop.UI.ViewModels
 {
@@ -56,6 +57,15 @@ namespace Mobishop.UI.ViewModels
 		/// </summary>
 		/// <value>The amount.</value>
 		public double Amount {
+			get;
+			set;
+		}
+
+		/// <summary>
+		/// Gets or sets the color of the text.
+		/// </summary>
+		/// <value>The color of the text.</value>
+		public Color TextColor {
 			get;
 			set;
 		}

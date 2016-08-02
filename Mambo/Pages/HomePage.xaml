@@ -6,6 +6,7 @@
 	x:Class="Mambo.Pages.HomePage">
 	<ContentPage.Content>
 		<controls:PriceLabelView
+			TextColor="Red"
 			Amount="19.99">
 		</controls:PriceLabelView>
 	</ContentPage.Content>

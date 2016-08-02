@@ -28,5 +28,18 @@ namespace Mobishop.UI.Controls
 				(BindingContext as PriceLabelViewModel).Amount = value;
 			}
 		}
+
+		/// <summary>
+		/// Gets or sets the color of the text.
+		/// </summary>
+		/// <value>The color of the text.</value>
+		public Color TextColor {
+			get {
+				return (BindingContext as PriceLabelViewModel).TextColor;
+			}
+			set {
+				(BindingContext as PriceLabelViewModel).TextColor = value;
+			}
+		}
 	}
 }
