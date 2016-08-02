@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using Mobishop.UI.ViewModels;
+using Xamarin.Forms;
 
 namespace Mobishop.UI.Controls
 {
@@ -13,6 +14,19 @@ namespace Mobishop.UI.Controls
 		public ProductView()
 		{
 			InitializeComponent();
+		}
+
+		/// <summary>
+		/// Gets or sets the name.
+		/// </summary>
+		/// <value>The name.</value>
+		public string Name {
+			get {
+				return (BindingContext as ProductViewModel).Name;
+			}
+			set {
+				(BindingContext as ProductViewModel).Name = value;
+			}
 		}
 	}
 }

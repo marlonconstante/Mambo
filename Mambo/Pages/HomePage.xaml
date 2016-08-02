@@ -5,10 +5,15 @@
 	xmlns:controls="clr-namespace:Mobishop.UI.Controls;assembly=Mobishop.UI"
 	x:Class="Mambo.Pages.HomePage">
 	<ContentPage.Content>
-		<controls:PriceLabelView
-			TextColor="Red"
-			FontSize="Large"
-			Amount="19.99">
-		</controls:PriceLabelView>
+		<StackLayout>
+			<controls:PriceLabelView
+				TextColor="Red"
+				FontSize="Large"
+				Amount="19.99">
+			</controls:PriceLabelView>
+			<controls:ProductView
+				Name="Batata Creme de Cebola Pringles Pote 40g">
+			</controls:ProductView>
+		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>
