@@ -41,5 +41,18 @@ namespace Mobishop.UI.Controls
 				(BindingContext as ProductViewModel).Name = value;
 			}
 		}
+
+		/// <summary>
+		/// Gets or sets the amount.
+		/// </summary>
+		/// <value>The amount.</value>
+		public double Amount {
+			get {
+				return (BindingContext as ProductViewModel).Amount;
+			}
+			set {
+				(BindingContext as ProductViewModel).Amount = value;
+			}
+		}
 	}
 }

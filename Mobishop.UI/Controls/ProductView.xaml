@@ -28,7 +28,7 @@
 			<controls:PriceLabelView
 				HorizontalOptions="Center"
 				FontSize="Large"
-				Amount="9.99">
+				Amount="{Binding Amount}">
 			</controls:PriceLabelView>
 		</StackLayout>
 	</ContentView.Content>

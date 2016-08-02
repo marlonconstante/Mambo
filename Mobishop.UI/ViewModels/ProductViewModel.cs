@@ -25,5 +25,14 @@ namespace Mobishop.UI.ViewModels
 			get;
 			set;
 		}
+
+		/// <summary>
+		/// Gets or sets the amount.
+		/// </summary>
+		/// <value>The amount.</value>
+		public double Amount {
+			get;
+			set;
+		}
 	}
 }
