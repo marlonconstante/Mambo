@@ -31,7 +31,7 @@
 				FontFamily="{StaticResource fontFamilyMedium}"
 				FontSize="{Binding IntegerFontSize}"
 				TextColor="{Binding TextColor}"
-				Text="{Binding IntegerAmount}">
+				Text="{Binding IntegerAmountText}">
 			</Label>
 			<Label
 				Margin="{Binding SeparatorMargin}"
@@ -45,7 +45,7 @@
 				FontFamily="{StaticResource fontFamilyMedium}"
 				FontSize="{Binding DecimalFontSize}"
 				TextColor="{Binding TextColor}"
-				Text="{Binding DecimalAmount}">
+				Text="{Binding DecimalAmountText}">
 			</Label>
 		</StackLayout>
 	</ContentView.Content>

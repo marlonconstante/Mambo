@@ -33,20 +33,20 @@ namespace Mobishop.UI.ViewModels
 		}
 
 		/// <summary>
-		/// Gets the integer amount.
+		/// Gets the integer amount text.
 		/// </summary>
-		/// <value>The integer amount.</value>
-		public string IntegerAmount {
+		/// <value>The integer amount text.</value>
+		public string IntegerAmountText {
 			get {
 				return Amount.ToString("F2").Split(Convert.ToChar(Separator)).First();
 			}
 		}
 
 		/// <summary>
-		/// Gets the decimal amount.
+		/// Gets the decimal amount text.
 		/// </summary>
-		/// <value>The decimal amount.</value>
-		public string DecimalAmount {
+		/// <value>The decimal amount text.</value>
+		public string DecimalAmountText {
 			get {
 				return Amount.ToString("F2").Split(Convert.ToChar(Separator)).Last();
 			}
