@@ -4,6 +4,7 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	xmlns:themes="clr-namespace:Mobishop.UI.Themes;assembly=Mobishop.UI"
 	xmlns:controls="clr-namespace:Mobishop.UI.Controls;assembly=Mobishop.UI"
+	x:Name="productView"
 	x:Class="Mobishop.UI.Controls.ProductView">
 	<ContentView.Resources>
 		<ResourceDictionary
@@ -11,7 +12,8 @@
 		</ResourceDictionary>
 	</ContentView.Resources>
 	<ContentView.Content>
-		<StackLayout>
+		<StackLayout
+			BindingContext="{x:Reference productView}">
 			<Image
 				Source="{Binding ImageSource}">
 			</Image>
