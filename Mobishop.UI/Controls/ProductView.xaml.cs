@@ -13,9 +13,9 @@ namespace Mobishop.UI.Controls
 		public static readonly BindableProperty NameProperty = BindableProperty.Create(nameof(Name), typeof(string), typeof(ProductView), default(string));
 
 		/// <summary>
-		/// The source property.
+		/// The image source property.
 		/// </summary>
-		public static readonly BindableProperty SourceProperty = BindableProperty.Create(nameof(Source), typeof(ImageSource), typeof(ProductView), default(ImageSource));
+		public static readonly BindableProperty ImageSourceProperty = BindableProperty.Create(nameof(ImageSource), typeof(ImageSource), typeof(ProductView), default(ImageSource));
 
 		/// <summary>
 		/// The amount property.
@@ -44,15 +44,15 @@ namespace Mobishop.UI.Controls
 		}
 
 		/// <summary>
-		/// Gets or sets the source.
+		/// Gets or sets the image source.
 		/// </summary>
-		/// <value>The source.</value>
-		public ImageSource Source {
+		/// <value>The image source.</value>
+		public ImageSource ImageSource {
 			get {
-				return (ImageSource) GetValue(SourceProperty);
+				return (ImageSource) GetValue(ImageSourceProperty);
 			}
 			set {
-				SetValue(SourceProperty, value);
+				SetValue(ImageSourceProperty, value);
 			}
 		}
 
