@@ -13,6 +13,7 @@
 	<ContentView.Content>
 		<StackLayout
 			BindingContext="{x:Reference priceLabelView}"
+			VerticalOptions="Start"
 			Orientation="Horizontal"
 			Spacing="0">
 			<Label
