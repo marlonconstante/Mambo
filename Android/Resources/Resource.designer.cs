@@ -26,9 +26,9 @@ namespace Mambo.Android
 		
 		public static void UpdateIdValues()
 		{
-			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::Mambo.Android.Resource.Attribute.actionBarSize;
 			global::ModernHttpClient.Resource.String.library_name = global::Mambo.Android.Resource.String.library_name;
 			global::Splat.Resource.String.library_name = global::Mambo.Android.Resource.String.library_name;
+			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::Mambo.Android.Resource.Attribute.actionBarSize;
 		}
 		
 		public partial class Animation
