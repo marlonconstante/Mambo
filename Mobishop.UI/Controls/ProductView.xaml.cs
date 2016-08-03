@@ -1,5 +1,4 @@
-﻿using Mobishop.UI.ViewModels;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace Mobishop.UI.Controls
 {
@@ -9,6 +8,21 @@ namespace Mobishop.UI.Controls
 	public partial class ProductView : ContentView
 	{
 		/// <summary>
+		/// The name property.
+		/// </summary>
+		public static readonly BindableProperty NameProperty = BindableProperty.Create(nameof(Name), typeof(string), typeof(ProductView), default(string));
+
+		/// <summary>
+		/// The source property.
+		/// </summary>
+		public static readonly BindableProperty SourceProperty = BindableProperty.Create(nameof(Source), typeof(ImageSource), typeof(ProductView), default(ImageSource));
+
+		/// <summary>
+		/// The amount property.
+		/// </summary>
+		public static readonly BindableProperty AmountProperty = BindableProperty.Create(nameof(Amount), typeof(double), typeof(ProductView), default(double));
+
+		/// <summary>
 		/// Initializes a new instance of the <see cref="T:Mobishop.UI.Controls.ProductView"/> class.
 		/// </summary>
 		public ProductView()
@@ -17,28 +31,28 @@ namespace Mobishop.UI.Controls
 		}
 
 		/// <summary>
-		/// Gets or sets the image source.
-		/// </summary>
-		/// <value>The image source.</value>
-		public string ImageSource {
-			get {
-				return (BindingContext as ProductViewModel).ImageSource;
-			}
-			set {
-				(BindingContext as ProductViewModel).ImageSource = value;
-			}
-		}
-
-		/// <summary>
 		/// Gets or sets the name.
 		/// </summary>
 		/// <value>The name.</value>
 		public string Name {
 			get {
-				return (BindingContext as ProductViewModel).Name;
+				return (string) GetValue(NameProperty);
 			}
 			set {
-				(BindingContext as ProductViewModel).Name = value;
+				SetValue(NameProperty, value);
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the source.
+		/// </summary>
+		/// <value>The source.</value>
+		public ImageSource Source {
+			get {
+				return (ImageSource) GetValue(SourceProperty);
+			}
+			set {
+				SetValue(SourceProperty, value);
 			}
 		}
 
@@ -48,10 +62,10 @@ namespace Mobishop.UI.Controls
 		/// <value>The amount.</value>
 		public double Amount {
 			get {
-				return (BindingContext as ProductViewModel).Amount;
+				return (double) GetValue(AmountProperty);
 			}
 			set {
-				(BindingContext as ProductViewModel).Amount = value;
+				SetValue(AmountProperty, value);
 			}
 		}
 	}
