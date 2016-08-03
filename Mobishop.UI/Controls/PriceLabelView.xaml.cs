@@ -1,5 +1,4 @@
-﻿using Mobishop.UI.ViewModels;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace Mobishop.UI.Controls
 {
@@ -8,6 +7,21 @@ namespace Mobishop.UI.Controls
 	/// </summary>
 	public partial class PriceLabelView : ContentView
 	{
+		/// <summary>
+		/// The amount property.
+		/// </summary>
+		public static readonly BindableProperty AmountProperty = BindableProperty.Create(nameof(Amount), typeof(double), typeof(PriceLabelView), default(double));
+
+		/// <summary>
+		/// The font size property.
+		/// </summary>
+		public static readonly BindableProperty FontSizeProperty = BindableProperty.Create(nameof(FontSize), typeof(double), typeof(PriceLabelView), default(double));
+
+		/// <summary>
+		/// The text color property.
+		/// </summary>
+		public static readonly BindableProperty TextColorProperty = BindableProperty.Create(nameof(TextColor), typeof(Color), typeof(PriceLabelView), default(Color));
+
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:Mobishop.UI.Controls.PriceLabelView"/> class.
 		/// </summary>
@@ -22,10 +36,10 @@ namespace Mobishop.UI.Controls
 		/// <value>The amount.</value>
 		public double Amount {
 			get {
-				return (BindingContext as PriceLabelViewModel).Amount;
+				return (double) GetValue(AmountProperty);
 			}
 			set {
-				(BindingContext as PriceLabelViewModel).Amount = value;
+				SetValue(AmountProperty, value);
 			}
 		}
 
@@ -36,10 +50,10 @@ namespace Mobishop.UI.Controls
 		[TypeConverter(typeof(FontSizeConverter))]
 		public double FontSize {
 			get {
-				return (BindingContext as PriceLabelViewModel).FontSize;
+				return (double) GetValue(FontSizeProperty);
 			}
 			set {
-				(BindingContext as PriceLabelViewModel).FontSize = value;
+				SetValue(FontSizeProperty, value);
 			}
 		}
 
@@ -49,10 +63,10 @@ namespace Mobishop.UI.Controls
 		/// <value>The color of the text.</value>
 		public Color TextColor {
 			get {
-				return (BindingContext as PriceLabelViewModel).TextColor;
+				return (Color) GetValue(TextColorProperty);
 			}
 			set {
-				(BindingContext as PriceLabelViewModel).TextColor = value;
+				SetValue(TextColorProperty, value);
 			}
 		}
 	}
