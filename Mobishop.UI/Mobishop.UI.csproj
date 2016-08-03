@@ -38,7 +38,6 @@
     <Compile Include="Controls\ProductView.xaml.cs">
       <DependentUpon>ProductView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\ProductViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
@@ -61,7 +60,6 @@
   <ItemGroup>
     <Folder Include="Controls\" />
     <Folder Include="Themes\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Controls\PriceLabelView.xaml">
