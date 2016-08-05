@@ -1,6 +1,6 @@
 ﻿using Mobishop.Core.Http;
 
-namespace Mobishop.Core.Vtex
+namespace Mambo.Vtex
 {
 	/// <summary>
 	/// Vtex client.

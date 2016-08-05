@@ -47,6 +47,7 @@
     <Compile Include="Models\ProductSuggestion.cs" />
     <Compile Include="Models\Suggestion.cs" />
     <Compile Include="Models\QuerySuggestion.cs" />
+    <Compile Include="Vtex\VtexClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Refit">
@@ -139,6 +140,7 @@
     <Folder Include="Errors\" />
     <Folder Include="Pages\" />
     <Folder Include="PageModels\" />
+    <Folder Include="Vtex\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Mobishop.Core\Mobishop.Core.csproj">
