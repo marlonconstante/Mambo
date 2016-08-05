@@ -44,6 +44,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\ProductSuggestion.cs" />
+    <Compile Include="Models\Suggestion.cs" />
+    <Compile Include="Models\QuerySuggestion.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Refit">
