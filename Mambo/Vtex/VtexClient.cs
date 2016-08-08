@@ -5,7 +5,7 @@ namespace Mambo.Vtex
 	/// <summary>
 	/// Vtex client.
 	/// </summary>
-	public abstract class VtexClient<TRestRepository> : RestClient<TRestRepository> where TRestRepository : IRestRepository
+	public abstract class VtexClient<TVtexRepository> : RestClient<TVtexRepository> where TVtexRepository : IVtexRepository
 	{
 		/// <summary>
 		/// The address.

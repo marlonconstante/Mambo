@@ -48,6 +48,7 @@
     <Compile Include="Models\Suggestion.cs" />
     <Compile Include="Models\QuerySuggestion.cs" />
     <Compile Include="Vtex\VtexClient.cs" />
+    <Compile Include="Vtex\IVtexRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Refit">
