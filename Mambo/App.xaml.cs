@@ -19,7 +19,7 @@ namespace Mambo
 			InitializeComponent();
 			AppBootstrapper.Initialize();
 
-			var homePage = FreshPageModelResolver.ResolvePageModel<HomePageModel>();
+			var homePage = FreshPageModelResolver.ResolvePageModel<ProductSearchPageModel>();
 			MainPage = new FreshNavigationContainer(homePage);
 		}
 
