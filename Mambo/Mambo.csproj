@@ -51,6 +51,7 @@
     <Compile Include="Vtex\IVtexRepository.cs" />
     <Compile Include="Neemu\NeemuClient.cs" />
     <Compile Include="Neemu\INeemuRepository.cs" />
+    <Compile Include="Repositories\ISearchRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Refit">
