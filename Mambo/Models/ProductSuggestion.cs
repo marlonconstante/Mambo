@@ -41,12 +41,5 @@ namespace Mambo.Models
 		/// <value>The image URL.</value>
 		[JsonProperty("imagem")]
 		public string ImageUrl { get; set; }
-
-		/// <summary>
-		/// Gets or sets a value indicating whether this <see cref="T:Mambo.Models.ProductSuggestion"/> is available.
-		/// </summary>
-		/// <value><c>true</c> if is available; otherwise, <c>false</c>.</value>
-		[JsonProperty("disponivel")]
-		public bool IsAvailable { get; set; }
 	}
 }
