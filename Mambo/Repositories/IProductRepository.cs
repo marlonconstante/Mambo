@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Mambo.Models;
-using Mobishop.Core.Http;
+using Mambo.Vtex;
 using Refit;
 
 namespace Mambo.Repositories
@@ -9,7 +9,7 @@ namespace Mambo.Repositories
 	/// <summary>
 	/// Product repository.
 	/// </summary>
-	public interface IProductRepository : IRestRepository
+	public interface IProductRepository : IVtexRepository
 	{
 		/// <summary>
 		/// Searchs the products.
