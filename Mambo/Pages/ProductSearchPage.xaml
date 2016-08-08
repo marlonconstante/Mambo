@@ -4,5 +4,11 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	x:Class="Mambo.Pages.ProductSearchPage">
 	<ContentPage.Content>
+		<StackLayout>
+			<SearchBar>
+			</SearchBar>
+			<ListView>
+			</ListView>
+		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>
