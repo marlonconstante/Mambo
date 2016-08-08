@@ -14,7 +14,7 @@ namespace Mambo.Models
 		/// </summary>
 		/// <value>The identifier.</value>
 		[JsonProperty("productId")]
-		public string Id { get; set; }
+		public long Id { get; set; }
 
 		/// <summary>
 		/// Gets or sets the name.
