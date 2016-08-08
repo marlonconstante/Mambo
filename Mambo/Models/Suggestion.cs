@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace Mambo.Models
 {
@@ -9,17 +8,10 @@ namespace Mambo.Models
 	public class Suggestion
 	{
 		/// <summary>
-		/// Gets or sets the queries.
+		/// Gets or sets the query.
 		/// </summary>
-		/// <value>The queries.</value>
-		[JsonProperty("sugestoes")]
-		public IList<QuerySuggestion> Queries { get; set; }
-
-		/// <summary>
-		/// Gets or sets the products.
-		/// </summary>
-		/// <value>The products.</value>
-		[JsonProperty("produtos")]
-		public IList<ProductSuggestion> Products { get; set; }
+		/// <value>The query.</value>
+		[JsonProperty("consulta")]
+		public string Query { get; set; }
 	}
 }

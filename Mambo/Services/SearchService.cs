@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Mambo.Models;
 using Mambo.Neemu;
 using Mambo.Repositories;
@@ -15,16 +14,17 @@ namespace Mambo.Services
 	public class SearchService : NeemuClient<ISearchRepository>, ISearchService
 	{
 		/// <summary>
-		/// Finds the suggestions.
+		/// Autos the complete.
 		/// </summary>
-		/// <returns>The suggestions.</returns>
+		/// <returns>The complete.</returns>
 		/// <param name="query">Query.</param>
-		/// <param name="size">Size.</param>
+		/// <param name="suggestionSize">Suggestion size.</param>
+		/// <param name="productSize">Product size.</param>
 		/// <param name="priority">Priority.</param>
-		public Task<IList<Suggestion>> FindSuggestions(string query, int size, PriorityRequest priority)
+		public Task<SearchResult> AutoComplete(string query, int suggestionSize, int productSize, PriorityRequest priority)
 		{
-			return Cached.GetValue(Logger.GetMethodSignature(parameters: new object[] { query, size }), () => {
-				return HttpHandler.Execute(() => GetRepository(priority).FindSuggestions(query, size));
+			return Cached.GetValue(Logger.GetMethodSignature(parameters: new object[] { query, suggestionSize, productSize }), () => {
+				return HttpHandler.Execute(() => GetRepository(priority).AutoComplete(query, suggestionSize, productSize));
 			});
 		}
 	}

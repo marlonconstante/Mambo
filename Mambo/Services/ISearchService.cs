@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Mambo.Models;
 using Mobishop.Core.Http;
 
@@ -11,12 +10,13 @@ namespace Mambo.Services
 	public interface ISearchService
 	{
 		/// <summary>
-		/// Finds the suggestions.
+		/// Autos the complete.
 		/// </summary>
-		/// <returns>The suggestions.</returns>
+		/// <returns>The complete.</returns>
 		/// <param name="query">Query.</param>
-		/// <param name="size">Size.</param>
+		/// <param name="suggestionSize">Suggestion size.</param>
+		/// <param name="productSize">Product size.</param>
 		/// <param name="priority">Priority.</param>
-		Task<IList<Suggestion>> FindSuggestions(string query, int size = 5, PriorityRequest priority = PriorityRequest.Intermediate);
+		Task<SearchResult> AutoComplete(string query, int suggestionSize = 3, int productSize = 5, PriorityRequest priority = PriorityRequest.Intermediate);
 	}
 }

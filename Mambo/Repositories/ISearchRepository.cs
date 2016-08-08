@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Mambo.Models;
 using Mambo.Neemu;
 using Refit;
@@ -12,12 +11,13 @@ namespace Mambo.Repositories
 	public interface ISearchRepository : INeemuRepository
 	{
 		/// <summary>
-		/// Finds the suggestions.
+		/// Autos the complete.
 		/// </summary>
-		/// <returns>The suggestions.</returns>
+		/// <returns>The complete.</returns>
 		/// <param name="query">Query.</param>
-		/// <param name="size">Size.</param>
-		[Get("/autocomplete/search?q={query}&type=1&numsugestoes={size}&numprods={size}")]
-		Task<IList<Suggestion>> FindSuggestions(string query, int size);
+		/// <param name="suggestionSize">Suggestion size.</param>
+		/// <param name="productSize">Product size.</param>
+		[Get("/autocomplete/search?q={query}&type=1&numsugestoes={suggestionSize}&numprods={productSize}")]
+		Task<SearchResult> AutoComplete(string query, int suggestionSize, int productSize);
 	}
 }

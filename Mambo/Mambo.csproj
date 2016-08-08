@@ -45,8 +45,8 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\ProductSuggestion.cs" />
+    <Compile Include="Models\SearchResult.cs" />
     <Compile Include="Models\Suggestion.cs" />
-    <Compile Include="Models\QuerySuggestion.cs" />
     <Compile Include="Vtex\VtexClient.cs" />
     <Compile Include="Vtex\IVtexRepository.cs" />
     <Compile Include="Neemu\NeemuClient.cs" />
