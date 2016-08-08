@@ -14,9 +14,7 @@ namespace Mambo.Services
 		/// </summary>
 		/// <returns>The complete.</returns>
 		/// <param name="query">Query.</param>
-		/// <param name="suggestionSize">Suggestion size.</param>
-		/// <param name="productSize">Product size.</param>
 		/// <param name="priority">Priority.</param>
-		Task<SearchResult> AutoComplete(string query, int suggestionSize = 3, int productSize = 5, PriorityRequest priority = PriorityRequest.Intermediate);
+		Task<SearchResult> AutoComplete(string query, PriorityRequest priority = PriorityRequest.Intermediate);
 	}
 }

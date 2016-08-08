@@ -18,13 +18,11 @@ namespace Mambo.Services
 		/// </summary>
 		/// <returns>The complete.</returns>
 		/// <param name="query">Query.</param>
-		/// <param name="suggestionSize">Suggestion size.</param>
-		/// <param name="productSize">Product size.</param>
 		/// <param name="priority">Priority.</param>
-		public Task<SearchResult> AutoComplete(string query, int suggestionSize, int productSize, PriorityRequest priority)
+		public Task<SearchResult> AutoComplete(string query, PriorityRequest priority)
 		{
-			return Cached.GetValue(Logger.GetMethodSignature(parameters: new object[] { query, suggestionSize, productSize }), () => {
-				return HttpHandler.Execute(() => GetRepository(priority).AutoComplete(query, suggestionSize, productSize));
+			return Cached.GetValue(Logger.GetMethodSignature(parameters: query), () => {
+				return HttpHandler.Execute(() => GetRepository(priority).AutoComplete(query));
 			});
 		}
 	}
