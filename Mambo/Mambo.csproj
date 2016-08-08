@@ -57,6 +57,7 @@
     <Compile Include="Pages\ProductSearchPage.xaml.cs">
       <DependentUpon>ProductSearchPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PageModels\ProductSearchPageModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Refit">
