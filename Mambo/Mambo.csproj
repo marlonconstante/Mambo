@@ -49,6 +49,8 @@
     <Compile Include="Models\QuerySuggestion.cs" />
     <Compile Include="Vtex\VtexClient.cs" />
     <Compile Include="Vtex\IVtexRepository.cs" />
+    <Compile Include="Neemu\NeemuClient.cs" />
+    <Compile Include="Neemu\INeemuRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Refit">
@@ -142,6 +144,7 @@
     <Folder Include="Pages\" />
     <Folder Include="PageModels\" />
     <Folder Include="Vtex\" />
+    <Folder Include="Neemu\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Mobishop.Core\Mobishop.Core.csproj">
