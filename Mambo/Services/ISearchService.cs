@@ -1,15 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Mambo.Models;
-using Mambo.Neemu;
-using Refit;
+using Mobishop.Core.Http;
 
-namespace Mambo.Repositories
+namespace Mambo.Services
 {
 	/// <summary>
-	/// Search repository.
+	/// Search service.
 	/// </summary>
-	public interface ISearchRepository : INeemuRepository
+	public interface ISearchService
 	{
 		/// <summary>
 		/// Finds the suggestions.
@@ -17,7 +16,7 @@ namespace Mambo.Repositories
 		/// <returns>The suggestions.</returns>
 		/// <param name="query">Query.</param>
 		/// <param name="size">Size.</param>
-		[Get("/autocomplete/search?q={query}&type=1&numsugestoes={size}&numprods={size}")]
-		Task<IList<Suggestion>> FindSuggestions(string query, int size);
+		/// <param name="priority">Priority.</param>
+		Task<IList<Suggestion>> FindSuggestions(string query, int size = 5, PriorityRequest priority = PriorityRequest.Intermediate);
 	}
 }

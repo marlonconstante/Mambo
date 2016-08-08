@@ -52,6 +52,8 @@
     <Compile Include="Neemu\NeemuClient.cs" />
     <Compile Include="Neemu\INeemuRepository.cs" />
     <Compile Include="Repositories\ISearchRepository.cs" />
+    <Compile Include="Services\ISearchService.cs" />
+    <Compile Include="Services\SearchService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Refit">
