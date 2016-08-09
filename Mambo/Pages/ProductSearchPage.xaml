@@ -5,7 +5,8 @@
 	x:Class="Mambo.Pages.ProductSearchPage">
 	<ContentPage.Content>
 		<StackLayout>
-			<SearchBar>
+			<SearchBar
+				Text="{Binding SearchText}">
 			</SearchBar>
 			<ListView>
 			</ListView>

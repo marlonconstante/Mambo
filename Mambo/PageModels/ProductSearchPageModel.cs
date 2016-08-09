@@ -15,5 +15,14 @@ namespace Mambo.PageModels
 		public ProductSearchPageModel()
 		{
 		}
+
+		/// <summary>
+		/// Gets or sets the search text.
+		/// </summary>
+		/// <value>The search text.</value>
+		public string SearchText {
+			get;
+			set;
+		}
 	}
 }
