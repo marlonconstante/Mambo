@@ -17,6 +17,14 @@ namespace Mambo.PageModels
 		}
 
 		/// <summary>
+		/// Ons the search text changed.
+		/// </summary>
+		public void OnSearchTextChanged()
+		{
+			System.Diagnostics.Debug.WriteLine(SearchText);
+		}
+
+		/// <summary>
 		/// Gets or sets the search text.
 		/// </summary>
 		/// <value>The search text.</value>
