@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Mambo.Models;
 using Mambo.Vtex;
@@ -16,7 +17,8 @@ namespace Mambo.Repositories
 		/// </summary>
 		/// <returns>The products.</returns>
 		/// <param name="name">Name.</param>
+		/// <param name="token">Token.</param>
 		[Get("/products/search/?fq=productName:{name}")]
-		Task<IList<Product>> SearchProducts(string name);
+		Task<IList<Product>> SearchProducts(string name, CancellationToken token);
 	}
 }
