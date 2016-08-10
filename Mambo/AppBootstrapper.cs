@@ -17,6 +17,7 @@ namespace Mambo
 			Cached.Initialize("Mambo");
 
 			Locator.CurrentMutable.RegisterLazySingleton(() => new ProductService(), typeof(IProductService));
+			Locator.CurrentMutable.RegisterLazySingleton(() => new SearchService(), typeof(ISearchService));
 		}
 	}
 }
