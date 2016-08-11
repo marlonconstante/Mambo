@@ -38,6 +38,7 @@
     <Compile Include="Controls\ProductView.xaml.cs">
       <DependentUpon>ProductView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Tasks\UITaskHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -45,6 +46,7 @@
   <ItemGroup>
     <Folder Include="Controls\" />
     <Folder Include="Themes\" />
+    <Folder Include="Tasks\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Controls\PriceLabelView.xaml">
