@@ -1,6 +1,6 @@
-﻿using Mambo.Services;
+﻿using FreshMvvm;
+using Mambo.Services;
 using Mobishop.Core.Caching;
-using Splat;
 
 namespace Mambo
 {
@@ -16,8 +16,8 @@ namespace Mambo
 		{
 			Cached.Initialize("Mambo");
 
-			Locator.CurrentMutable.RegisterLazySingleton(() => new ProductService(), typeof(IProductService));
-			Locator.CurrentMutable.RegisterLazySingleton(() => new SearchService(), typeof(ISearchService));
+			FreshIOC.Container.Register<IProductService, ProductService>();
+			FreshIOC.Container.Register<ISearchService, SearchService>();
 		}
 	}
 }
