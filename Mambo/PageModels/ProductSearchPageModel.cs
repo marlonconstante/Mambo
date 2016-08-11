@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System.Threading;
+using System.Windows.Input;
 using FreshMvvm;
 using Mambo.Services;
 using PropertyChanged;
@@ -17,12 +18,18 @@ namespace Mambo.PageModels
 		ISearchService searchService;
 
 		/// <summary>
+		/// The search token.
+		/// </summary>
+		CancellationToken searchToken;
+
+		/// <summary>
 		/// Initializes a new instance of the <see cref="T:Mambo.PageModels.ProductSearchPageModel"/> class.
 		/// </summary>
 		/// <param name="searchService">Search service.</param>
 		public ProductSearchPageModel(ISearchService searchService)
 		{
 			this.searchService = searchService;
+			this.searchToken = new CancellationToken();
 		}
 
 		/// <summary>
