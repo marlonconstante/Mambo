@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using Mambo.Models;
 using Mambo.Neemu;
 using Mambo.Repositories;
@@ -18,11 +19,12 @@ namespace Mambo.Services
 		/// </summary>
 		/// <returns>The complete.</returns>
 		/// <param name="query">Query.</param>
+		/// <param name="token">Token.</param>
 		/// <param name="priority">Priority.</param>
-		public Task<SearchResult> AutoComplete(string query, PriorityRequest priority)
+		public Task<SearchResult> AutoComplete(string query, CancellationToken token, PriorityRequest priority)
 		{
 			return Cached.GetValue(Logger.GetMethodSignature(parameters: query), () => {
-				return HttpHandler.Execute(() => GetRepository(priority).AutoComplete(query));
+				return HttpHandler.Execute(() => GetRepository(priority).AutoComplete(query, token));
 			});
 		}
 	}

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using Mambo.Models;
 using Mobishop.Core.Http;
 
@@ -14,7 +15,8 @@ namespace Mambo.Services
 		/// </summary>
 		/// <returns>The complete.</returns>
 		/// <param name="query">Query.</param>
+		/// <param name="token">Token.</param>
 		/// <param name="priority">Priority.</param>
-		Task<SearchResult> AutoComplete(string query, PriorityRequest priority = PriorityRequest.Intermediate);
+		Task<SearchResult> AutoComplete(string query, CancellationToken token = default(CancellationToken), PriorityRequest priority = PriorityRequest.Intermediate);
 	}
 }

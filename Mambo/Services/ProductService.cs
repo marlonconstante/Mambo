@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Mambo.Models;
 using Mambo.Repositories;
@@ -19,11 +20,12 @@ namespace Mambo.Services
 		/// </summary>
 		/// <returns>The products.</returns>
 		/// <param name="name">Name.</param>
+		/// <param name="token">Token.</param>
 		/// <param name="priority">Priority.</param>
-		public Task<IList<Product>> SearchProducts(string name, PriorityRequest priority)
+		public Task<IList<Product>> SearchProducts(string name, CancellationToken token, PriorityRequest priority)
 		{
 			return Cached.GetValue(Logger.GetMethodSignature(parameters: name), () => {
-				return HttpHandler.Execute(() => GetRepository(priority).SearchProducts(name));
+				return HttpHandler.Execute(() => GetRepository(priority).SearchProducts(name, token));
 			});
 		}
 	}
