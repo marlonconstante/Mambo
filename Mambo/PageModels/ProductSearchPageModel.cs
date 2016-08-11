@@ -3,7 +3,9 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using FreshMvvm;
 using Mambo.Services;
+using Mobishop.UI.Tasks;
 using PropertyChanged;
+using Xamarin.Forms;
 
 namespace Mambo.PageModels
 {
@@ -37,14 +39,15 @@ namespace Mambo.PageModels
 			this.searchService = searchService;
 
 			searchTokenSource = new CancellationTokenSource();
+			SearchCommand = new Command(OnSearchTextChanged);
 		}
 
 		/// <summary>
 		/// Ons the search text changed.
 		/// </summary>
-		public void OnSearchTextChanged()
+		public async void OnSearchTextChanged()
 		{
-			System.Diagnostics.Debug.WriteLine(SearchText);
+			await UITaskHandler.Execute(() => SearchProducts(SearchText));
 		}
 
 		/// <summary>
