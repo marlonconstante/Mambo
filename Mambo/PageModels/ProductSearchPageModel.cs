@@ -1,4 +1,5 @@
 ﻿using FreshMvvm;
+using Mambo.Services;
 using PropertyChanged;
 
 namespace Mambo.PageModels
@@ -10,10 +11,17 @@ namespace Mambo.PageModels
 	public class ProductSearchPageModel : FreshBasePageModel
 	{
 		/// <summary>
+		/// The search service.
+		/// </summary>
+		ISearchService searchService;
+
+		/// <summary>
 		/// Initializes a new instance of the <see cref="T:Mambo.PageModels.ProductSearchPageModel"/> class.
 		/// </summary>
-		public ProductSearchPageModel()
+		/// <param name="searchService">Search service.</param>
+		public ProductSearchPageModel(ISearchService searchService)
 		{
+			this.searchService = searchService;
 		}
 
 		/// <summary>
