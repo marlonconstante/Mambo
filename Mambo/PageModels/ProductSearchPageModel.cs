@@ -1,4 +1,5 @@
-﻿using FreshMvvm;
+﻿using System.Windows.Input;
+using FreshMvvm;
 using Mambo.Services;
 using PropertyChanged;
 
@@ -39,6 +40,15 @@ namespace Mambo.PageModels
 		public string SearchText {
 			get;
 			set;
+		}
+
+		/// <summary>
+		/// Gets the search command.
+		/// </summary>
+		/// <value>The search command.</value>
+		public ICommand SearchCommand {
+			get;
+			private set;
 		}
 	}
 }
