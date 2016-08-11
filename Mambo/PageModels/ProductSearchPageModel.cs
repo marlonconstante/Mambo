@@ -1,4 +1,5 @@
 ﻿using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using FreshMvvm;
 using Mambo.Services;
@@ -44,6 +45,34 @@ namespace Mambo.PageModels
 		public void OnSearchTextChanged()
 		{
 			System.Diagnostics.Debug.WriteLine(SearchText);
+		}
+
+		/// <summary>
+		/// Searchs the products.
+		/// </summary>
+		/// <returns>The products.</returns>
+		/// <param name="text">Text.</param>
+		async Task SearchProducts(string text)
+		{
+			try
+			{
+				Interlocked.Exchange(ref searchTokenSource, new CancellationTokenSource()).Cancel();
+
+				await Task.Delay(SearchMillisecondsDelay, searchTokenSource.Token).ConfigureAwait(false);
+				if (!searchTokenSource.IsCancellationRequested)
+				{
+					// Pesquisando produto
+					var result = await searchService.AutoComplete(text, searchTokenSource.Token).ConfigureAwait(false);
+					if (result != null)
+					{
+
+					}
+				}
+			}
+			catch (TaskCanceledException)
+			{
+				// Pesquisa cancelada...
+			}
 		}
 
 		/// <summary>
