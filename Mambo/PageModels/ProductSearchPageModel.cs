@@ -18,9 +18,9 @@ namespace Mambo.PageModels
 		ISearchService searchService;
 
 		/// <summary>
-		/// The search token.
+		/// The search token source.
 		/// </summary>
-		CancellationToken searchToken;
+		CancellationTokenSource searchTokenSource;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:Mambo.PageModels.ProductSearchPageModel"/> class.
@@ -29,7 +29,7 @@ namespace Mambo.PageModels
 		public ProductSearchPageModel(ISearchService searchService)
 		{
 			this.searchService = searchService;
-			this.searchToken = new CancellationToken();
+			this.searchTokenSource = new CancellationTokenSource();
 		}
 
 		/// <summary>
