@@ -13,6 +13,11 @@ namespace Mambo.PageModels
 	public class ProductSearchPageModel : FreshBasePageModel
 	{
 		/// <summary>
+		/// The search milliseconds delay.
+		/// </summary>
+		const int SearchMillisecondsDelay = 500;
+
+		/// <summary>
 		/// The search service.
 		/// </summary>
 		ISearchService searchService;
@@ -29,7 +34,8 @@ namespace Mambo.PageModels
 		public ProductSearchPageModel(ISearchService searchService)
 		{
 			this.searchService = searchService;
-			this.searchTokenSource = new CancellationTokenSource();
+
+			searchTokenSource = new CancellationTokenSource();
 		}
 
 		/// <summary>
