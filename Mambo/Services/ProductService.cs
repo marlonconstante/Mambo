@@ -25,7 +25,7 @@ namespace Mambo.Services
 		public Task<IList<Product>> SearchProducts(string name, CancellationToken cancellationToken, PriorityRequest priority)
 		{
 			return Cached.GetValue(Logger.GetMethodSignature(parameters: name), () => {
-				return HttpHandler.Execute(() => GetRepository(priority).SearchProducts(name, cancellationToken));
+				return HttpHandler.Execute((token) => GetRepository(priority).SearchProducts(name, token), cancellationToken);
 			});
 		}
 	}
