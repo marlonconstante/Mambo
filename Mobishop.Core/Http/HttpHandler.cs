@@ -19,16 +19,17 @@ namespace Mobishop.Core.Http
 		/// <param name="cancellationToken">Cancellation token.</param>
 		/// <param name="attempts">Attempts.</param>
 		/// <typeparam name="TResult">The 1st type parameter.</typeparam>
-		public static Task<TResult> Execute<TResult>(Func<CancellationToken, Task<TResult>> remoteFunction, CancellationToken cancellationToken = default(CancellationToken), int attempts = 5)
+		public static async Task<TResult> Execute<TResult>(Func<CancellationToken, Task<TResult>> remoteFunction, CancellationToken cancellationToken = default(CancellationToken), int attempts = 5)
 		{
 			if (CrossConnectivity.Current.IsConnected)
 			{
-				return Policy.Handle<WebException>()
-							 .WaitAndRetryAsync(attempts, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)))
-							 .ExecuteAsync(remoteFunction, cancellationToken);
+				return await Policy.Handle<WebException>()
+							   .WaitAndRetryAsync(attempts, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)))
+							   .ExecuteAsync(remoteFunction, cancellationToken)
+							   .ConfigureAwait(false);
 			}
 
-			return Task.FromResult(default(TResult));
+			return default(TResult);
 		}
 	}
 }
