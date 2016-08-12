@@ -16,8 +16,8 @@ namespace Mambo.Repositories
 		/// </summary>
 		/// <returns>The complete.</returns>
 		/// <param name="query">Query.</param>
-		/// <param name="token">Token.</param>
+		/// <param name="cancellationToken">Cancellation token.</param>
 		[Get("/autocomplete/search?q={query}&type=1")]
-		Task<SearchResult> AutoComplete(string query, CancellationToken token);
+		Task<SearchResult> AutoComplete(string query, CancellationToken cancellationToken);
 	}
 }

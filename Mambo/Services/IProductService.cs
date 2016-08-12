@@ -16,8 +16,8 @@ namespace Mambo.Services
 		/// </summary>
 		/// <returns>The products.</returns>
 		/// <param name="name">Name.</param>
-		/// <param name="token">Token.</param>
+		/// <param name="cancellationToken">Cancellation token.</param>
 		/// <param name="priority">Priority.</param>
-		Task<IList<Product>> SearchProducts(string name, CancellationToken token = default(CancellationToken), PriorityRequest priority = PriorityRequest.Intermediate);
+		Task<IList<Product>> SearchProducts(string name, CancellationToken cancellationToken = default(CancellationToken), PriorityRequest priority = PriorityRequest.Intermediate);
 	}
 }

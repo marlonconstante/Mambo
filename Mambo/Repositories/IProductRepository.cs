@@ -17,8 +17,8 @@ namespace Mambo.Repositories
 		/// </summary>
 		/// <returns>The products.</returns>
 		/// <param name="name">Name.</param>
-		/// <param name="token">Token.</param>
+		/// <param name="cancellationToken">Cancellation token.</param>
 		[Get("/products/search/?fq=productName:{name}")]
-		Task<IList<Product>> SearchProducts(string name, CancellationToken token);
+		Task<IList<Product>> SearchProducts(string name, CancellationToken cancellationToken);
 	}
 }
