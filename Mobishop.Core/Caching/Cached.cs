@@ -29,9 +29,7 @@ namespace Mobishop.Core.Caching
 		/// <typeparam name="TResult">The 1st type parameter.</typeparam>
 		public static Task<TResult> GetValue<TResult>(string cacheKey, Func<Task<TResult>> fetchFunction, double cacheValidityInMinutes = 5d)
 		{
-			return BlobCache.LocalMachine.GetAndFetchLatest(cacheKey, async () => {
-				return await fetchFunction.Invoke().ConfigureAwait(false);
-			}, offset => {
+			return BlobCache.LocalMachine.GetAndFetchLatest(cacheKey, fetchFunction, offset => {
 				var elapsed = DateTimeOffset.Now - offset;
 				return elapsed > TimeSpan.FromMinutes(cacheValidityInMinutes);
 			}).ToTask();
