@@ -24,7 +24,7 @@ namespace Mambo.Services
 		public Task<SearchResult> AutoComplete(string query, CancellationToken cancellationToken, PriorityRequest priority)
 		{
 			return Cached.GetValue(Logger.GetMethodSignature(parameters: query), () => {
-				return HttpHandler.Execute((token) => GetRepository(priority).AutoComplete(query, token), cancellationToken);
+				return HttpHandler.Execute((token) => GetRepository(priority).AutoComplete(query), cancellationToken);
 			});
 		}
 	}
