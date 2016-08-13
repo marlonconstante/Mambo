@@ -57,6 +57,7 @@
       <DependentUpon>ProductSearchPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PageModels\ProductSearchPageModel.cs" />
+    <Compile Include="ViewModels\SearchViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Refit">
@@ -147,6 +148,7 @@
     <Folder Include="PageModels\" />
     <Folder Include="Vtex\" />
     <Folder Include="Neemu\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Mobishop.Core\Mobishop.Core.csproj">
