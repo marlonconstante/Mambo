@@ -41,8 +41,14 @@ namespace Mambo.PageModels
 		public ProductSearchPageModel(ISearchService searchService)
 		{
 			this.searchService = searchService;
-
 			searchTokenSource = new CancellationTokenSource();
+
+			SearchResultItems = new List<ObservableList<SearchViewModel>>();
+			SearchResultItems.Add(new ObservableList<SearchViewModel>());
+			SearchResultItems.Add(new ObservableList<SearchViewModel> {
+				GroupName = "Produtos Sugeridos"
+			});
+
 			SearchCommand = new Command(OnSearchTextChanged);
 		}
 
@@ -63,7 +69,9 @@ namespace Mambo.PageModels
 		{
 			try
 			{
-				SearchResultItems = null;
+				Suggestions.Clear();
+				Products.Clear();
+
 				Interlocked.Exchange(ref searchTokenSource, new CancellationTokenSource()).Cancel();
 
 				await Task.Delay(SearchMillisecondsDelay, searchTokenSource.Token).ConfigureAwait(false);
@@ -73,14 +81,8 @@ namespace Mambo.PageModels
 					var result = await searchService.AutoComplete(text, searchTokenSource.Token).ConfigureAwait(false);
 					if (result != null)
 					{
-						var suggestions = result.Suggestions.Select(s => new SearchViewModel(s));
-						var products = result.Products.Select(p => new SearchViewModel(p));
-
-						SearchResultItems = new List<ObservableList<SearchViewModel>>();
-						SearchResultItems.Add(new ObservableList<SearchViewModel>(suggestions));
-						SearchResultItems.Add(new ObservableList<SearchViewModel>(products) {
-							GroupName = "Produtos Sugeridos"
-						});
+						Suggestions.AddRange(result.Suggestions.Select(s => new SearchViewModel(s)));
+						Products.AddRange(result.Products.Select(p => new SearchViewModel(p)));
 					}
 				}
 			}
@@ -106,6 +108,26 @@ namespace Mambo.PageModels
 		public IList<ObservableList<SearchViewModel>> SearchResultItems {
 			get;
 			set;
+		}
+
+		/// <summary>
+		/// Gets the suggestions.
+		/// </summary>
+		/// <value>The suggestions.</value>
+		public ObservableList<SearchViewModel> Suggestions {
+			get {
+				return SearchResultItems.First();
+			}
+		}
+
+		/// <summary>
+		/// Gets the products.
+		/// </summary>
+		/// <value>The products.</value>
+		public ObservableList<SearchViewModel> Products {
+			get {
+				return SearchResultItems.Last();
+			}
 		}
 
 		/// <summary>
