@@ -58,6 +58,7 @@
     </Compile>
     <Compile Include="PageModels\ProductSearchPageModel.cs" />
     <Compile Include="ViewModels\SearchViewModel.cs" />
+    <Compile Include="DataTemplates\SearchDataTemplateSelector.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Refit">
@@ -149,6 +150,7 @@
     <Folder Include="Vtex\" />
     <Folder Include="Neemu\" />
     <Folder Include="ViewModels\" />
+    <Folder Include="DataTemplates\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Mobishop.Core\Mobishop.Core.csproj">
