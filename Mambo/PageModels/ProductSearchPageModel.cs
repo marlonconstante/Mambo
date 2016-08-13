@@ -1,8 +1,12 @@
-﻿using System.Threading;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using FreshMvvm;
 using Mambo.Services;
+using Mambo.ViewModels;
+using Mobishop.Core.Collections;
 using Mobishop.UI.Tasks;
 using PropertyChanged;
 using Xamarin.Forms;
@@ -59,6 +63,7 @@ namespace Mambo.PageModels
 		{
 			try
 			{
+				SearchResultItems = null;
 				Interlocked.Exchange(ref searchTokenSource, new CancellationTokenSource()).Cancel();
 
 				await Task.Delay(SearchMillisecondsDelay, searchTokenSource.Token).ConfigureAwait(false);
@@ -68,7 +73,14 @@ namespace Mambo.PageModels
 					var result = await searchService.AutoComplete(text, searchTokenSource.Token).ConfigureAwait(false);
 					if (result != null)
 					{
+						var suggestions = result.Suggestions.Select(s => new SearchViewModel(s));
+						var products = result.Products.Select(p => new SearchViewModel(p));
 
+						SearchResultItems = new List<ObservableList<SearchViewModel>>();
+						SearchResultItems.Add(new ObservableList<SearchViewModel>(suggestions));
+						SearchResultItems.Add(new ObservableList<SearchViewModel>(products) {
+							GroupName = "Produtos Sugeridos"
+						});
 					}
 				}
 			}
@@ -83,6 +95,15 @@ namespace Mambo.PageModels
 		/// </summary>
 		/// <value>The search text.</value>
 		public string SearchText {
+			get;
+			set;
+		}
+
+		/// <summary>
+		/// Gets or sets the search result items.
+		/// </summary>
+		/// <value>The search result items.</value>
+		public IList<ObservableList<SearchViewModel>> SearchResultItems {
 			get;
 			set;
 		}
