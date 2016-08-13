@@ -7,6 +7,12 @@
 	<Application.Resources>
 		<ResourceDictionary
 			MergedWith="themes:Standard">
+			<DataTemplate
+				x:Key="groupHeaderTemplate">
+				<TextCell
+					Text="{Binding GroupName}">
+				</TextCell>
+			</DataTemplate>
 		</ResourceDictionary>
 	</Application.Resources>
 </Application>

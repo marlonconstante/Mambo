@@ -2,13 +2,39 @@
 <ContentPage
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:templates="clr-namespace:Mambo.DataTemplates;assembly=Mambo"
 	x:Class="Mambo.Pages.ProductSearchPage">
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<DataTemplate
+				x:Key="suggestionTemplate">
+				<TextCell
+					Text="{Binding Suggestion.Query}">
+				</TextCell>
+			</DataTemplate>
+			<DataTemplate
+				x:Key="productTemplate">
+				<TextCell
+					Text="{Binding Product.Description}">
+				</TextCell>
+			</DataTemplate>
+			<templates:SearchDataTemplateSelector
+				x:Key="searchDataTemplateSelector"
+				SuggestionTemplate="{StaticResource suggestionTemplate}"
+				ProductTemplate="{StaticResource productTemplate}">
+			</templates:SearchDataTemplateSelector>
+		</ResourceDictionary>
+	</ContentPage.Resources>
 	<ContentPage.Content>
 		<StackLayout>
 			<SearchBar
 				Text="{Binding SearchText}">
 			</SearchBar>
-			<ListView>
+			<ListView
+				IsGroupingEnabled="true"
+				GroupHeaderTemplate="{StaticResource groupHeaderTemplate}"
+				ItemTemplate="{StaticResource searchDataTemplateSelector}"
+				ItemsSource="{Binding SearchResultItems}">
 			</ListView>
 		</StackLayout>
 	</ContentPage.Content>
