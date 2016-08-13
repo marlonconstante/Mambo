@@ -38,5 +38,14 @@ namespace Mobishop.Core.Collections
 
 			OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, items.ToList()));
 		}
+
+		/// <summary>
+		/// Gets or sets the name of the group.
+		/// </summary>
+		/// <value>The name of the group.</value>
+		public string GroupName {
+			get;
+			set;
+		}
 	}
 }
