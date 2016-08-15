@@ -43,8 +43,17 @@ namespace Mobishop.UI.Controls
 		{
 			var label = (PriceLabelView) bindable;
 
-			label.OnPropertyChanged(nameof(IntegerAmountText));
-			label.OnPropertyChanged(nameof(DecimalAmountText));
+			var format = CultureInfo.CurrentCulture.NumberFormat;
+			var symbol = format.CurrencySymbol;
+			var separator = format.NumberDecimalSeparator;
+
+			var amount = (double) newValue;
+			var values = amount.ToString("F2").Split(Convert.ToChar(separator));
+
+			label.SymbolLabel.Text = symbol;
+			label.IntegerLabel.Text = values.First();
+			label.SeparatorLabel.Text = separator;
+			label.DecimalLabel.Text = values.Last();
 		}
 
 		/// <summary>
@@ -88,46 +97,6 @@ namespace Mobishop.UI.Controls
 		double GetRelativeFontSize(double value)
 		{
 			return value * (FontSize / 25d);
-		}
-
-		/// <summary>
-		/// Gets the symbol.
-		/// </summary>
-		/// <value>The symbol.</value>
-		public string Symbol {
-			get {
-				return CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol;
-			}
-		}
-
-		/// <summary>
-		/// Gets the separator.
-		/// </summary>
-		/// <value>The separator.</value>
-		public string Separator {
-			get {
-				return CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
-			}
-		}
-
-		/// <summary>
-		/// Gets the integer amount text.
-		/// </summary>
-		/// <value>The integer amount text.</value>
-		public string IntegerAmountText {
-			get {
-				return Amount.ToString("F2").Split(Convert.ToChar(Separator)).First();
-			}
-		}
-
-		/// <summary>
-		/// Gets the decimal amount text.
-		/// </summary>
-		/// <value>The decimal amount text.</value>
-		public string DecimalAmountText {
-			get {
-				return Amount.ToString("F2").Split(Convert.ToChar(Separator)).Last();
-			}
 		}
 
 		/// <summary>

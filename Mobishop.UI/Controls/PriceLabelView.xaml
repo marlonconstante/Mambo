@@ -22,31 +22,27 @@
 				Margin="{Binding SymbolMargin}"
 				FontFamily="{StaticResource fontFamilyRegular}"
 				FontSize="{Binding SymbolFontSize}"
-				TextColor="{Binding TextColor}"
-				Text="{Binding Symbol}">
+				TextColor="{Binding TextColor}">
 			</Label>
 			<Label
 				x:Name="IntegerLabel"
 				FontFamily="{StaticResource fontFamilyMedium}"
 				FontSize="{Binding IntegerFontSize}"
-				TextColor="{Binding TextColor}"
-				Text="{Binding IntegerAmountText}">
+				TextColor="{Binding TextColor}">
 			</Label>
 			<Label
 				x:Name="SeparatorLabel"
 				Margin="{Binding SeparatorMargin}"
 				FontFamily="{StaticResource fontFamilyMedium}"
 				FontSize="{Binding IntegerFontSize}"
-				TextColor="{Binding TextColor}"
-				Text="{Binding Separator}">
+				TextColor="{Binding TextColor}">
 			</Label>
 			<Label
 				x:Name="DecimalLabel"
 				Margin="{Binding DecimalMargin}"
 				FontFamily="{StaticResource fontFamilyMedium}"
 				FontSize="{Binding DecimalFontSize}"
-				TextColor="{Binding TextColor}"
-				Text="{Binding DecimalAmountText}">
+				TextColor="{Binding TextColor}">
 			</Label>
 		</StackLayout>
 	</ContentView.Content>
