@@ -19,29 +19,22 @@
 			<Label
 				x:Name="SymbolLabel"
 				VerticalTextAlignment="End"
-				Margin="{Binding SymbolMargin}"
 				FontFamily="{StaticResource fontFamilyRegular}"
-				FontSize="{Binding SymbolFontSize}"
 				TextColor="{Binding TextColor}">
 			</Label>
 			<Label
 				x:Name="IntegerLabel"
 				FontFamily="{StaticResource fontFamilyMedium}"
-				FontSize="{Binding IntegerFontSize}"
 				TextColor="{Binding TextColor}">
 			</Label>
 			<Label
 				x:Name="SeparatorLabel"
-				Margin="{Binding SeparatorMargin}"
 				FontFamily="{StaticResource fontFamilyMedium}"
-				FontSize="{Binding IntegerFontSize}"
 				TextColor="{Binding TextColor}">
 			</Label>
 			<Label
 				x:Name="DecimalLabel"
-				Margin="{Binding DecimalMargin}"
 				FontFamily="{StaticResource fontFamilyMedium}"
-				FontSize="{Binding DecimalFontSize}"
 				TextColor="{Binding TextColor}">
 			</Label>
 		</StackLayout>

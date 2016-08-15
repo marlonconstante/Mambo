@@ -65,13 +65,25 @@ namespace Mobishop.UI.Controls
 		static void FontSizePropertyChanged(BindableObject bindable, object oldValue, object newValue)
 		{
 			var label = (PriceLabelView) bindable;
+			var fontSize = (double) newValue;
 
-			label.OnPropertyChanged(nameof(SymbolFontSize));
-			label.OnPropertyChanged(nameof(IntegerFontSize));
-			label.OnPropertyChanged(nameof(DecimalFontSize));
-			label.OnPropertyChanged(nameof(SymbolMargin));
-			label.OnPropertyChanged(nameof(SeparatorMargin));
-			label.OnPropertyChanged(nameof(DecimalMargin));
+			label.SymbolLabel.FontSize = GetRelativeFontSize(10d, fontSize);
+			label.IntegerLabel.FontSize = GetRelativeFontSize(25d, fontSize);
+			label.SeparatorLabel.FontSize = GetRelativeFontSize(25d, fontSize);
+			label.DecimalLabel.FontSize = GetRelativeFontSize(14d, fontSize);
+
+			if (Device.OS == TargetPlatform.Android)
+			{
+				label.SymbolLabel.Margin = GetRelativeMargin(new Thickness(0d, 0d, 3d, 5d), fontSize);
+				label.SeparatorLabel.Margin = GetRelativeMargin(new Thickness(-1d, 0d, 0d, 0d), fontSize);
+				label.DecimalLabel.Margin = GetRelativeMargin(new Thickness(0d, 3d, 0d, 0d), fontSize);
+			}
+			else
+			{
+				label.SymbolLabel.Margin = GetRelativeMargin(new Thickness(0d, 0d, 2d, 4d), fontSize);
+				label.SeparatorLabel.Margin = GetRelativeMargin(new Thickness(-2d, 0d, 0d, 0d), fontSize);
+				label.DecimalLabel.Margin = GetRelativeMargin(new Thickness(-1d, 3d, 0d, 0d), fontSize);
+			}
 		}
 
 		/// <summary>
@@ -79,12 +91,13 @@ namespace Mobishop.UI.Controls
 		/// </summary>
 		/// <returns>The relative margin.</returns>
 		/// <param name="margin">Margin.</param>
-		Thickness GetRelativeMargin(Thickness margin)
+		/// <param name="fontSize">Font size.</param>
+		static Thickness GetRelativeMargin(Thickness margin, double fontSize)
 		{
-			var left = GetRelativeFontSize(margin.Left);
-			var top = GetRelativeFontSize(margin.Top);
-			var right = GetRelativeFontSize(margin.Right);
-			var bottom = GetRelativeFontSize(margin.Bottom);
+			var left = GetRelativeFontSize(margin.Left, fontSize);
+			var top = GetRelativeFontSize(margin.Top, fontSize);
+			var right = GetRelativeFontSize(margin.Right, fontSize);
+			var bottom = GetRelativeFontSize(margin.Bottom, fontSize);
 
 			return new Thickness(left, top, right, bottom);
 		}
@@ -94,84 +107,10 @@ namespace Mobishop.UI.Controls
 		/// </summary>
 		/// <returns>The relative font size.</returns>
 		/// <param name="value">Value.</param>
-		double GetRelativeFontSize(double value)
+		/// <param name="fontSize">Font size.</param>
+		static double GetRelativeFontSize(double value, double fontSize)
 		{
-			return value * (FontSize / 25d);
-		}
-
-		/// <summary>
-		/// Gets the size of the symbol font.
-		/// </summary>
-		/// <value>The size of the symbol font.</value>
-		public double SymbolFontSize {
-			get {
-				return GetRelativeFontSize(10d);
-			}
-		}
-
-		/// <summary>
-		/// Gets the size of the integer font.
-		/// </summary>
-		/// <value>The size of the integer font.</value>
-		public double IntegerFontSize {
-			get {
-				return GetRelativeFontSize(25d);
-			}
-		}
-
-		/// <summary>
-		/// Gets the size of the decimal font.
-		/// </summary>
-		/// <value>The size of the decimal font.</value>
-		public double DecimalFontSize {
-			get {
-				return GetRelativeFontSize(14d);
-			}
-		}
-
-		/// <summary>
-		/// Gets the symbol margin.
-		/// </summary>
-		/// <value>The symbol margin.</value>
-		public Thickness SymbolMargin {
-			get {
-				if (Device.OS == TargetPlatform.Android)
-				{
-					return GetRelativeMargin(new Thickness(0d, 0d, 3d, 5d));
-				}
-
-				return GetRelativeMargin(new Thickness(0d, 0d, 2d, 4d));
-			}
-		}
-
-		/// <summary>
-		/// Gets the separator margin.
-		/// </summary>
-		/// <value>The separator margin.</value>
-		public Thickness SeparatorMargin {
-			get {
-				if (Device.OS == TargetPlatform.Android)
-				{
-					return GetRelativeMargin(new Thickness(-1d, 0d, 0d, 0d));
-				}
-
-				return GetRelativeMargin(new Thickness(-2d, 0d, 0d, 0d));
-			}
-		}
-
-		/// <summary>
-		/// Gets the decimal margin.
-		/// </summary>
-		/// <value>The decimal margin.</value>
-		public Thickness DecimalMargin {
-			get {
-				if (Device.OS == TargetPlatform.Android)
-				{
-					return GetRelativeMargin(new Thickness(0d, 3d, 0d, 0d));
-				}
-
-				return GetRelativeMargin(new Thickness(-1d, 3d, 0d, 0d));
-			}
+			return value * (fontSize / 25d);
 		}
 
 		/// <summary>
