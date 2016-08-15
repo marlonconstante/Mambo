@@ -4,7 +4,6 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	xmlns:themes="clr-namespace:Mobishop.UI.Themes;assembly=Mobishop.UI"
 	xmlns:controls="clr-namespace:Mobishop.UI.Controls;assembly=Mobishop.UI"
-	x:Name="productView"
 	x:Class="Mobishop.UI.Controls.ProductView">
 	<ContentView.Resources>
 		<ResourceDictionary
@@ -12,21 +11,20 @@
 		</ResourceDictionary>
 	</ContentView.Resources>
 	<ContentView.Content>
-		<StackLayout
-			BindingContext="{x:Reference productView}">
+		<StackLayout>
 			<Image
-				Source="{Binding ImageSource}">
+				x:Name="ImageView">
 			</Image>
 			<Label
+				x:Name="NameLabel"
 				HorizontalTextAlignment="Center"
 				FontFamily="{StaticResource fontFamilyLight}"
-				FontSize="Micro"
-				Text="{Binding Name}">
+				FontSize="Micro">
 			</Label>
 			<controls:PriceLabelView
+				x:Name="AmountLabel"
 				HorizontalOptions="Center"
-				FontSize="Large"
-				Amount="{Binding Amount}">
+				FontSize="Large">
 			</controls:PriceLabelView>
 		</StackLayout>
 	</ContentView.Content>
