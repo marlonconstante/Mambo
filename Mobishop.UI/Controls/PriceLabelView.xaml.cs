@@ -23,7 +23,7 @@ namespace Mobishop.UI.Controls
 		/// <summary>
 		/// The text color property.
 		/// </summary>
-		public static readonly BindableProperty TextColorProperty = BindableProperty.Create(nameof(TextColor), typeof(Color), typeof(PriceLabelView), default(Color));
+		public static readonly BindableProperty TextColorProperty = BindableProperty.Create(nameof(TextColor), typeof(Color), typeof(PriceLabelView), default(Color), propertyChanged: TextColorPropertyChanged);
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:Mobishop.UI.Controls.PriceLabelView"/> class.
@@ -84,6 +84,23 @@ namespace Mobishop.UI.Controls
 				label.SeparatorLabel.Margin = GetRelativeMargin(new Thickness(-2d, 0d, 0d, 0d), fontSize);
 				label.DecimalLabel.Margin = GetRelativeMargin(new Thickness(-1d, 3d, 0d, 0d), fontSize);
 			}
+		}
+
+		/// <summary>
+		/// Texts the color property changed.
+		/// </summary>
+		/// <param name="bindable">Bindable.</param>
+		/// <param name="oldValue">Old value.</param>
+		/// <param name="newValue">New value.</param>
+		static void TextColorPropertyChanged(BindableObject bindable, object oldValue, object newValue)
+		{
+			var label = (PriceLabelView) bindable;
+			var textColor = (Color) newValue;
+
+			label.SymbolLabel.TextColor = textColor;
+			label.IntegerLabel.TextColor = textColor;
+			label.SeparatorLabel.TextColor = textColor;
+			label.DecimalLabel.TextColor = textColor;
 		}
 
 		/// <summary>
