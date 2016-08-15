@@ -13,12 +13,12 @@ namespace Mobishop.UI.Controls
 		/// <summary>
 		/// The amount property.
 		/// </summary>
-		public static readonly BindableProperty AmountProperty = BindableProperty.Create(nameof(Amount), typeof(double), typeof(PriceLabelView), default(double));
+		public static readonly BindableProperty AmountProperty = BindableProperty.Create(nameof(Amount), typeof(double), typeof(PriceLabelView), default(double), propertyChanged: AmountPropertyChanged);
 
 		/// <summary>
 		/// The font size property.
 		/// </summary>
-		public static readonly BindableProperty FontSizeProperty = BindableProperty.Create(nameof(FontSize), typeof(double), typeof(PriceLabelView), default(double));
+		public static readonly BindableProperty FontSizeProperty = BindableProperty.Create(nameof(FontSize), typeof(double), typeof(PriceLabelView), default(double), propertyChanged: FontSizePropertyChanged);
 
 		/// <summary>
 		/// The text color property.
@@ -34,28 +34,35 @@ namespace Mobishop.UI.Controls
 		}
 
 		/// <summary>
-		/// Ons the property changed.
+		/// Amounts the property changed.
 		/// </summary>
-		/// <param name="propertyName">Property name.</param>
-		protected override void OnPropertyChanged(string propertyName = null)
+		/// <param name="bindable">Bindable.</param>
+		/// <param name="oldValue">Old value.</param>
+		/// <param name="newValue">New value.</param>
+		static void AmountPropertyChanged(BindableObject bindable, object oldValue, object newValue)
 		{
-			base.OnPropertyChanged(propertyName);
+			var label = (PriceLabelView) bindable;
 
-			if (propertyName == nameof(Amount))
-			{
-				OnPropertyChanged(nameof(IntegerAmountText));
-				OnPropertyChanged(nameof(DecimalAmountText));
-			}
+			label.OnPropertyChanged(nameof(IntegerAmountText));
+			label.OnPropertyChanged(nameof(DecimalAmountText));
+		}
 
-			if (propertyName == nameof(FontSize))
-			{
-				OnPropertyChanged(nameof(SymbolFontSize));
-				OnPropertyChanged(nameof(IntegerFontSize));
-				OnPropertyChanged(nameof(DecimalFontSize));
-				OnPropertyChanged(nameof(SymbolMargin));
-				OnPropertyChanged(nameof(SeparatorMargin));
-				OnPropertyChanged(nameof(DecimalMargin));
-			}
+		/// <summary>
+		/// Fonts the size property changed.
+		/// </summary>
+		/// <param name="bindable">Bindable.</param>
+		/// <param name="oldValue">Old value.</param>
+		/// <param name="newValue">New value.</param>
+		static void FontSizePropertyChanged(BindableObject bindable, object oldValue, object newValue)
+		{
+			var label = (PriceLabelView) bindable;
+
+			label.OnPropertyChanged(nameof(SymbolFontSize));
+			label.OnPropertyChanged(nameof(IntegerFontSize));
+			label.OnPropertyChanged(nameof(DecimalFontSize));
+			label.OnPropertyChanged(nameof(SymbolMargin));
+			label.OnPropertyChanged(nameof(SeparatorMargin));
+			label.OnPropertyChanged(nameof(DecimalMargin));
 		}
 
 		/// <summary>
