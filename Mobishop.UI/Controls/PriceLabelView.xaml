@@ -17,6 +17,7 @@
 			Orientation="Horizontal"
 			Spacing="0">
 			<Label
+				x:Name="SymbolLabel"
 				VerticalTextAlignment="End"
 				Margin="{Binding SymbolMargin}"
 				FontFamily="{StaticResource fontFamilyRegular}"
@@ -25,12 +26,14 @@
 				Text="{Binding Symbol}">
 			</Label>
 			<Label
+				x:Name="IntegerLabel"
 				FontFamily="{StaticResource fontFamilyMedium}"
 				FontSize="{Binding IntegerFontSize}"
 				TextColor="{Binding TextColor}"
 				Text="{Binding IntegerAmountText}">
 			</Label>
 			<Label
+				x:Name="SeparatorLabel"
 				Margin="{Binding SeparatorMargin}"
 				FontFamily="{StaticResource fontFamilyMedium}"
 				FontSize="{Binding IntegerFontSize}"
@@ -38,6 +41,7 @@
 				Text="{Binding Separator}">
 			</Label>
 			<Label
+				x:Name="DecimalLabel"
 				Margin="{Binding DecimalMargin}"
 				FontFamily="{StaticResource fontFamilyMedium}"
 				FontSize="{Binding DecimalFontSize}"
