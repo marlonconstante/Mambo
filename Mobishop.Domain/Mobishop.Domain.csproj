@@ -32,8 +32,38 @@
     <NoStdLib>false</NoStdLib>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="MyClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Products\Product.cs" />
+    <Compile Include="Showcases\ShowcaseProduct.cs" />
+    <Compile Include="Products\ProductService.cs" />
+    <Compile Include="Showcases\ShowcaseService.cs" />
+    <Compile Include="Old\Models\Product.cs" />
+    <Compile Include="Old\Models\ProductSuggestion.cs" />
+    <Compile Include="Old\Models\SearchResult.cs" />
+    <Compile Include="Old\Models\Suggestion.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Products\" />
+    <Folder Include="Showcases\" />
+    <Folder Include="Old\" />
+    <Folder Include="Old\Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Skahal.Infrastructure.Framework.Domain">
+      <HintPath>..\packages\Skahal.Infrastructure.Framework.Domain.1.0.0\lib\Skahal.Infrastructure.Framework.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mobishop.Infrastructure.Framework\Mobishop.Infrastructure.Framework.csproj">
+      <Project>{48F5EC4A-1F80-479B-A0A5-94CE5D990AD7}</Project>
+      <Name>Mobishop.Infrastructure.Framework</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>

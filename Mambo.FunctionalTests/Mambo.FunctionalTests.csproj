@@ -49,10 +49,6 @@
       <Project>{61B6752D-EBFA-4AB3-80C4-3EC80F135BF1}</Project>
       <Name>Mambo</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Mobishop.Core\Mobishop.Core.csproj">
-      <Project>{75D10ED0-B784-4BAB-81E1-792D88126078}</Project>
-      <Name>Mobishop.Core</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
