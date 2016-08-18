@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using System.Net;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 using Fusillade;
 using Mobishop.Infrastructure.Framework.Repositories;
 using ModernHttpClient;
+using Plugin.Connectivity;
+using Polly;
 using Refit;
 using Skahal.Infrastructure.Framework.Domain;
 using Skahal.Infrastructure.Framework.Repositories;
@@ -19,7 +23,7 @@ namespace Mobishop.Infrastructure.Repositories.Commons
         public string ApiBaseAddress
         {
             get;
-            private set;
+            protected set;
         }
 
         readonly Lazy<TRestApiClient> background;
@@ -28,8 +32,6 @@ namespace Mobishop.Infrastructure.Repositories.Commons
 
         public RestRepositoryBase(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
-            ApiBaseAddress = "http://www.mambo.com.br/api/catalog_system/pub";
-
             background = new Lazy<TRestApiClient>(() => CreateClient(Priority.Background));
             userInitiated = new Lazy<TRestApiClient>(() => CreateClient(Priority.UserInitiated));
             speculative = new Lazy<TRestApiClient>(() => CreateClient(Priority.Speculative));
@@ -60,6 +62,34 @@ namespace Mobishop.Infrastructure.Repositories.Commons
                     return background.Value;
             }
         }
+
+        public async Task<TResult> ExecuteApiRequest<TResult>(Func<CancellationToken, Task<TResult>> remoteFunction, CancellationToken cancellationToken = default(CancellationToken), int attempts = 5)
+        {
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                return await Policy.Handle<WebException>()
+                               .WaitAndRetryAsync(attempts, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)))
+                               .ExecuteAsync(remoteFunction, cancellationToken)
+                               .ConfigureAwait(false);
+            }
+
+            return default(TResult);
+        }
+
+        public async Task<TResult> ExecuteApiRequest<TResult>(Func<Task<TResult>> remoteFunction, int attempts = 5)
+        {
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                return await Policy.Handle<WebException>()
+                               .WaitAndRetryAsync(attempts, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)))
+                               .ExecuteAsync(remoteFunction)
+                               .ConfigureAwait(false);
+            }
+
+            return default(TResult);
+        }
+
+
 
 
         #region NotImplemented

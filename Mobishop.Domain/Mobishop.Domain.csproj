@@ -37,23 +37,29 @@
     <Compile Include="Showcases\ShowcaseProduct.cs" />
     <Compile Include="Products\ProductService.cs" />
     <Compile Include="Showcases\ShowcaseService.cs" />
-    <Compile Include="Old\Models\Product.cs" />
-    <Compile Include="Old\Models\ProductSuggestion.cs" />
-    <Compile Include="Old\Models\SearchResult.cs" />
-    <Compile Include="Old\Models\Suggestion.cs" />
+    <Compile Include="Products\IProductRepository.cs" />
+    <Compile Include="Showcases\IShowcaseProductRepository.cs" />
+    <Compile Include="Showcases\SearchResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Products\" />
     <Folder Include="Showcases\" />
-    <Folder Include="Old\" />
-    <Folder Include="Old\Models\" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Skahal.Infrastructure.Framework.Domain">
-      <HintPath>..\packages\Skahal.Infrastructure.Framework.Domain.1.0.0\lib\Skahal.Infrastructure.Framework.Domain.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Splat">
+      <HintPath>..\packages\Splat.1.6.2\lib\Portable-net45+win+wpa81+wp80\Splat.dll</HintPath>
+    </Reference>
+    <Reference Include="HelperSharp.PCL">
+      <HintPath>..\packages\Skahal.Infrastructure.Framework.Repositories.0.0.8\lib\HelperSharp.PCL.dll</HintPath>
+    </Reference>
+    <Reference Include="Skahal.Infrastructure.Framework.Domain">
+      <HintPath>..\packages\Skahal.Infrastructure.Framework.Repositories.0.0.8\lib\Skahal.Infrastructure.Framework.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="Skahal.Infrastructure.Framework.Repositories">
+      <HintPath>..\packages\Skahal.Infrastructure.Framework.Repositories.0.0.8\lib\Skahal.Infrastructure.Framework.Repositories.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

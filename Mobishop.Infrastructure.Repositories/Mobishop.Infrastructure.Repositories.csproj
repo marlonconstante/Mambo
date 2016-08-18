@@ -38,19 +38,21 @@
     <Compile Include="Commons\IRestApiClient.cs" />
     <Compile Include="Old\Neemu\INeemuRepository.cs" />
     <Compile Include="Old\Neemu\NeemuClient.cs" />
-    <Compile Include="Old\Vtex\IVtexRepository.cs" />
-    <Compile Include="Old\Vtex\VtexClient.cs" />
-    <Compile Include="Old\Services\IProductService.cs" />
     <Compile Include="Old\Services\ISearchService.cs" />
     <Compile Include="Old\Services\ProductService.cs" />
     <Compile Include="Old\Services\SearchService.cs" />
     <Compile Include="Old\Repositories\IProductRepository.cs" />
     <Compile Include="Old\Repositories\ISearchRepository.cs" />
     <Compile Include="Old\Caching\Cached.cs" />
-    <Compile Include="Old\Http\HttpHandler.cs" />
     <Compile Include="Old\Http\IRestRepository.cs" />
     <Compile Include="Old\Http\PriorityRequest.cs" />
     <Compile Include="Old\Http\RestClient.cs" />
+    <Compile Include="Memory\MemoryProductRepository.cs" />
+    <Compile Include="Memory\MemoryShowcaseProductRepository.cs" />
+    <Compile Include="Vtex\Products\IVtexProductApi.cs" />
+    <Compile Include="Neemu\Showcase\INeemuShowcaseApi.cs" />
+    <Compile Include="Vtex\Products\VtexProductRepository.cs" />
+    <Compile Include="Neemu\Showcase\NeemuShowcaseProductRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commons\" />
@@ -58,11 +60,13 @@
     <Folder Include="Neemu\" />
     <Folder Include="Old\" />
     <Folder Include="Old\Neemu\" />
-    <Folder Include="Old\Vtex\" />
     <Folder Include="Old\Services\" />
     <Folder Include="Old\Repositories\" />
     <Folder Include="Old\Caching\" />
     <Folder Include="Old\Http\" />
+    <Folder Include="Memory\" />
+    <Folder Include="Vtex\Products\" />
+    <Folder Include="Neemu\Showcase\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="HelperSharp.PCL">
@@ -122,6 +126,15 @@
     <Reference Include="System.Net.Http.Extensions">
       <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="Polly">
+      <HintPath>..\packages\Polly.4.3.0\lib\portable-net45+netcore45+wpa81+wp8\Polly.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Connectivity">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.2.2.12\lib\portable-net45+wp80+wp81+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+Xamarin.Mac20+UAP10\Plugin.Connectivity.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Connectivity.Abstractions">
+      <HintPath>..\packages\Xam.Plugin.Connectivity.2.2.12\lib\portable-net45+wp80+wp81+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+Xamarin.Mac20+UAP10\Plugin.Connectivity.Abstractions.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -130,6 +143,10 @@
     <ProjectReference Include="..\Mobishop.Infrastructure.Framework\Mobishop.Infrastructure.Framework.csproj">
       <Project>{48F5EC4A-1F80-479B-A0A5-94CE5D990AD7}</Project>
       <Name>Mobishop.Infrastructure.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mobishop.Domain\Mobishop.Domain.csproj">
+      <Project>{2C41EDD7-38F6-4E9B-B710-B9B57E668602}</Project>
+      <Name>Mobishop.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

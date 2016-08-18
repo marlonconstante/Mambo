@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
 
-namespace Mobishop.Core.Logging
+namespace Mobishop.Infrastructure.Framework.Logging
 {
 	/// <summary>
 	/// Logger.

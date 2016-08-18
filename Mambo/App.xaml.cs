@@ -1,5 +1,7 @@
 ﻿using FreshMvvm;
 using Mambo.PageModels;
+using Skahal.Infrastructure.Framework.Repositories;
+using Splat;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -17,8 +19,7 @@ namespace Mambo
 		public App()
 		{
 			InitializeComponent();
-			AppBootstrapper.Initialize();
-
+			
 			var homePage = FreshPageModelResolver.ResolvePageModel<ProductSearchPageModel>();
 			MainPage = new FreshNavigationContainer(homePage);
 		}
@@ -28,16 +29,19 @@ namespace Mambo
 		/// </summary>
 		/// <returns>The start.</returns>
 		protected override void OnStart()
+        {
+            AppBootstrapper.Initialize();
+        }
+
+        /// <summary>
+        /// Ons the sleep.
+        /// </summary>
+        /// <returns>The sleep.</returns>
+        protected override void OnSleep()
 		{
 		}
 
-		/// <summary>
-		/// Ons the sleep.
-		/// </summary>
-		/// <returns>The sleep.</returns>
-		protected override void OnSleep()
-		{
-		}
+
 
 		/// <summary>
 		/// Ons the resume.
