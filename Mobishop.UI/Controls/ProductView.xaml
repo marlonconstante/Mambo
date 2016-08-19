@@ -24,6 +24,7 @@
 			<controls:PriceLabelView
 				x:Name="AmountLabel"
 				HorizontalOptions="Center"
+				TextColor="{StaticResource textColor}"
 				FontSize="Large">
 			</controls:PriceLabelView>
 		</StackLayout>
