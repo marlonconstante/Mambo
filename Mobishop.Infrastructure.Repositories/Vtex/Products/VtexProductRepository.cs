@@ -20,14 +20,16 @@ namespace Mobishop.Infrastructure.Repositories.Vtex.Products
 
         public async Task<IEnumerable<Product>> FindProductByNameAsync(string name, Priorities priority)
         {
-            return await BlobCache.LocalMachine.GetAndFetchLatest(
+            var result = await BlobCache.LocalMachine.GetAndFetchLatest(
                 Logger.GetMethodSignature(parameters: name),
                 async () => await FindProductByNameRemoteAsync(name, priority),
                  offset =>
                  {
                      TimeSpan elapsed = DateTimeOffset.Now - offset;
                      return elapsed > new TimeSpan(0, 30, 0);
-                 });
+                 }).FirstOrDefaultAsync();
+
+            return result ?? new List<Product>();
         }
 
         async Task<IEnumerable<Product>> FindProductByNameRemoteAsync(string name, Priorities priority)

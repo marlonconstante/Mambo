@@ -42,5 +42,15 @@ namespace Mobishop.Infrastructure.Repositories.FunctionalTests.Neemu.Showcase
             Assert.That(actual.Select(s => s.ToLower()), Has.All.Contains(name));
         }
 
+        [Test]
+        public async Task FindShowcaseProductSugestionsByNameAsync_XPTOXPO_EmptySuggestionList()
+        {
+            var name = "XPTOXPO";
+            var actual = await m_target.FindShowcaseProductSugestionsByNameAsync(name, Priorities.UserInitiated);
+
+            Assert.IsNotNull(actual);
+            Assert.AreEqual(0, actual.Count());
+        }
+
     }
 }

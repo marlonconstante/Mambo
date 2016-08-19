@@ -15,7 +15,7 @@ namespace Mobishop.Infrastructure.Repositories.Neemu.Showcase
 {
     public class NeemuShowcaseProductRepository : RestRepositoryBase<Product, INeemuShowcaseApi>, IShowcaseProductRepository
     {
-        string m_searchCacheKey = "NeemuShowcaseProductRepository.Search({name})";
+        string m_searchCacheKey = "NeemuShowcaseProductRepository.Search-";
 
 
         public NeemuShowcaseProductRepository(IUnitOfWork unitOfWork = null) : base(unitOfWork)
@@ -25,37 +25,38 @@ namespace Mobishop.Infrastructure.Repositories.Neemu.Showcase
 
         public async Task<IEnumerable<ShowcaseProduct>> FindShowcaseProductByNameAsync(string name, Priorities priority = Priorities.Background)
         {
-            return await BlobCache.LocalMachine.GetAndFetchLatest(
-                            string.Format(m_searchCacheKey, name),
-                            async () => await FindShowcaseProductByNameRemoteAsync(name, priority),
-                            offset =>
-                            {
-                                TimeSpan elapsed = DateTimeOffset.Now - offset;
-                                return elapsed > new TimeSpan(0, 30, 0);
-                            });
-        }
-
-        async Task<IEnumerable<ShowcaseProduct>> FindShowcaseProductByNameRemoteAsync(string name, Priorities priority = Priorities.Background)
-        {
-            return (await ExecuteApiRequest((arg) => GetClientWithPriority(priority).AutoComplete(name)))?.Products;
-        }
-
-        public async Task<IEnumerable<string>> FindShowcaseProductSugestionsByNameAsync(string name, Priorities priority = Priorities.Background)
-        {
-            return await BlobCache.LocalMachine.GetAndFetchLatest(
-                    m_searchCacheKey,
-                    async () => await FindShowcaseProductSugestionsByNameRemoteAsync(name, priority),
+            var searchResult = await BlobCache.LocalMachine.GetAndFetchLatest(
+                    string.Concat(m_searchCacheKey, name),
+                    async () => await FindSearchResultRemoteAsync(name, priority),
                     offset =>
                     {
                         TimeSpan elapsed = DateTimeOffset.Now - offset;
                         return elapsed > new TimeSpan(0, 30, 0);
-                    });
+                    }).FirstOrDefaultAsync();
+
+            return searchResult?.Products ?? new List<ShowcaseProduct>();
         }
 
-        async Task<IEnumerable<string>> FindShowcaseProductSugestionsByNameRemoteAsync(string name, Priorities priority = Priorities.Background)
+        async Task<SearchResult> FindSearchResultRemoteAsync(string name, Priorities priority = Priorities.Background)
         {
-            return (await ExecuteApiRequest(() => GetClientWithPriority(priority).AutoComplete(name)))?.Suggestions;
+            return (await ExecuteApiRequest((arg) => GetClientWithPriority(priority).AutoComplete(name)));
         }
+
+        public async Task<IEnumerable<string>> FindShowcaseProductSugestionsByNameAsync(string name, Priorities priority = Priorities.Background)
+        {
+            //return await FindShowcaseProductSugestionsByNameRemoteAsync(name, priority);
+            var searchResult = await BlobCache.LocalMachine.GetAndFetchLatest(
+                string.Concat(m_searchCacheKey, name),
+                async () => await FindSearchResultRemoteAsync(name, priority),
+                    offset =>
+                    {
+                        TimeSpan elapsed = DateTimeOffset.Now - offset;
+                        return elapsed > new TimeSpan(0, 30, 0);
+                    }).FirstOrDefaultAsync();
+
+            return searchResult?.Suggestions ?? new List<string>();
+        }
+
 
         Task<ShowcaseProduct> IRepository<ShowcaseProduct>.FindByAsync(object key, bool syncBeforeFind)
         {

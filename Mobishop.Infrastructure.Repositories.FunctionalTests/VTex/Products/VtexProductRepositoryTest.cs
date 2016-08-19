@@ -27,7 +27,16 @@ namespace Mobishop.Infrastructure.Repositories.FunctionalTests.VTex.Products
             var actual = await m_target.FindProductByNameAsync(name, Priorities.UserInitiated);
             Assert.That(actual.Select(p => p.Id), Has.All.GreaterThan(0L));
             Assert.That(actual.Select(p => p.Name.ToLower()), Has.All.Contains(name));
+        }
 
+        [Test]
+        public async Task FindProductByNameAsync_XPTOXPTO_EmptyProductList()
+        {
+            var name = "XPTOXPT";
+            var actual = await m_target.FindProductByNameAsync(name, Priorities.UserInitiated);
+
+            Assert.IsNotNull(actual);
+            Assert.AreEqual(0, actual.Count());
         }
 
         /// <summary>

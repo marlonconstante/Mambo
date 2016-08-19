@@ -10,6 +10,26 @@ namespace Mobishop.Domain.Products
         {
         }
 
+        [JsonProperty("productId")]
+        override public long Id
+        {
+            get;
+            set;
+        }
+
+        //public object Key
+        //{
+        //    get
+        //    {
+        //        return Id;
+        //    }
+
+        //    set
+        //    {
+        //        Id = (long)value;
+        //    }
+        //}
+
         /// <summary>
         /// Gets or sets the name.
         /// </summary>

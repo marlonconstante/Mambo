@@ -1,4 +1,5 @@
-﻿using Foundation;
+﻿using Akavache;
+using Foundation;
 using Mobishop.Infrastructure.Repositories.FunctionalTests.VTex.Products;
 using UIKit;
 
@@ -15,9 +16,11 @@ namespace Mobishop.Infrastructure.Repositories.FunctionalTests.iOS
         {
             global::Xamarin.Forms.Forms.Init();
 
+            BlobCache.ApplicationName = "MobiTests";
+
             var nunit = new NUnit.Runner.App
             {
-                AutoRun = true
+                AutoRun = false
             };
             nunit.AddTestAssembly(typeof(VtexProductRepositoryTest).Assembly);
             LoadApplication(nunit);
