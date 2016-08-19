@@ -1,4 +1,5 @@
-﻿using FreshMvvm;
+﻿using System.Globalization;
+using FreshMvvm;
 using Mambo.Services;
 using Mobishop.Core.Caching;
 
@@ -14,6 +15,7 @@ namespace Mambo
 		/// </summary>
 		public static void Initialize()
 		{
+			CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("pt-BR");
 			Cached.Initialize("Mambo");
 
 			FreshIOC.Container.Register<IProductService, ProductService>();
