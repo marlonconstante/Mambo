@@ -44,7 +44,9 @@ namespace Mambo.PageModels
 			searchTokenSource = new CancellationTokenSource();
 
 			SearchResultItems = new List<ObservableList<SearchViewModel>>();
-			SearchResultItems.Add(new ObservableList<SearchViewModel>());
+			SearchResultItems.Add(new ObservableList<SearchViewModel> {
+				GroupName = "Sugestões de Pesquisa"
+			});
 			SearchResultItems.Add(new ObservableList<SearchViewModel> {
 				GroupName = "Produtos Sugeridos"
 			});
