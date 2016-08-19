@@ -6,11 +6,11 @@
 	x:Class="Mambo.Pages.HomePage">
 	<ContentPage.Content>
 		<StackLayout>
-			<controls:ProductView
+			<controls:ProductThumbView
 				ImageSource="http://mambo.vteximg.com.br/arquivos/ids/169979-200-200/038000846106_salgadinho-de-batata-sabor-creme-e-cebola_pringles-40g_1.jpg"
 				Name="Batata Creme de Cebola Pringles Pote 40g"
 				Amount="3.99">
-			</controls:ProductView>
+			</controls:ProductThumbView>
 		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>

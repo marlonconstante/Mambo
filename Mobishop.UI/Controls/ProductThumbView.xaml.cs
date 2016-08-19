@@ -3,29 +3,29 @@
 namespace Mobishop.UI.Controls
 {
 	/// <summary>
-	/// Product view.
+	/// Product thumb view.
 	/// </summary>
-	public partial class ProductView : ContentView
+	public partial class ProductThumbView : ContentView
 	{
 		/// <summary>
 		/// The name property.
 		/// </summary>
-		public static readonly BindableProperty NameProperty = BindableProperty.Create(nameof(Name), typeof(string), typeof(ProductView), default(string), propertyChanged: NamePropertyChanged);
+		public static readonly BindableProperty NameProperty = BindableProperty.Create(nameof(Name), typeof(string), typeof(ProductThumbView), default(string), propertyChanged: NamePropertyChanged);
 
 		/// <summary>
 		/// The image source property.
 		/// </summary>
-		public static readonly BindableProperty ImageSourceProperty = BindableProperty.Create(nameof(ImageSource), typeof(ImageSource), typeof(ProductView), default(ImageSource), propertyChanged: ImageSourcePropertyChanged);
+		public static readonly BindableProperty ImageSourceProperty = BindableProperty.Create(nameof(ImageSource), typeof(ImageSource), typeof(ProductThumbView), default(ImageSource), propertyChanged: ImageSourcePropertyChanged);
 
 		/// <summary>
 		/// The amount property.
 		/// </summary>
-		public static readonly BindableProperty AmountProperty = BindableProperty.Create(nameof(Amount), typeof(double), typeof(ProductView), default(double), propertyChanged: AmountPropertyChanged);
+		public static readonly BindableProperty AmountProperty = BindableProperty.Create(nameof(Amount), typeof(double), typeof(ProductThumbView), default(double), propertyChanged: AmountPropertyChanged);
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="T:Mobishop.UI.Controls.ProductView"/> class.
+		/// Initializes a new instance of the <see cref="T:Mobishop.UI.Controls.ProductThumbView"/> class.
 		/// </summary>
-		public ProductView()
+		public ProductThumbView()
 		{
 			InitializeComponent();
 		}
@@ -38,7 +38,7 @@ namespace Mobishop.UI.Controls
 		/// <param name="newValue">New value.</param>
 		static void NamePropertyChanged(BindableObject bindable, object oldValue, object newValue)
 		{
-			var view = (ProductView) bindable;
+			var view = (ProductThumbView) bindable;
 			var name = (string) newValue;
 
 			view.NameLabel.Text = name;
@@ -52,7 +52,7 @@ namespace Mobishop.UI.Controls
 		/// <param name="newValue">New value.</param>
 		static void ImageSourcePropertyChanged(BindableObject bindable, object oldValue, object newValue)
 		{
-			var view = (ProductView) bindable;
+			var view = (ProductThumbView) bindable;
 			var imageSource = (ImageSource) newValue;
 
 			view.ImageView.Source = imageSource;
@@ -66,7 +66,7 @@ namespace Mobishop.UI.Controls
 		/// <param name="newValue">New value.</param>
 		static void AmountPropertyChanged(BindableObject bindable, object oldValue, object newValue)
 		{
-			var view = (ProductView) bindable;
+			var view = (ProductThumbView) bindable;
 			var amount = (double) newValue;
 
 			view.AmountLabel.Amount = amount;
