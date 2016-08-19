@@ -23,4 +23,16 @@
 		x:TypeArguments="x:String"
 		iOS="HelveticaNeue-Bold"
 		Android="sans-serif-black" />
+	<Color
+		x:Key="textColor">
+		#4d4d4d
+	</Color>
+	<Color
+		x:Key="separatorColor">
+		#cccccc
+	</Color>
+	<Color
+		x:Key="headerBackgroundColor">
+		#f5f5f5
+	</Color>
 </ResourceDictionary>
