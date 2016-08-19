@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Mobishop.Infrastructure.Framework.Repositories;
 using Splat;
 
 namespace Mobishop.Domain.Showcases
@@ -14,10 +15,16 @@ namespace Mobishop.Domain.Showcases
             m_showcaseProductRepository = showcaseProductRepository ?? Locator.Current.GetService<IShowcaseProductRepository>();
         }
 
-        public Task<IEnumerable<ShowcaseProduct>> GetShowcaseProductByName(string name)
+        public Task<IEnumerable<ShowcaseProduct>> GetShowcaseProductByNameAsync(string name, Priorities priority = Priorities.Background)
         {
             throw new NotImplementedException();
         }
+
+        public Task<IEnumerable<string>> GetShowcaseProductSugestionsByNameAsync(string name, Priorities priority = Priorities.Background)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }
 

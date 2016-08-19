@@ -43,7 +43,6 @@
       <DependentUpon>ProductSearchPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PageModels\ProductSearchPageModel.cs" />
-    <Compile Include="ViewModels\SearchViewModel.cs" />
     <Compile Include="DataTemplates\SearchDataTemplateSelector.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -136,7 +135,6 @@
   <ItemGroup>
     <Folder Include="Pages\" />
     <Folder Include="PageModels\" />
-    <Folder Include="ViewModels\" />
     <Folder Include="DataTemplates\" />
   </ItemGroup>
   <ItemGroup>

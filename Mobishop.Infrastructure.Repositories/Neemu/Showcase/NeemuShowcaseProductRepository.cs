@@ -15,7 +15,7 @@ namespace Mobishop.Infrastructure.Repositories.Neemu.Showcase
 {
     public class NeemuShowcaseProductRepository : RestRepositoryBase<Product, INeemuShowcaseApi>, IShowcaseProductRepository
     {
-        string m_searchCacheKey = "NeemuShowcaseProductRepository.Search({0})";
+        string m_searchCacheKey = "NeemuShowcaseProductRepository.Search({name})";
 
 
         public NeemuShowcaseProductRepository(IUnitOfWork unitOfWork = null) : base(unitOfWork)
@@ -43,7 +43,7 @@ namespace Mobishop.Infrastructure.Repositories.Neemu.Showcase
         public async Task<IEnumerable<string>> FindShowcaseProductSugestionsByNameAsync(string name, Priorities priority = Priorities.Background)
         {
             return await BlobCache.LocalMachine.GetAndFetchLatest(
-                    string.Format(m_searchCacheKey, name),
+                    m_searchCacheKey,
                     async () => await FindShowcaseProductSugestionsByNameRemoteAsync(name, priority),
                     offset =>
                     {

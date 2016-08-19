@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Mobishop.Infrastructure.Framework.Repositories;
 using Splat;
 
 namespace Mobishop.Domain.Products
@@ -14,7 +15,7 @@ namespace Mobishop.Domain.Products
             m_productRepository = productRepository ?? Locator.Current.GetService<IProductRepository>();
         }
 
-        public Task<IEnumerable<Product>> GetProductByName(string name)
+        public Task<IEnumerable<Product>> GetProductByNameAsync(string name, Priorities priority = Priorities.Background)
         {
             throw new NotImplementedException();
         }

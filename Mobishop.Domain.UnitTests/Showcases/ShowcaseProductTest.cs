@@ -62,14 +62,14 @@ namespace Mobishop.Domain.UnitTests.Showcases
         [Test]
         public async Task GetProductByName_Empty_EmptyList()
         {
-            var actual = await m_target.GetShowcaseProductByName("");
+            var actual = await m_target.GetShowcaseProductByNameAsync("");
             Assert.AreEqual(0, actual.Count());
         }
 
         [Test]
         public async Task GetProductByName_OneLetter_AllWordsWithThatLetter()
         {
-            var actual = await m_target.GetShowcaseProductByName("o");
+            var actual = await m_target.GetShowcaseProductByNameAsync("o");
             Assert.AreEqual(5, actual.Count());
             Assert.IsNotEmpty(actual.FirstOrDefault().Name);
         }
@@ -77,7 +77,7 @@ namespace Mobishop.Domain.UnitTests.Showcases
         [Test]
         public async Task GetProductByName_StartWith_AllWordsThatStartsWith()
         {
-            var actual = await m_target.GetShowcaseProductByName("Qu");
+            var actual = await m_target.GetShowcaseProductByNameAsync("Qu");
             Assert.AreEqual(2, actual.Count());
             Assert.IsNotEmpty(actual.FirstOrDefault().Name);
         }
@@ -85,7 +85,7 @@ namespace Mobishop.Domain.UnitTests.Showcases
         [Test]
         public async Task GetProductByName_EndWith_AllWordsThatSEndsWith()
         {
-            var actual = await m_target.GetShowcaseProductByName("ro");
+            var actual = await m_target.GetShowcaseProductByNameAsync("ro");
             Assert.AreEqual(2, actual.Count());
             Assert.IsNotEmpty(actual.FirstOrDefault().Name);
 
@@ -94,7 +94,7 @@ namespace Mobishop.Domain.UnitTests.Showcases
         [Test]
         public async Task GetProductByName_NonExistentWord_Empty()
         {
-            var actual = await m_target.GetShowcaseProductByName("Oitavo");
+            var actual = await m_target.GetShowcaseProductByNameAsync("Oitavo");
             Assert.AreEqual(0, actual.Count());
         }
     }

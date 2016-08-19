@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Mobishop.Domain.Products;
 using Mobishop.Infrastructure.Framework.Repositories;
@@ -24,7 +25,7 @@ namespace Mobishop.Infrastructure.Repositories.Memory
             s_lastKey = 0;
         }
 
-        public Task<Product> FindProductByName(string name, Priorities priority = Priorities.Background)
+        public Task<IEnumerable<Product>> FindProductByNameAsync(string name, Priorities priority = Priorities.Background)
         {
             throw new NotImplementedException();
         }

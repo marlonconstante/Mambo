@@ -65,6 +65,10 @@
       <Project>{D9C41D40-CBA7-4ABE-98B3-F4FA97E79B14}</Project>
       <Name>Mobishop.Infrastructure.Repositories</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Mobishop.Infrastructure.Framework\Mobishop.Infrastructure.Framework.csproj">
+      <Project>{48F5EC4A-1F80-479B-A0A5-94CE5D990AD7}</Project>
+      <Name>Mobishop.Infrastructure.Framework</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
