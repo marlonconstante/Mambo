@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using NControl.Controls.Droid;
 
 namespace Mambo.Android
 {
@@ -23,6 +24,7 @@ namespace Mambo.Android
 			base.OnCreate(bundle);
 
 			global::Xamarin.Forms.Forms.Init(this, bundle);
+			NControls.Init();
 
 			LoadApplication(new App());
 		}
