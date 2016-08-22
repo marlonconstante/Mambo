@@ -31,10 +31,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Models\Product.cs" />
-    <Compile Include="Services\ProductService.cs" />
-    <Compile Include="Services\IProductService.cs" />
-    <Compile Include="Repositories\IProductRepository.cs" />
     <Compile Include="AppBootstrapper.cs" />
     <Compile Include="Pages\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
@@ -43,30 +39,14 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Models\ProductSuggestion.cs" />
-    <Compile Include="Models\SearchResult.cs" />
-    <Compile Include="Models\Suggestion.cs" />
-    <Compile Include="Vtex\VtexClient.cs" />
-    <Compile Include="Vtex\IVtexRepository.cs" />
-    <Compile Include="Neemu\NeemuClient.cs" />
-    <Compile Include="Neemu\INeemuRepository.cs" />
-    <Compile Include="Repositories\ISearchRepository.cs" />
-    <Compile Include="Services\ISearchService.cs" />
-    <Compile Include="Services\SearchService.cs" />
     <Compile Include="Pages\ProductSearchPage.xaml.cs">
       <DependentUpon>ProductSearchPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PageModels\ProductSearchPageModel.cs" />
-    <Compile Include="ViewModels\SearchViewModel.cs" />
     <Compile Include="DataTemplates\SearchDataTemplateSelector.cs" />
+    <Compile Include="ViewModels\SearchViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Refit">
-      <HintPath>..\packages\refit.2.4.1\lib\Portable-Net45+NetCore45+WP8+WPA81\Refit.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="ModernHttpClient">
       <HintPath>..\packages\modernhttpclient.2.4.2\lib\Portable-Net45+WinRT45+WP8+WPA81\ModernHttpClient.dll</HintPath>
     </Reference>
@@ -136,30 +116,45 @@
     <Reference Include="FreshMvvm">
       <HintPath>..\packages\FreshMvvm.2.2.0\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\FreshMvvm.dll</HintPath>
     </Reference>
+    <Reference Include="Splat">
+      <HintPath>..\packages\Splat.1.6.2\lib\Portable-net45+win+wpa81+wp80\Splat.dll</HintPath>
+    </Reference>
+    <Reference Include="HelperSharp.PCL">
+      <HintPath>..\packages\Skahal.Infrastructure.Framework.Repositories.0.0.8\lib\HelperSharp.PCL.dll</HintPath>
+    </Reference>
+    <Reference Include="Skahal.Infrastructure.Framework.Repositories">
+      <HintPath>..\packages\Skahal.Infrastructure.Framework.Repositories.0.0.8\lib\Skahal.Infrastructure.Framework.Repositories.dll</HintPath>
+    </Reference>
+    <Reference Include="Skahal.Infrastructure.Framework.Domain">
+      <HintPath>..\packages\Skahal.Infrastructure.Framework.Domain.1.0.0\lib\Skahal.Infrastructure.Framework.Domain.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="FodyWeavers.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Services\" />
-    <Folder Include="Models\" />
-    <Folder Include="Repositories\" />
     <Folder Include="Pages\" />
     <Folder Include="PageModels\" />
-    <Folder Include="Vtex\" />
-    <Folder Include="Neemu\" />
-    <Folder Include="ViewModels\" />
     <Folder Include="DataTemplates\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Mobishop.Core\Mobishop.Core.csproj">
-      <Project>{75D10ED0-B784-4BAB-81E1-792D88126078}</Project>
-      <Name>Mobishop.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Mobishop.UI\Mobishop.UI.csproj">
       <Project>{EBF47729-9702-455F-9CD7-B608B2C68BA3}</Project>
       <Name>Mobishop.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mobishop.Domain\Mobishop.Domain.csproj">
+      <Project>{2C41EDD7-38F6-4E9B-B710-B9B57E668602}</Project>
+      <Name>Mobishop.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mobishop.Infrastructure.Framework\Mobishop.Infrastructure.Framework.csproj">
+      <Project>{48F5EC4A-1F80-479B-A0A5-94CE5D990AD7}</Project>
+      <Name>Mobishop.Infrastructure.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mobishop.Infrastructure.Repositories\Mobishop.Infrastructure.Repositories.csproj">
+      <Project>{D9C41D40-CBA7-4ABE-98B3-F4FA97E79B14}</Project>
+      <Name>Mobishop.Infrastructure.Repositories</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -175,7 +170,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.3.0.107\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.0.107\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
-  <Import Project="..\packages\refit.2.4.1\build\portable-net45+netcore45+wp8+wpa81+monoandroid+xamarin.ios10\refit.targets" Condition="Exists('..\packages\refit.2.4.1\build\portable-net45+netcore45+wp8+wpa81+monoandroid+xamarin.ios10\refit.targets')" />
   <Import Project="..\packages\Fody.1.29.2\build\portable-net+sl+win+wpa+wp\Fody.targets" Condition="Exists('..\packages\Fody.1.29.2\build\portable-net+sl+win+wpa+wp\Fody.targets')" />
   <Import Project="..\packages\Fody.1.29.4\build\portable-net+sl+win+wpa+wp\Fody.targets" Condition="Exists('..\packages\Fody.1.29.4\build\portable-net+sl+win+wpa+wp\Fody.targets')" />
   <Import Project="..\packages\Xamarin.Forms.2.3.1.114\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.1.114\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />

@@ -9,7 +9,7 @@
 			<DataTemplate
 				x:Key="suggestionTemplate">
 				<TextCell
-					Text="{Binding Suggestion.Query}">
+					Text="{Binding Suggestion}">
 				</TextCell>
 			</DataTemplate>
 			<DataTemplate

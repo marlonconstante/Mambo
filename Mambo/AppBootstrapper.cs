@@ -1,7 +1,9 @@
-﻿using System.Globalization;
-using FreshMvvm;
-using Mambo.Services;
-using Mobishop.Core.Caching;
+﻿using Mobishop.Core.Caching;
+using Mobishop.Domain.Products;
+using Mobishop.Domain.Showcases;
+using Mobishop.Infrastructure.Repositories.Memory;
+using Skahal.Infrastructure.Framework.Repositories;
+using Splat;
 
 namespace Mambo
 {
@@ -15,11 +17,12 @@ namespace Mambo
 		/// </summary>
 		public static void Initialize()
 		{
-			CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("pt-BR");
 			Cached.Initialize("Mambo");
 
-			FreshIOC.Container.Register<IProductService, ProductService>();
-			FreshIOC.Container.Register<ISearchService, SearchService>();
+			 var unitOfWork = new MemoryUnitOfWork();
+            Locator.CurrentMutable.RegisterLazySingleton(() => new MemoryUnitOfWork(), typeof(IUnitOfWork));
+            Locator.CurrentMutable.RegisterConstant(new MemoryProductRepository(unitOfWork), typeof(IProductRepository));
+            Locator.CurrentMutable.RegisterConstant(new MemoryShowcaseProductRepository(unitOfWork), typeof(IShowcaseProductRepository));
 		}
 	}
 }
