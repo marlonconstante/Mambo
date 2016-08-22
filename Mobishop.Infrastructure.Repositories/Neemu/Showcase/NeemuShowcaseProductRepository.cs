@@ -44,7 +44,6 @@ namespace Mobishop.Infrastructure.Repositories.Neemu.Showcase
 
         public async Task<IEnumerable<string>> FindShowcaseProductSugestionsByNameAsync(string name, Priorities priority = Priorities.Background)
         {
-            //return await FindShowcaseProductSugestionsByNameRemoteAsync(name, priority);
             var searchResult = await BlobCache.LocalMachine.GetAndFetchLatest(
                 string.Concat(m_searchCacheKey, name),
                 async () => await FindSearchResultRemoteAsync(name, priority),
