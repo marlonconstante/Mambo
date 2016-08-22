@@ -3,20 +3,84 @@
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	xmlns:templates="clr-namespace:Mambo.DataTemplates;assembly=Mambo"
+	xmlns:themes="clr-namespace:Mobishop.UI.Themes;assembly=Mobishop.UI"
+	xmlns:ncontrols="clr-namespace:NControl.Controls;assembly=NControl.Controls"
+	xmlns:controls="clr-namespace:Mobishop.UI.Controls;assembly=Mobishop.UI"
 	x:Class="Mambo.Pages.ProductSearchPage">
 	<ContentPage.Resources>
-		<ResourceDictionary>
+		<ResourceDictionary
+			MergedWith="themes:Standard">
+			<DataTemplate
+				x:Key="groupHeaderTemplate">
+				<ViewCell
+					Height="34">
+					<controls:GroupHeaderView
+						Title="{Binding GroupName}">
+					</controls:GroupHeaderView>
+				</ViewCell>
+			</DataTemplate>
 			<DataTemplate
 				x:Key="suggestionTemplate">
-				<TextCell
-					Text="{Binding Suggestion.Query}">
-				</TextCell>
+				<ViewCell>
+					<StackLayout
+						Orientation="Horizontal"
+						Spacing="10"
+						Padding="15, 10, 5, 10">
+						<ncontrols:FontMaterialDesignLabel
+							Text="{x:Static ncontrols:FontMaterialDesignLabel.MDSearch}"
+							TextColor="{StaticResource textColor}"
+							FontSize="Large">
+						</ncontrols:FontMaterialDesignLabel>
+						<Label
+							VerticalTextAlignment="Center"
+							Text="{Binding Suggestion.Query}"
+							TextColor="{StaticResource textColor}"
+							FontFamily="{StaticResource fontFamilyRegular}"
+							FontSize="Medium">
+						</Label>
+					</StackLayout>
+				</ViewCell>
 			</DataTemplate>
 			<DataTemplate
 				x:Key="productTemplate">
-				<TextCell
-					Text="{Binding Product.Description}">
-				</TextCell>
+				<ViewCell>
+					<Grid
+						ColumnSpacing="10"
+						Padding="15, 10, 5, 10">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition
+								Width="Auto" />
+							<ColumnDefinition
+								Width="*" />
+							<ColumnDefinition
+								Width="Auto" />
+						</Grid.ColumnDefinitions>
+						<Image
+							Grid.Row="0"
+							Grid.Column="0"
+							WidthRequest="80"
+							HeightRequest="80"
+							Source="{Binding Product.ImageUrl}">
+						</Image>
+						<Label
+							Grid.Row="0"
+							Grid.Column="1"
+							VerticalTextAlignment="Center"
+							Text="{Binding Product.Description}"
+							TextColor="{StaticResource textColor}"
+							FontFamily="{StaticResource fontFamilyRegular}"
+							FontSize="Small">
+						</Label>
+						<controls:PriceLabelView
+							Grid.Row="0"
+							Grid.Column="2"
+							VerticalOptions="Center"
+							Amount="{Binding Product.CurrentPrice}"
+							TextColor="{StaticResource textColor}"
+							FontSize="Large">
+						</controls:PriceLabelView>
+					</Grid>
+				</ViewCell>
 			</DataTemplate>
 			<templates:SearchDataTemplateSelector
 				x:Key="searchDataTemplateSelector"
@@ -26,11 +90,13 @@
 		</ResourceDictionary>
 	</ContentPage.Resources>
 	<ContentPage.Content>
-		<StackLayout>
+		<StackLayout
+			Spacing="0">
 			<SearchBar
 				Text="{Binding SearchText}">
 			</SearchBar>
 			<ListView
+				HasUnevenRows="true"
 				IsGroupingEnabled="true"
 				GroupHeaderTemplate="{StaticResource groupHeaderTemplate}"
 				ItemTemplate="{StaticResource searchDataTemplateSelector}"
