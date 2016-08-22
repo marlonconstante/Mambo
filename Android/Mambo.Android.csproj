@@ -156,6 +156,9 @@
     <Reference Include="NControl.Controls">
       <HintPath>..\packages\NControl.Controls.0.9.3.3\lib\MonoAndroid10\NControl.Controls.dll</HintPath>
     </Reference>
+    <Reference Include="ReactiveUI">
+      <HintPath>..\packages\reactiveui-core.7.0.0.1467085873\lib\MonoAndroid403\ReactiveUI.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Mambo\Mambo.csproj">

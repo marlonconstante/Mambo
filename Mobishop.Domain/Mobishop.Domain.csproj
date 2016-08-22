@@ -39,16 +39,12 @@
     <Compile Include="Showcases\ShowcaseService.cs" />
     <Compile Include="Products\IProductRepository.cs" />
     <Compile Include="Showcases\IShowcaseProductRepository.cs" />
-    <Compile Include="Showcases\SearchResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Products\" />
     <Folder Include="Showcases\" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="Splat">
       <HintPath>..\packages\Splat.1.6.2\lib\Portable-net45+win+wpa81+wp80\Splat.dll</HintPath>
     </Reference>

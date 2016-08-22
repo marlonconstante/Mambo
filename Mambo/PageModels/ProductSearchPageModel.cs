@@ -1,8 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Reactive;
+using System.Reactive.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Windows.Input;
 using FreshMvvm;
 using Mambo.ViewModels;
 using Mobishop.Domain.Showcases;
@@ -10,7 +13,7 @@ using Mobishop.Infrastructure.Framework.Collections;
 using Mobishop.Infrastructure.Framework.Repositories;
 using Mobishop.UI.Tasks;
 using PropertyChanged;
-using Xamarin.Forms;
+using ReactiveUI;
 
 namespace Mambo.PageModels
 {
@@ -53,45 +56,64 @@ namespace Mambo.PageModels
                 GroupName = "Produtos Sugeridos"
             });
 
-            SearchCommand = new Command(OnSearchTextChanged);
+            ShowSuggestionsCommand = ReactiveCommand.CreateFromTask<string, IEnumerable<SearchViewModel>>((arg1) => GetSuggestions(arg1));
+            ShowSuggestionsCommand
+                .SubscribeOn(RxApp.MainThreadScheduler)
+                .Subscribe(l => AddSuggestionsToList(l));
+
+            ShowProductsCommand = ReactiveCommand.CreateFromTask<string, IEnumerable<SearchViewModel>>((arg1) => GetProducts(arg1));
+            ShowProductsCommand
+                .SubscribeOn(RxApp.MainThreadScheduler)
+                .Subscribe(l => AddProductsToList(l));
+
+            this
+                .WhenAnyValue(x => x.SearchText)
+                .Throttle(TimeSpan.FromMilliseconds(400), RxApp.MainThreadScheduler)
+                .Select(x => x?.Trim())
+                .DistinctUntilChanged()
+                .Where(x => !String.IsNullOrWhiteSpace(x))
+                .InvokeCommand(ShowSuggestionsCommand);
+
+            this
+                .WhenAnyValue(x => x.SearchText)
+                .Throttle(TimeSpan.FromMilliseconds(800), RxApp.MainThreadScheduler)
+                .Select(x => x?.Trim())
+                .DistinctUntilChanged()
+                .Where(x => !String.IsNullOrWhiteSpace(x))
+                .InvokeCommand(ShowProductsCommand);
+
+            Observable
+                .Merge(ShowSuggestionsCommand.ThrownExceptions, ShowProductsCommand.ThrownExceptions)
+               .SubscribeOn(RxApp.MainThreadScheduler)
+               .Subscribe(ex =>
+               {
+                   Debug.WriteLine(ex.Message);
+               });
+
         }
 
-        /// <summary>
-        /// Ons the search text changed.
-        /// </summary>
-        public async void OnSearchTextChanged()
+        void AddSuggestionsToList(IEnumerable<SearchViewModel> suggestions)
         {
-            await UITaskHandler.Execute(() => SearchProducts(SearchText));
+            Suggestions.Clear();
+            Suggestions.AddRange(suggestions);
         }
 
-        /// <summary>
-        /// Searchs the products.
-        /// </summary>
-        /// <returns>The products.</returns>
-        /// <param name="text">Text.</param>
-        async Task SearchProducts(string text)
+        void AddProductsToList(IEnumerable<SearchViewModel> products)
         {
-            try
-            {
-                Suggestions.Clear();
-                Products.Clear();
+            Products.Clear();
+            Products.AddRange(products);
+        }
 
-                Interlocked.Exchange(ref searchTokenSource, new CancellationTokenSource()).Cancel();
+        async Task<IEnumerable<SearchViewModel>> GetSuggestions(string text)
+        {
+            var suggestions = await m_showcaseService.GetShowcaseProductSugestionsByNameAsync(text, Priorities.UserInitiated).ConfigureAwait(false);
+            return suggestions.Select(s => new SearchViewModel(s));
+        }
 
-                await Task.Delay(SearchMillisecondsDelay, searchTokenSource.Token).ConfigureAwait(false);
-                if (!searchTokenSource.IsCancellationRequested)
-                {
-                    // Pesquisando produto
-                    var suggestions = await m_showcaseService.GetShowcaseProductSugestionsByNameAsync(text, Priorities.UserInitiated).ConfigureAwait(false);
-                    Suggestions.AddRange(suggestions.Select(s => new SearchViewModel(s)));
-                    var products = await m_showcaseService.GetShowcaseProductByNameAsync(text, Priorities.UserInitiated).ConfigureAwait(false);
-                    Products.AddRange(products.Select(p => new SearchViewModel(p)));
-                }
-            }
-            catch (TaskCanceledException)
-            {
-                // Pesquisa cancelada...
-            }
+        async Task<IEnumerable<SearchViewModel>> GetProducts(string text)
+        {
+            var products = await m_showcaseService.GetShowcaseProductByNameAsync(text, Priorities.UserInitiated).ConfigureAwait(false);
+            return products.Select(p => new SearchViewModel(p));
         }
 
         /// <summary>
@@ -139,10 +161,20 @@ namespace Mambo.PageModels
         }
 
         /// <summary>
-        /// Gets the search command.
+        /// Gets the show suggestions command.
         /// </summary>
-        /// <value>The search command.</value>
-        public ICommand SearchCommand
+        /// <value>The show suggestions command.</value>
+        public ReactiveCommand<string, IEnumerable<SearchViewModel>> ShowSuggestionsCommand
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Gets the show products command.
+        /// </summary>
+        /// <value>The show products command.</value>
+        public ReactiveCommand<string, IEnumerable<SearchViewModel>> ShowProductsCommand
         {
             get;
             private set;

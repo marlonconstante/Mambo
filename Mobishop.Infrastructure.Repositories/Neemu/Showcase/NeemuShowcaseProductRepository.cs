@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Akavache;
 using Mobishop.Domain.Products;
 using Mobishop.Domain.Showcases;
-using Mobishop.Infrastructure.Framework.Logging;
 using Mobishop.Infrastructure.Framework.Repositories;
 using Mobishop.Infrastructure.Repositories.Commons;
 using Skahal.Infrastructure.Framework.Repositories;
@@ -25,9 +24,12 @@ namespace Mobishop.Infrastructure.Repositories.Neemu.Showcase
 
         public async Task<IEnumerable<ShowcaseProduct>> FindShowcaseProductByNameAsync(string name, Priorities priority = Priorities.Background)
         {
-            var searchResult = await BlobCache.LocalMachine.GetAndFetchLatest(
+            var searchResult = await BlobCache.LocalMachine.GetAndFetchLatest<NeemuSearchResult>(
                     string.Concat(m_searchCacheKey, name),
-                    async () => await FindSearchResultRemoteAsync(name, priority),
+                    async () =>
+                    {
+                        return await FindSearchResultRemoteAsync(name, priority);
+                    },
                     offset =>
                     {
                         TimeSpan elapsed = DateTimeOffset.Now - offset;
@@ -37,16 +39,20 @@ namespace Mobishop.Infrastructure.Repositories.Neemu.Showcase
             return searchResult?.Products ?? new List<ShowcaseProduct>();
         }
 
-        async Task<SearchResult> FindSearchResultRemoteAsync(string name, Priorities priority = Priorities.Background)
+        async Task<NeemuSearchResult> FindSearchResultRemoteAsync(string name, Priorities priority = Priorities.Background)
         {
-            return (await ExecuteApiRequest((arg) => GetClientWithPriority(priority).AutoComplete(name)));
+            var results = await ExecuteApiRequest((arg) => GetClientWithPriority(priority).AutoComplete(name));
+            return results;
         }
 
         public async Task<IEnumerable<string>> FindShowcaseProductSugestionsByNameAsync(string name, Priorities priority = Priorities.Background)
         {
             var searchResult = await BlobCache.LocalMachine.GetAndFetchLatest(
                 string.Concat(m_searchCacheKey, name),
-                async () => await FindSearchResultRemoteAsync(name, priority),
+                async () =>
+                    {
+                        return await FindSearchResultRemoteAsync(name, priority);
+                    },
                     offset =>
                     {
                         TimeSpan elapsed = DateTimeOffset.Now - offset;

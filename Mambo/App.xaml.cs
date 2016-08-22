@@ -19,7 +19,7 @@ namespace Mambo
 		public App()
 		{
 			InitializeComponent();
-			
+            AppBootstrapper.Initialize();
 			var homePage = FreshPageModelResolver.ResolvePageModel<ProductSearchPageModel>();
 			MainPage = new FreshNavigationContainer(homePage);
 		}
@@ -30,7 +30,7 @@ namespace Mambo
 		/// <returns>The start.</returns>
 		protected override void OnStart()
         {
-            AppBootstrapper.Initialize();
+
         }
 
         /// <summary>

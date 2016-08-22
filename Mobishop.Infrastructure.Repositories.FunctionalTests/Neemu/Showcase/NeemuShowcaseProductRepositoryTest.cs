@@ -39,6 +39,7 @@ namespace Mobishop.Infrastructure.Repositories.FunctionalTests.Neemu.Showcase
             var name = "carne";
             var actual = await m_target.FindShowcaseProductSugestionsByNameAsync(name, Priorities.UserInitiated);
 
+            Assert.IsTrue(actual.Count() > 0);
             Assert.That(actual.Select(s => s.ToLower()), Has.All.Contains(name));
         }
 
@@ -50,6 +51,24 @@ namespace Mobishop.Infrastructure.Repositories.FunctionalTests.Neemu.Showcase
 
             Assert.IsNotNull(actual);
             Assert.AreEqual(0, actual.Count());
+        }
+
+        [Test]
+        public async Task FindProductAndUseCacheToFindSuggestion_Carne_ProductsAndSuggestions()
+        {
+            var name = "carne";
+            var actual = await m_target.FindShowcaseProductByNameAsync(name, Priorities.UserInitiated);
+
+            Assert.That(actual.Select(p => p.Id), Has.All.GreaterThan(0L));
+            Assert.That(actual.Select(p => p.Description.ToLower()), Has.All.Contains(name));
+            Assert.That(actual.Select(p => p.PreviousPrice), Has.All.GreaterThan(0d));
+            Assert.That(actual.Select(p => p.CurrentPrice), Has.All.GreaterThan(0d));
+            Assert.That(actual.Select(p => p.ImageUrl), Has.All.Not.Empty);
+       
+            var actual2 = await m_target.FindShowcaseProductSugestionsByNameAsync(name, Priorities.UserInitiated);
+
+            Assert.IsTrue(actual2.Count() > 0);
+            Assert.That(actual2.Select(s => s.ToLower()), Has.All.Contains(name));
         }
 
     }

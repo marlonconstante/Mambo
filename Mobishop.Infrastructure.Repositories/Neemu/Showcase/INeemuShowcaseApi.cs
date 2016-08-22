@@ -14,7 +14,7 @@ namespace Mobishop.Infrastructure.Repositories.Neemu.Showcase
         /// <returns>The complete.</returns>
         /// <param name="query">Query.</param>
         [Get("/autocomplete/search?q={query}&type=1")]
-        Task<SearchResult> AutoComplete(string query);
+        Task<NeemuSearchResult> AutoComplete(string query);
     }
 }
 
