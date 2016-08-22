@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Mobishop.Domain.Showcases;
 using Mobishop.Infrastructure.Framework.Repositories;
@@ -27,12 +28,23 @@ namespace Mobishop.Infrastructure.Repositories.Memory
 
         public Task<IEnumerable<ShowcaseProduct>> FindShowcaseProductByNameAsync(string name, Priorities priority = Priorities.Background)
         {
-            throw new NotImplementedException();
+            IEnumerable<ShowcaseProduct> results = new List<ShowcaseProduct>();
+            results = Entities.Where(p => p.Name.Contains(name) && !string.IsNullOrWhiteSpace(name));
+
+            return Task.FromResult(results);
         }
 
         public Task<IEnumerable<string>> FindShowcaseProductSugestionsByNameAsync(string name, Priorities priority = Priorities.Background)
         {
-            throw new NotImplementedException();
+            IList<string> results = new List<string>();
+            if (!string.IsNullOrWhiteSpace(name))
+            {
+                results.Add(name);
+
+                results.Add("Suggestion 1");
+            }
+
+            return Task.FromResult((IEnumerable<string>)results);
         }
     }
 }

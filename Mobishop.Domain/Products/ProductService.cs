@@ -15,9 +15,9 @@ namespace Mobishop.Domain.Products
             m_productRepository = productRepository ?? Locator.Current.GetService<IProductRepository>();
         }
 
-        public Task<IEnumerable<Product>> GetProductByNameAsync(string name, Priorities priority = Priorities.Background)
+        public async Task<IEnumerable<Product>> GetProductByNameAsync(string name, Priorities priority = Priorities.Background)
         {
-            throw new NotImplementedException();
+            return await m_productRepository.FindProductByNameAsync(name, priority);
         }
     }
 }

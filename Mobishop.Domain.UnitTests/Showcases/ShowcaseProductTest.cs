@@ -16,44 +16,44 @@ namespace Mobishop.Domain.UnitTests.Showcases
         ShowcaseService m_target;
 
         [SetUp]
-        public async Task Setup()
+        public void Setup()
         {
             var unitOfWork = new MemoryUnitOfWork();
             Locator.CurrentMutable.RegisterLazySingleton(() => unitOfWork, typeof(IUnitOfWork));
             var repository = new MemoryShowcaseProductRepository(unitOfWork);
-            Locator.CurrentMutable.RegisterConstant(repository, typeof(IProductRepository));
+            Locator.CurrentMutable.RegisterConstant(repository, typeof(IShowcaseProductRepository));
 
-            await repository.Attach(new ShowcaseProduct
+            repository.Attach(new ShowcaseProduct
             {
                 Id = 1,
                 Name = "Primeiro"
             });
 
-            await repository.Attach(new ShowcaseProduct
+            repository.Attach(new ShowcaseProduct
             {
                 Id = 2,
                 Name = "Segundo"
             });
 
-            await repository.Attach(new ShowcaseProduct
+            repository.Attach(new ShowcaseProduct
             {
                 Id = 3,
                 Name = "Terceiro"
             });
 
-            await repository.Attach(new ShowcaseProduct
+            repository.Attach(new ShowcaseProduct
             {
                 Id = 4,
                 Name = "Quarto"
             });
 
-            await repository.Attach(new ShowcaseProduct
+            repository.Attach(new ShowcaseProduct
             {
                 Id = 5,
                 Name = "Quinto"
             });
 
-            await unitOfWork.CommitAsync();
+            unitOfWork.CommitAsync();
 
 
             m_target = new ShowcaseService();
@@ -96,6 +96,20 @@ namespace Mobishop.Domain.UnitTests.Showcases
         {
             var actual = await m_target.GetShowcaseProductByNameAsync("Oitavo");
             Assert.AreEqual(0, actual.Count());
+        }
+
+        [Test]
+        public async Task FindShowcaseProductSugestionsByNameAsync_Empty_EmptyList()
+        {
+            var actual = await m_target.GetShowcaseProductSugestionsByNameAsync("");
+            Assert.AreEqual(0, actual.Count());
+        }
+
+        [Test]
+        public async Task FindShowcaseProductSugestionsByNameAsync_Test1_2Suggestions()
+        {
+            var actual = await m_target.GetShowcaseProductSugestionsByNameAsync("Test1");
+            Assert.AreEqual(2, actual.Count());
         }
     }
 }

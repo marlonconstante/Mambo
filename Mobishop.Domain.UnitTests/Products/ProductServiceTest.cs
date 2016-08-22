@@ -15,44 +15,44 @@ namespace Mobishop.Domain.UnitTests.Products
         ProductService m_target;
 
         [SetUp]
-        public async Task Setup()
+        public void Setup()
         {
             var unitOfWork = new MemoryUnitOfWork();
             Locator.CurrentMutable.RegisterLazySingleton(() => unitOfWork, typeof(IUnitOfWork));
             var repository = new MemoryProductRepository(unitOfWork);
             Locator.CurrentMutable.RegisterConstant(repository, typeof(IProductRepository));
 
-            await repository.Attach(new Product
+            repository.Attach(new Product
             {
                 Id = 1,
                 Name = "Primeiro"
             });
 
-            await repository.Attach(new Product
+            repository.Attach(new Product
             {
                 Id = 2,
                 Name = "Segundo"
             });
 
-            await repository.Attach(new Product
+            repository.Attach(new Product
             {
                 Id = 3,
                 Name = "Terceiro"
             });
 
-            await repository.Attach(new Product
+            repository.Attach(new Product
             {
                 Id = 4,
                 Name = "Quarto"
             });
 
-            await repository.Attach(new Product
+            repository.Attach(new Product
             {
                 Id = 5,
                 Name = "Quinto"
             });
 
-            await unitOfWork.CommitAsync();
+            unitOfWork.CommitAsync();
 
 
             m_target = new ProductService();

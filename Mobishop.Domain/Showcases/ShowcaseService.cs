@@ -15,14 +15,14 @@ namespace Mobishop.Domain.Showcases
             m_showcaseProductRepository = showcaseProductRepository ?? Locator.Current.GetService<IShowcaseProductRepository>();
         }
 
-        public Task<IEnumerable<ShowcaseProduct>> GetShowcaseProductByNameAsync(string name, Priorities priority = Priorities.Background)
+        public async Task<IEnumerable<ShowcaseProduct>> GetShowcaseProductByNameAsync(string name, Priorities priority = Priorities.Background)
         {
-            throw new NotImplementedException();
+            return await m_showcaseProductRepository.FindShowcaseProductByNameAsync(name, priority);
         }
 
-        public Task<IEnumerable<string>> GetShowcaseProductSugestionsByNameAsync(string name, Priorities priority = Priorities.Background)
+        public async Task<IEnumerable<string>> GetShowcaseProductSugestionsByNameAsync(string name, Priorities priority = Priorities.Background)
         {
-            throw new NotImplementedException();
+            return await m_showcaseProductRepository.FindShowcaseProductSugestionsByNameAsync(name, priority);
         }
 
     }
