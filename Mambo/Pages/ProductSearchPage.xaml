@@ -6,6 +6,7 @@
 	xmlns:themes="clr-namespace:Mobishop.UI.Themes;assembly=Mobishop.UI"
 	xmlns:ncontrols="clr-namespace:NControl.Controls;assembly=NControl.Controls"
 	xmlns:controls="clr-namespace:Mobishop.UI.Controls;assembly=Mobishop.UI"
+	x:Name="productSearchPage"
 	x:Class="Mambo.Pages.ProductSearchPage">
 	<ContentPage.Resources>
 		<ResourceDictionary
@@ -26,6 +27,11 @@
 						Orientation="Horizontal"
 						Spacing="10"
 						Padding="15, 10, 5, 10">
+						<StackLayout.GestureRecognizers>
+							<TapGestureRecognizer
+								Command="{Binding Path=BindingContext.SearchSuggestionCommand, Source={x:Reference productSearchPage}}"
+								CommandParameter="{Binding Suggestion.Query}" />
+						</StackLayout.GestureRecognizers>
 						<ncontrols:FontMaterialDesignLabel
 							Text="{x:Static ncontrols:FontMaterialDesignLabel.MDSearch}"
 							TextColor="{StaticResource textColor}"

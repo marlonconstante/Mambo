@@ -52,6 +52,16 @@ namespace Mambo.PageModels
 			});
 
 			SearchCommand = new Command(OnSearchTextChanged);
+			SearchSuggestionCommand = new Command<string>(OnSearchSuggestion);
+		}
+
+		/// <summary>
+		/// Ons the search suggestion.
+		/// </summary>
+		/// <param name="query">Query.</param>
+		public void OnSearchSuggestion(string query)
+		{
+			SearchText = query;
 		}
 
 		/// <summary>
@@ -137,6 +147,15 @@ namespace Mambo.PageModels
 		/// </summary>
 		/// <value>The search command.</value>
 		public ICommand SearchCommand {
+			get;
+			private set;
+		}
+
+		/// <summary>
+		/// Gets the search suggestion command.
+		/// </summary>
+		/// <value>The search suggestion command.</value>
+		public ICommand SearchSuggestionCommand {
 			get;
 			private set;
 		}
