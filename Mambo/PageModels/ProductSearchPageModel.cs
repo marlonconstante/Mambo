@@ -51,23 +51,10 @@ namespace Mambo.PageModels
                 GroupName = "Produtos Sugeridos"
             });
 
-            ShowSuggestionsCommand = ReactiveCommand.CreateFromTask<string, IEnumerable<SearchViewModel>>((arg1) => GetSuggestions(arg1));
-            ShowSuggestionsCommand
+            SearchCommand = ReactiveCommand.CreateFromTask<string, IEnumerable<SearchViewModel>>((arg1) => Search(arg1));
+            SearchCommand
                 .SubscribeOn(RxApp.MainThreadScheduler)
-                .Subscribe(l => AddSuggestionsToList(l));
-
-            ShowProductsCommand = ReactiveCommand.CreateFromTask<string, IEnumerable<SearchViewModel>>((arg1) => GetProducts(arg1));
-            ShowProductsCommand
-                .SubscribeOn(RxApp.MainThreadScheduler)
-                .Subscribe(l => AddProductsToList(l));
-
-            this
-                .WhenAnyValue(x => x.SearchText)
-                .Throttle(TimeSpan.FromMilliseconds(400), RxApp.MainThreadScheduler)
-                .Select(x => x?.Trim())
-                .DistinctUntilChanged()
-                .Where(x => !String.IsNullOrWhiteSpace(x))
-                .InvokeCommand(ShowSuggestionsCommand);
+                .Subscribe(l => AddToList(l));
 
             this
                 .WhenAnyValue(x => x.SearchText)
@@ -75,41 +62,35 @@ namespace Mambo.PageModels
                 .Select(x => x?.Trim())
                 .DistinctUntilChanged()
                 .Where(x => !String.IsNullOrWhiteSpace(x))
-                .InvokeCommand(ShowProductsCommand);
+                .InvokeCommand(SearchCommand);
 
             Observable
-                .Merge(ShowSuggestionsCommand.ThrownExceptions, ShowProductsCommand.ThrownExceptions)
-               .SubscribeOn(RxApp.MainThreadScheduler)
-               .Subscribe(ex =>
-               {
+                .Merge(SearchCommand.ThrownExceptions)
+                .SubscribeOn(RxApp.MainThreadScheduler)
+                .Subscribe(ex =>
+                {
                    Debug.WriteLine(ex.Message);
-               });
+                });
 
         }
 
-        void AddSuggestionsToList(IEnumerable<SearchViewModel> suggestions)
+        void AddToList(IEnumerable<SearchViewModel> results)
         {
             Suggestions.Clear();
-            Suggestions.AddRange(suggestions);
-        }
+            Suggestions.AddRange(results.Where(p => !string.IsNullOrEmpty(p.Suggestion)));
 
-        void AddProductsToList(IEnumerable<SearchViewModel> products)
-        {
             Products.Clear();
-            Products.AddRange(products);
+            Products.AddRange(results.Where(p => p.Product != null));
         }
 
-        async Task<IEnumerable<SearchViewModel>> GetSuggestions(string text)
-        {
-            var suggestions = await m_showcaseService.GetShowcaseProductSugestionsByNameAsync(text, Priorities.UserInitiated).ConfigureAwait(false);
-            return suggestions.Select(s => new SearchViewModel(s));
-        }
-
-        async Task<IEnumerable<SearchViewModel>> GetProducts(string text)
+        async Task<IEnumerable<SearchViewModel>> Search(string text)
         {
             var products = await m_showcaseService.GetShowcaseProductByNameAsync(text, Priorities.UserInitiated).ConfigureAwait(false);
-            return products.Select(p => new SearchViewModel(p));
+            var suggestions = await m_showcaseService.GetShowcaseProductSugestionsByNameAsync(text, Priorities.UserInitiated).ConfigureAwait(false);
+
+            return suggestions.Select(s => new SearchViewModel(s)).Union(products.Select(p => new SearchViewModel(p)));
         }
+
 
         /// <summary>
         /// Gets or sets the search text.
@@ -155,21 +136,21 @@ namespace Mambo.PageModels
             }
         }
 
-        /// <summary>
-        /// Gets the show suggestions command.
-        /// </summary>
-        /// <value>The show suggestions command.</value>
-        public ReactiveCommand<string, IEnumerable<SearchViewModel>> ShowSuggestionsCommand
-        {
-            get;
-            private set;
-        }
+        ///// <summary>
+        ///// Gets the show suggestions command.
+        ///// </summary>
+        ///// <value>The show suggestions command.</value>
+        //public ReactiveCommand<string, IEnumerable<SearchViewModel>> ShowSuggestionsCommand
+        //{
+        //    get;
+        //    private set;
+        //}
 
         /// <summary>
         /// Gets the show products command.
         /// </summary>
         /// <value>The show products command.</value>
-        public ReactiveCommand<string, IEnumerable<SearchViewModel>> ShowProductsCommand
+        public ReactiveCommand<string, IEnumerable<SearchViewModel>> SearchCommand
         {
             get;
             private set;

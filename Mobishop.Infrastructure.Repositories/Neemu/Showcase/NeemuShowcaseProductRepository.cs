@@ -68,7 +68,7 @@ namespace Mobishop.Infrastructure.Repositories.Neemu.Showcase
             return result;
         }
 
-
+        #region NotImplemented
         Task<ShowcaseProduct> IRepository<ShowcaseProduct>.FindByAsync(object key, bool syncBeforeFind)
         {
             throw new NotImplementedException();
@@ -108,5 +108,7 @@ namespace Mobishop.Infrastructure.Repositories.Neemu.Showcase
         {
             throw new NotImplementedException();
         }
+
+        #endregion
     }
 }
