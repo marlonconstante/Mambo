@@ -15,6 +15,6 @@ namespace Mobishop.Infrastructure.Repositories.Vtex.Products
         /// <returns>The products.</returns>
         /// <param name="name">Name.</param>
         [Get("/products/search/?fq=productName:{name}")]
-        Task<IEnumerable<Product>> FindProductsByName(string name);
+        Task<IEnumerable<VtexProduct>> FindProductsByName(string name);
     }
 }

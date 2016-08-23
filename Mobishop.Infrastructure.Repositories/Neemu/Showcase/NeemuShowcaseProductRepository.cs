@@ -9,6 +9,8 @@ using Mobishop.Infrastructure.Framework.Repositories;
 using Mobishop.Infrastructure.Repositories.Commons;
 using Skahal.Infrastructure.Framework.Repositories;
 using System.Reactive.Linq;
+using System.Linq;
+using Mobishop.Infrastructure.Repositories.Neemu.Mappers;
 
 namespace Mobishop.Infrastructure.Repositories.Neemu.Showcase
 {
@@ -36,7 +38,9 @@ namespace Mobishop.Infrastructure.Repositories.Neemu.Showcase
                         return elapsed > new TimeSpan(0, 30, 0);
                     }).FirstOrDefaultAsync();
 
-            return searchResult?.Products ?? new List<ShowcaseProduct>();
+            var result = MapperHelper.ToDomainEntities(searchResult?.Products, new NeemuShowcaseProductMapper());
+
+            return result;
         }
 
         async Task<NeemuSearchResult> FindSearchResultRemoteAsync(string name, Priorities priority = Priorities.Background)
@@ -59,7 +63,9 @@ namespace Mobishop.Infrastructure.Repositories.Neemu.Showcase
                         return elapsed > new TimeSpan(0, 30, 0);
                     }).FirstOrDefaultAsync();
 
-            return searchResult?.Suggestions ?? new List<string>();
+            var result = MapperHelper.ToDomainEntities(searchResult?.Suggestions, new NeemuSearchSuggestionMapper());
+
+            return result;
         }
 
 

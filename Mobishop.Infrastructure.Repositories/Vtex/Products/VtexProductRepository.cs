@@ -8,6 +8,7 @@ using Mobishop.Infrastructure.Framework.Repositories;
 using Mobishop.Infrastructure.Repositories.Commons;
 using Skahal.Infrastructure.Framework.Repositories;
 using System.Reactive.Linq;
+using Mobishop.Infrastructure.Repositories.Vtex.Mappers;
 
 namespace Mobishop.Infrastructure.Repositories.Vtex.Products
 {
@@ -20,7 +21,7 @@ namespace Mobishop.Infrastructure.Repositories.Vtex.Products
 
         public async Task<IEnumerable<Product>> FindProductByNameAsync(string name, Priorities priority)
         {
-            var result = await BlobCache.LocalMachine.GetAndFetchLatest(
+            var entities = await BlobCache.LocalMachine.GetAndFetchLatest(
                 Logger.GetMethodSignature(parameters: name),
                 async () => await FindProductByNameRemoteAsync(name, priority),
                  offset =>
@@ -29,10 +30,12 @@ namespace Mobishop.Infrastructure.Repositories.Vtex.Products
                      return elapsed > new TimeSpan(0, 30, 0);
                  }).FirstOrDefaultAsync();
 
-            return result ?? new List<Product>();
+            var result = MapperHelper.ToDomainEntities(entities, new VtexProductMapper());
+
+            return result;
         }
 
-        async Task<IEnumerable<Product>> FindProductByNameRemoteAsync(string name, Priorities priority)
+        async Task<IEnumerable<VtexProduct>> FindProductByNameRemoteAsync(string name, Priorities priority)
         {
             return await GetClientWithPriority(priority).FindProductsByName(name);
         }

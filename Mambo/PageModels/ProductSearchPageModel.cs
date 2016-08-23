@@ -34,11 +34,6 @@ namespace Mambo.PageModels
         ShowcaseService m_showcaseService;
 
         /// <summary>
-        /// The search token source.
-        /// </summary>
-        CancellationTokenSource searchTokenSource;
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="T:Mambo.PageModels.ProductSearchPageModel"/> class.
         /// </summary>
         /// <param name="searchService">Search service.</param>

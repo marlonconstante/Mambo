@@ -10,7 +10,7 @@ namespace Mobishop.Infrastructure.Repositories.Vtex
         }
 
         [JsonProperty("productId")]
-        override public long Id
+        public long Id
         {
             get;
             set;

@@ -48,6 +48,10 @@
     <Compile Include="Neemu\Mappers\NeemuShowcaseProductMapper.cs" />
     <Compile Include="Commons\IMapper.cs" />
     <Compile Include="Neemu\Mappers\NeemuSearchSuggestionMapper.cs" />
+    <Compile Include="Neemu\NeemuSuggestion.cs" />
+    <Compile Include="Vtex\Mappers\VtexProductMapper.cs" />
+    <Compile Include="Neemu\NeemuShowcaseProduct.cs" />
+    <Compile Include="Commons\MapperHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commons\" />

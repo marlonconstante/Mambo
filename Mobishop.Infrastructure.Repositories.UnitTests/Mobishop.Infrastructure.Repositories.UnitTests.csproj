@@ -31,12 +31,37 @@
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="Skahal.Infrastructure.Framework.Domain">
+      <HintPath>..\packages\Skahal.Infrastructure.Framework.Domain.1.0.1\lib\Skahal.Infrastructure.Framework.Domain.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Test.cs" />
+    <Compile Include="Neemu\Mappers\NeemuSearchSuggestionMapperTest.cs" />
+    <Compile Include="Neemu\Mappers\NeemuShowcaseProductMapperTest.cs" />
+    <Compile Include="Vtex\Mappers\VtexProductMapperTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Vtex\" />
+    <Folder Include="Neemu\" />
+    <Folder Include="Neemu\Mappers\" />
+    <Folder Include="Vtex\Mappers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mobishop.Domain\Mobishop.Domain.csproj">
+      <Project>{2C41EDD7-38F6-4E9B-B710-B9B57E668602}</Project>
+      <Name>Mobishop.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mobishop.Infrastructure.Framework\Mobishop.Infrastructure.Framework.csproj">
+      <Project>{48F5EC4A-1F80-479B-A0A5-94CE5D990AD7}</Project>
+      <Name>Mobishop.Infrastructure.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mobishop.Infrastructure.Repositories\Mobishop.Infrastructure.Repositories.csproj">
+      <Project>{D9C41D40-CBA7-4ABE-98B3-F4FA97E79B14}</Project>
+      <Name>Mobishop.Infrastructure.Repositories</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

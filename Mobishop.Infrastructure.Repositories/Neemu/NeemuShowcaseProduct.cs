@@ -1,18 +1,26 @@
 ﻿using System;
-using Skahal.Infrastructure.Framework.Domain;
+using Newtonsoft.Json;
 
-namespace Mobishop.Domain.Showcases
+namespace Mobishop.Infrastructure.Repositories.Neemu
 {
-    public class ShowcaseProduct : EntityWithIdBase<long>, IAggregateRoot
+    public class NeemuShowcaseProduct
     {
-        public ShowcaseProduct()
+        /// <summary>
+        /// Gets or sets the identifier.
+        /// </summary>
+        /// <value>The identifier.</value>
+        [JsonProperty("id")]
+        public long Id
         {
+            get;
+            set;
         }
 
         /// <summary>
         /// Gets or sets the name.
         /// </summary>
         /// <value>The name.</value>
+        [JsonProperty("productName")]
         public string Name
         {
             get;
@@ -23,6 +31,7 @@ namespace Mobishop.Domain.Showcases
         /// Gets or sets the description.
         /// </summary>
         /// <value>The description.</value>
+        [JsonProperty("descricao")]
         public string Description
         {
             get;
@@ -33,6 +42,7 @@ namespace Mobishop.Domain.Showcases
         /// Gets or sets the previous price.
         /// </summary>
         /// <value>The previous price.</value>
+        [JsonProperty("de")]
         public double PreviousPrice
         {
             get;
@@ -43,6 +53,7 @@ namespace Mobishop.Domain.Showcases
         /// Gets or sets the current price.
         /// </summary>
         /// <value>The current price.</value>
+        [JsonProperty("preco")]
         public double CurrentPrice
         {
             get;
@@ -53,6 +64,7 @@ namespace Mobishop.Domain.Showcases
         /// Gets or sets the image URL.
         /// </summary>
         /// <value>The image URL.</value>
+        [JsonProperty("imagem")]
         public string ImageUrl
         {
             get;
@@ -60,5 +72,3 @@ namespace Mobishop.Domain.Showcases
         }
     }
 }
-
-

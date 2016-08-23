@@ -3,20 +3,21 @@ using Mobishop.Infrastructure.Repositories.Commons;
 
 namespace Mobishop.Infrastructure.Repositories.Neemu.Mappers
 {
-    public class NeemuSearchSuggestionMapper : IMapper<string, NeemuSearchResult>
+    public class NeemuSearchSuggestionMapper : IMapper<string, NeemuSuggestion>
     {
-        public NeemuSearchSuggestionMapper()
+        public string ToDomainEntity(NeemuSuggestion repositoryEntity)
         {
+            if (repositoryEntity == null)
+                return null;
+            
+            var result = repositoryEntity.Query;
+
+            return result;
         }
 
-        public string ToDomainEntity(NeemuSearchResult repositoryEntity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public NeemuSearchResult ToRepositoryEntity(string domainEntity)
+        public NeemuSuggestion ToRepositoryEntity(string domainEntity)
         {
             throw new NotImplementedException();
         }
     }
-
+}
