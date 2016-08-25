@@ -39,6 +39,7 @@
     <Compile Include="Showcases\ShowcaseService.cs" />
     <Compile Include="Products\IProductRepository.cs" />
     <Compile Include="Showcases\IShowcaseProductRepository.cs" />
+    <Compile Include="Showcases\ShowcaseType.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Products\" />

@@ -61,7 +61,6 @@ namespace Mambo.PageModels
                 .Throttle(TimeSpan.FromMilliseconds(800), RxApp.MainThreadScheduler)
                 .Select(x => x?.Trim())
                 .DistinctUntilChanged()
-                .Where(x => !String.IsNullOrWhiteSpace(x))
                 .InvokeCommand(SearchCommand);
 
             Observable
@@ -69,9 +68,8 @@ namespace Mambo.PageModels
                 .SubscribeOn(RxApp.MainThreadScheduler)
                 .Subscribe(ex =>
                 {
-                   Debug.WriteLine(ex.Message);
+                    Debug.WriteLine(ex.Message);
                 });
-
         }
 
         void AddToList(IEnumerable<SearchViewModel> results)

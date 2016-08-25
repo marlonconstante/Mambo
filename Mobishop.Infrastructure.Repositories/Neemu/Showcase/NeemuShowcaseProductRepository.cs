@@ -43,12 +43,6 @@ namespace Mobishop.Infrastructure.Repositories.Neemu.Showcase
             return result;
         }
 
-        async Task<NeemuSearchResult> FindSearchResultRemoteAsync(string name, Priorities priority = Priorities.Background)
-        {
-            var results = await ExecuteApiRequest((arg) => GetClientWithPriority(priority).AutoComplete(name));
-            return results;
-        }
-
         public async Task<IEnumerable<string>> FindShowcaseProductSugestionsByNameAsync(string name, Priorities priority = Priorities.Background)
         {
             var searchResult = await BlobCache.LocalMachine.GetAndFetchLatest(
@@ -67,6 +61,14 @@ namespace Mobishop.Infrastructure.Repositories.Neemu.Showcase
 
             return result;
         }
+
+        async Task<NeemuSearchResult> FindSearchResultRemoteAsync(string name, Priorities priority = Priorities.Background)
+        {
+            var results = await ExecuteApiRequest((arg) => GetClientWithPriority(priority).FindNeemuSearchResults(name));
+            return results;
+        }
+
+
 
         #region NotImplemented
         Task<ShowcaseProduct> IRepository<ShowcaseProduct>.FindByAsync(object key, bool syncBeforeFind)

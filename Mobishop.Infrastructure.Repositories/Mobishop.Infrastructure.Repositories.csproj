@@ -64,6 +64,8 @@
     <Folder Include="Neemu\Showcase\" />
     <Folder Include="Neemu\Mappers\" />
     <Folder Include="Vtex\Mappers\" />
+    <Folder Include="Chaortic\" />
+    <Folder Include="Chaortic\Showcase\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="HelperSharp.PCL">
