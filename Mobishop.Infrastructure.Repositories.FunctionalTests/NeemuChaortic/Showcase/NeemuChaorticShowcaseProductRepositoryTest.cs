@@ -1,23 +1,23 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
+using Mobishop.Domain.Showcases;
 using Mobishop.Infrastructure.Framework.Repositories;
-using Mobishop.Infrastructure.Repositories.Neemu.Showcase;
+using Mobishop.Infrastructure.Repositories.NeemuChaortic.Showcase;
 using NUnit.Framework;
 using Skahal.Infrastructure.Framework.Repositories;
 
-namespace Mobishop.Infrastructure.Repositories.FunctionalTests.Neemu.Showcase
+namespace Mobishop.Infrastructure.Repositories.FunctionalTests.NeemuChaortic.Showcase
 {
     [TestFixture]
-    public class NeemuShowcaseProductRepositoryTest
+    public class NeemuChaorticShowcaseProductRepositoryTest
     {
-        NeemuShowcaseProductRepository m_target;
+        NeemuChaorticShowcaseProductRepository m_target;
 
         [SetUp]
         public void Setup()
         {
             var unitOfWork = new MemoryUnitOfWork();
-            m_target = new NeemuShowcaseProductRepository(unitOfWork);
+            m_target = new NeemuChaorticShowcaseProductRepository(unitOfWork);
         }
 
         [Test]
@@ -69,6 +69,27 @@ namespace Mobishop.Infrastructure.Repositories.FunctionalTests.Neemu.Showcase
 
             Assert.IsTrue(actual2.Count() > 0);
             Assert.That(actual2.Select(s => s.ToLower()), Has.All.Contains(name));
+        }
+
+        [Test]
+        public async Task FindShowcaseProductsByShowcaseType_Offers_ShowcaseProducts()
+        {
+            var actual = await m_target.FindShowcaseProductsByShowcaseType(ShowcaseType.Offers);
+
+            Assert.IsNotNull(actual);
+
+            foreach (var item in actual)
+            {
+                Assert.IsTrue(item.Id > 0);
+                Assert.IsTrue(item.CurrentPrice > 0);
+                Assert.IsTrue(!string.IsNullOrEmpty(item.Description));
+                Assert.IsTrue(!string.IsNullOrEmpty(item.ImageUrl));
+                Assert.IsTrue(!string.IsNullOrEmpty(item.Name));
+                Assert.IsTrue(item.PreviousPrice > 0);
+
+            }
+
+            Assert.IsTrue(actual.Count() > 0);
         }
 
     }

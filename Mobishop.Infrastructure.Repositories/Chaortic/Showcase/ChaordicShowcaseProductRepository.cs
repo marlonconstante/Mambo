@@ -1,8 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reactive.Linq;
 using System.Threading.Tasks;
+using Akavache;
 using Mobishop.Domain.Showcases;
+using Mobishop.Infrastructure.Framework.Logging;
 using Mobishop.Infrastructure.Framework.Repositories;
+using Mobishop.Infrastructure.Repositories.Chaortic.Mappers;
+using Mobishop.Infrastructure.Repositories.Chaortic.Showcase.Response;
 using Mobishop.Infrastructure.Repositories.Commons;
 using Skahal.Infrastructure.Framework.Repositories;
 
@@ -17,7 +23,28 @@ namespace Mobishop.Infrastructure.Repositories.Chaortic.Showcase
 
         public async Task<IEnumerable<ShowcaseProduct>> FindShowcaseProductsByShowcaseType(ShowcaseType showcaseType, Priorities priority = Priorities.Background)
         {
-            throw new NotImplementedException();
+            var response = await BlobCache.LocalMachine.GetAndFetchLatest<ChaorticRootObject>(
+                    Logger.GetMethodSignature(parameters: showcaseType),
+                    async () =>
+                    {
+                        return await FindShowcaseProductsByShowcaseTypeRemoteAsync(showcaseType, priority);
+                    },
+                    offset =>
+                    {
+                        TimeSpan elapsed = DateTimeOffset.Now - offset;
+                        return elapsed > new TimeSpan(0, 30, 0);
+                    }).FirstOrDefaultAsync();
+
+            var result = MapperHelper.ToDomainEntities(response?.Displays.FirstOrDefault().Recommendations, new ChaordicShowcaseProductMapper());
+
+            return result;
+        }
+
+        public async Task<ChaorticRootObject> FindShowcaseProductsByShowcaseTypeRemoteAsync(ShowcaseType showcaseType, Priorities priority = Priorities.Background)
+        {
+            var results = await ExecuteApiRequest((arg) => GetClientWithPriority(priority).FetchShowcase(GetResourceNameForShowcase(showcaseType), ChaordicQuery.Build()));
+
+            return results;
         }
 
         string GetResourceNameForShowcase(ShowcaseType showcaseType)

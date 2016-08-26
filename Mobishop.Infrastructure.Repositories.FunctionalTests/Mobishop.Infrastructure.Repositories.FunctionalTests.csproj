@@ -30,7 +30,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VTex\Products\VtexProductRepositoryTest.cs" />
-    <Compile Include="Neemu\Showcase\NeemuShowcaseProductRepositoryTest.cs" />
+    <Compile Include="NeemuChaortic\Showcase\NeemuChaorticShowcaseProductRepositoryTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Mambo\Mambo.csproj">
@@ -70,8 +70,8 @@
   <ItemGroup>
     <Folder Include="VTex\" />
     <Folder Include="VTex\Products\" />
-    <Folder Include="Neemu\" />
-    <Folder Include="Neemu\Showcase\" />
+    <Folder Include="NeemuChaortic\" />
+    <Folder Include="NeemuChaortic\Showcase\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>

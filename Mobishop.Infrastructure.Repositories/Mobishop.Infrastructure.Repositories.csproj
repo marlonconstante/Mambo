@@ -66,6 +66,7 @@
     <Compile Include="Chaortic\Showcase\Response\ChaorticTag.cs" />
     <Compile Include="Chaortic\Showcase\ChaordicQuery.cs" />
     <Compile Include="Chaortic\Mappers\ChaordicShowcaseProductMapper.cs" />
+    <Compile Include="NeemuChaortic\Showcase\NeemuChaorticShowcaseProductRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commons\" />
@@ -83,6 +84,8 @@
     <Folder Include="Chaortic\Mappers\" />
     <Folder Include="Chaortic\Showcase\Request\" />
     <Folder Include="Chaortic\Showcase\Response\" />
+    <Folder Include="NeemuChaortic\" />
+    <Folder Include="NeemuChaortic\Showcase\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="HelperSharp.PCL">

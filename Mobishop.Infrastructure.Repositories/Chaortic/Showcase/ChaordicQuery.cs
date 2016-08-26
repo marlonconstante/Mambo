@@ -6,14 +6,14 @@ using Newtonsoft.Json;
 
 namespace Mobishop.Infrastructure.Repositories.Chaortic
 {
-    public class ChaordicQuery
+    public static class ChaordicQuery
     {
         const string ApiKey = "panvel-v5";
 
         /// <summary>
         /// Build the query.
         /// </summary>
-        internal string Build()
+        internal static string Build()
         {
             var request = new Request()
             {

@@ -34,6 +34,26 @@ namespace Mobishop.Infrastructure.Repositories.Memory
             return Task.FromResult(results);
         }
 
+        public Task<IEnumerable<ShowcaseProduct>> FindShowcaseProductsByShowcaseType(ShowcaseType showcaseType, Priorities priority = Priorities.Background)
+        {
+            var results = new List<ShowcaseProduct>();
+
+            for (int i = 0; i < 6; i++)
+            {
+                var prod = new ShowcaseProduct()
+                {
+                    Id = i,
+                    CurrentPrice = i,
+                    Description = $"Description {i}",
+                    ImageUrl = $"ImageURL/{i}",
+                    Name = $"Name {i}",
+                    PreviousPrice = i
+                };
+            }
+
+            return Task.FromResult((IEnumerable<ShowcaseProduct>)results);
+        }
+
         public Task<IEnumerable<string>> FindShowcaseProductSugestionsByNameAsync(string name, Priorities priority = Priorities.Background)
         {
             IList<string> results = new List<string>();

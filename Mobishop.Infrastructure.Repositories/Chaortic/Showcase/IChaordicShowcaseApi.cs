@@ -8,7 +8,7 @@ namespace Mobishop.Infrastructure.Repositories.Chaortic.Showcase
 {
     public interface IChaordicShowcaseApi : IRestApiClient
     {
-        [Get("recommend/{showcaseType}?format=json&q={query}")]    
+        [Get("/recommend/{showcaseType}?format=json&q={query}")]    
         Task<ChaorticRootObject> FetchShowcase(string showcaseType, string query);
     }
 }

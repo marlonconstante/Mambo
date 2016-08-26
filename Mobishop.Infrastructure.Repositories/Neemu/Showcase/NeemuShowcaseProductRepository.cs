@@ -12,7 +12,7 @@ using Skahal.Infrastructure.Framework.Repositories;
 
 namespace Mobishop.Infrastructure.Repositories.Neemu.Showcase
 {
-    public class NeemuShowcaseProductRepository : RestRepositoryBase<ShowcaseProduct, INeemuShowcaseApi>, IShowcaseProductRepository
+    public class NeemuShowcaseProductRepository : RestRepositoryBase<ShowcaseProduct, INeemuShowcaseApi>
     {
         string m_searchCacheKey = "NeemuShowcaseProductRepository.Search-";
 
@@ -66,49 +66,5 @@ namespace Mobishop.Infrastructure.Repositories.Neemu.Showcase
             return results;
         }
 
-
-
-        #region NotImplemented
-        Task<ShowcaseProduct> IRepository<ShowcaseProduct>.FindByAsync(object key, bool syncBeforeFind)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<IEnumerable<ShowcaseProduct>> FindAllAsync(int offset, int limit, Expression<Func<ShowcaseProduct, bool>> filter)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<IEnumerable<ShowcaseProduct>> FindAllAscendingAsync<TOrderByKey>(int offset, int limit, Expression<Func<ShowcaseProduct, bool>> filter, Expression<Func<ShowcaseProduct, TOrderByKey>> orderBy)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<IEnumerable<ShowcaseProduct>> FindAllDescendingAsync<TOrderByKey>(int offset, int limit, Expression<Func<ShowcaseProduct, bool>> filter, Expression<Func<ShowcaseProduct, TOrderByKey>> orderBy)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<long> CountAllAsync(Expression<Func<ShowcaseProduct, bool>> filter)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Add(ShowcaseProduct item)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ShowcaseProduct> Attach(ShowcaseProduct entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Remove(ShowcaseProduct item)
-        {
-            throw new NotImplementedException();
-        }
-
-        #endregion
     }
 }
