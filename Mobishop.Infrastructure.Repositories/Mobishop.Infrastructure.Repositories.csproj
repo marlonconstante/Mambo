@@ -52,6 +52,20 @@
     <Compile Include="Vtex\Mappers\VtexProductMapper.cs" />
     <Compile Include="Neemu\NeemuShowcaseProduct.cs" />
     <Compile Include="Commons\MapperHelper.cs" />
+    <Compile Include="Chaortic\Showcase\ChaordicShowcaseProductRepository.cs" />
+    <Compile Include="Chaortic\Showcase\IChaordicShowcaseApi.cs" />
+    <Compile Include="Chaortic\Showcase\Request\Identity.cs" />
+    <Compile Include="Chaortic\Showcase\Request\Page.cs" />
+    <Compile Include="Chaortic\Showcase\Request\Request.cs" />
+    <Compile Include="Chaortic\Showcase\Response\ChaorticRecommendation.cs" />
+    <Compile Include="Chaortic\Showcase\Response\ChaorticRootObject.cs" />
+    <Compile Include="Chaortic\Showcase\Response\ChaorticCategory.cs" />
+    <Compile Include="Chaortic\Showcase\Response\ChaorticDisplay.cs" />
+    <Compile Include="Chaortic\Showcase\Response\ChaorticImage.cs" />
+    <Compile Include="Chaortic\Showcase\Response\ChaorticInstallment.cs" />
+    <Compile Include="Chaortic\Showcase\Response\ChaorticTag.cs" />
+    <Compile Include="Chaortic\Showcase\ChaordicQuery.cs" />
+    <Compile Include="Chaortic\Mappers\ChaordicShowcaseProductMapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commons\" />
@@ -66,6 +80,9 @@
     <Folder Include="Vtex\Mappers\" />
     <Folder Include="Chaortic\" />
     <Folder Include="Chaortic\Showcase\" />
+    <Folder Include="Chaortic\Mappers\" />
+    <Folder Include="Chaortic\Showcase\Request\" />
+    <Folder Include="Chaortic\Showcase\Response\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="HelperSharp.PCL">

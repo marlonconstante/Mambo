@@ -1,27 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using System.Reactive.Linq;
 using System.Threading.Tasks;
 using Akavache;
-using Mobishop.Domain.Products;
 using Mobishop.Domain.Showcases;
 using Mobishop.Infrastructure.Framework.Repositories;
 using Mobishop.Infrastructure.Repositories.Commons;
-using Skahal.Infrastructure.Framework.Repositories;
-using System.Reactive.Linq;
-using System.Linq;
 using Mobishop.Infrastructure.Repositories.Neemu.Mappers;
+using Skahal.Infrastructure.Framework.Repositories;
 
 namespace Mobishop.Infrastructure.Repositories.Neemu.Showcase
 {
-    public class NeemuShowcaseProductRepository : RestRepositoryBase<Product, INeemuShowcaseApi>, IShowcaseProductRepository
+    public class NeemuShowcaseProductRepository : RestRepositoryBase<ShowcaseProduct, INeemuShowcaseApi>, IShowcaseProductRepository
     {
         string m_searchCacheKey = "NeemuShowcaseProductRepository.Search-";
-
 
         public NeemuShowcaseProductRepository(IUnitOfWork unitOfWork = null) : base(unitOfWork)
         {
             ApiBaseAddress = "http://busca.mambo.com.br";
+
         }
 
         public async Task<IEnumerable<ShowcaseProduct>> FindShowcaseProductByNameAsync(string name, Priorities priority = Priorities.Background)

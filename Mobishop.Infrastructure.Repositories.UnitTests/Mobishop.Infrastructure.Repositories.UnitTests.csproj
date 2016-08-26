@@ -39,6 +39,7 @@
     <Compile Include="Neemu\Mappers\NeemuSearchSuggestionMapperTest.cs" />
     <Compile Include="Neemu\Mappers\NeemuShowcaseProductMapperTest.cs" />
     <Compile Include="Vtex\Mappers\VtexProductMapperTest.cs" />
+    <Compile Include="Chaortic\Showcase\ChaordicQueryTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -48,6 +49,8 @@
     <Folder Include="Neemu\" />
     <Folder Include="Neemu\Mappers\" />
     <Folder Include="Vtex\Mappers\" />
+    <Folder Include="Chaortic\" />
+    <Folder Include="Chaortic\Showcase\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Mobishop.Domain\Mobishop.Domain.csproj">
