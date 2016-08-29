@@ -78,7 +78,8 @@ namespace Mambo.PageModels
             Suggestions.AddRange(results.Where(p => !string.IsNullOrEmpty(p.Suggestion)));
 
             Products.Clear();
-            Products.AddRange(results.Where(p => p.Product != null));
+            var prod = results.Where(p => p.Product != null);
+            Products.AddRange(prod);
         }
 
         async Task<IEnumerable<SearchViewModel>> Search(string text)

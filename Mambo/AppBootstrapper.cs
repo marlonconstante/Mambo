@@ -2,7 +2,6 @@
 using Mobishop.Domain.Products;
 using Mobishop.Domain.Showcases;
 using Mobishop.Infrastructure.Repositories.Memory;
-using Mobishop.Infrastructure.Repositories.Neemu.Showcase;
 using Mobishop.Infrastructure.Repositories.NeemuChaortic.Showcase;
 using Mobishop.Infrastructure.Repositories.Vtex.Products;
 using Skahal.Infrastructure.Framework.Repositories;
@@ -10,10 +9,10 @@ using Splat;
 
 namespace Mambo
 {
-	/// <summary>
-	/// App bootstrapper.
-	/// </summary>
-	public static class AppBootstrapper
+    /// <summary>
+    /// App bootstrapper.
+    /// </summary>
+    public static class AppBootstrapper
 	{
 		/// <summary>
 		/// Initialize this instance.

@@ -1,4 +1,5 @@
-﻿using Mobishop.Domain.Showcases;
+﻿using Mambo.ViewModels;
+using Mobishop.Domain.Showcases;
 using Xamarin.Forms;
 
 namespace Mambo.DataTemplates
@@ -16,7 +17,7 @@ namespace Mambo.DataTemplates
 		/// <param name="container">Container.</param>
 		protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
 		{
-			return item is ShowcaseProduct ? ProductTemplate : SuggestionTemplate;
+            return (((SearchViewModel)item).Product != null) ? ProductTemplate : SuggestionTemplate;
 		}
 
 		/// <summary>

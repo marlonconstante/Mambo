@@ -41,8 +41,6 @@ namespace Mambo
 		{
 		}
 
-
-
 		/// <summary>
 		/// Ons the resume.
 		/// </summary>
