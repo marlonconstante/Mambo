@@ -111,5 +111,15 @@ namespace Mobishop.Domain.UnitTests.Showcases
             var actual = await m_target.GetShowcaseProductSugestionsByNameAsync("Test1");
             Assert.AreEqual(2, actual.Count());
         }
+
+        [Test]
+        public async Task GetShowcaseProductsByShowcaseType_Offer_Offers()
+        {
+            var actual = (await m_target.GetShowcaseProductsByShowcaseType(ShowcaseType.Offers)).ToList();
+            Assert.AreEqual(6, actual.Count());
+
+            Assert.AreEqual("Name 0", actual[0].Name);
+            Assert.AreEqual("Name 1", actual[1].Name);
+        }
     }
 }

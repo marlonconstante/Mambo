@@ -27,7 +27,7 @@ namespace Mobishop.Domain.Showcases
 
         public async Task<IEnumerable<ShowcaseProduct>> GetShowcaseProductsByShowcaseType(ShowcaseType showcaseType, Priorities priority = Priorities.Background)
         {
-            throw new NotImplementedException();
+            return await m_showcaseProductRepository.FindShowcaseProductsByShowcaseType(showcaseType, priority);
         }
     }
 }

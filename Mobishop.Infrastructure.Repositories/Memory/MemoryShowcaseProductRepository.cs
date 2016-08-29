@@ -49,6 +49,7 @@ namespace Mobishop.Infrastructure.Repositories.Memory
                     Name = $"Name {i}",
                     PreviousPrice = i
                 };
+                results.Add(prod);
             }
 
             return Task.FromResult((IEnumerable<ShowcaseProduct>)results);
