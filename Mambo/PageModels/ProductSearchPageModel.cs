@@ -6,6 +6,7 @@ using System.Reactive;
 using System.Reactive.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using FreshMvvm;
 using Mambo.ViewModels;
 using Mobishop.Domain.Showcases;
@@ -14,6 +15,7 @@ using Mobishop.Infrastructure.Framework.Repositories;
 using Mobishop.UI.Tasks;
 using PropertyChanged;
 using ReactiveUI;
+using Xamarin.Forms;
 
 namespace Mambo.PageModels
 {
@@ -58,7 +60,7 @@ namespace Mambo.PageModels
 
             this
                 .WhenAnyValue(x => x.SearchText)
-                .Throttle(TimeSpan.FromMilliseconds(800), RxApp.MainThreadScheduler)
+                .Throttle(TimeSpan.FromMilliseconds(500), RxApp.MainThreadScheduler)
                 .Select(x => x?.Trim())
                 .DistinctUntilChanged()
                 .InvokeCommand(SearchCommand);
@@ -70,6 +72,16 @@ namespace Mambo.PageModels
                 {
                     Debug.WriteLine(ex.Message);
                 });
+            SearchSuggestionCommand = new Command<string>(OnSearchSuggestion);
+        }
+
+        /// <summary>
+        /// Ons the search suggestion.
+        /// </summary>
+        /// <param name="query">Query.</param>
+        public void OnSearchSuggestion(string query)
+        {
+            SearchText = query;
         }
 
         void AddToList(IEnumerable<SearchViewModel> results)
@@ -112,6 +124,7 @@ namespace Mambo.PageModels
         }
 
         /// <summary>
+        /// 
         /// Gets the suggestions.
         /// </summary>
         /// <value>The suggestions.</value>
@@ -150,6 +163,16 @@ namespace Mambo.PageModels
         /// </summary>
         /// <value>The show products command.</value>
         public ReactiveCommand<string, IEnumerable<SearchViewModel>> SearchCommand
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Gets the search suggestion command.
+        /// </summary>
+        /// <value>The search suggestion command.</value>
+        public ICommand SearchSuggestionCommand
         {
             get;
             private set;
