@@ -3,6 +3,7 @@ using Mobishop.Domain.Products;
 using Mobishop.Domain.Showcases;
 using Mobishop.Infrastructure.Repositories.Memory;
 using Mobishop.Infrastructure.Repositories.Neemu.Showcase;
+using Mobishop.Infrastructure.Repositories.NeemuChaortic.Showcase;
 using Mobishop.Infrastructure.Repositories.Vtex.Products;
 using Skahal.Infrastructure.Framework.Repositories;
 using Splat;
@@ -42,7 +43,7 @@ namespace Mambo
             var unitOfWork = new MemoryUnitOfWork();
             Locator.CurrentMutable.RegisterLazySingleton(() => unitOfWork, typeof(IUnitOfWork));
             Locator.CurrentMutable.RegisterLazySingleton(() => new VtexProductRepository(unitOfWork), typeof(IProductRepository));
-            Locator.CurrentMutable.RegisterLazySingleton(() => new NeemuShowcaseProductRepository(), typeof(IShowcaseProductRepository));
+            Locator.CurrentMutable.RegisterLazySingleton(() => new NeemuChaorticShowcaseProductRepository(), typeof(IShowcaseProductRepository));
         }
 
     }
