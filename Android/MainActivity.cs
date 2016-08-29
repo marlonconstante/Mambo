@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using Mobishop.Infrastructure.Repositories.Commons.Caching;
 using NControl.Controls.Droid;
 
 namespace Mambo.Android
@@ -21,6 +22,8 @@ namespace Mambo.Android
 			TabLayoutResource = Resource.Layout.Tabbar;
 			ToolbarResource = Resource.Layout.Toolbar;
 
+            Cache.Initialize("Mambo");
+
 			base.OnCreate(bundle);
 
 			global::Xamarin.Forms.Forms.Init(this, bundle);
@@ -28,5 +31,11 @@ namespace Mambo.Android
 
 			LoadApplication(new App());
 		}
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            Cache.Shutdown();
+        }
 	}
 }

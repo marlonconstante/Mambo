@@ -19,7 +19,6 @@ namespace Mambo
 		/// </summary>
 		public static void Initialize()
         {
-            Cache.Initialize("Mambo");
             //RegisterMemoryRepositories();
             RegisterRestRepositories();
         }

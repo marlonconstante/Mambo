@@ -50,36 +50,6 @@ namespace Mobishop.Infrastructure.Repositories.Commons.Caching
             return result;
 		}
 
-        /// <summary>
-        /// Gets the and fetch latests.
-        /// </summary>
-        /// <returns>The and fetch latests.</returns>
-        /// <param name="cacheKey">Cache key.</param>
-        /// <param name="fetchFunction">Fetch function.</param>
-        /// <param name="cacheValidityInMinutes">Cache validity in minutes.</param>
-        /// <typeparam name="TResult">The 1st type parameter.</typeparam>
-        public static async Task<IEnumerable<TResult>> GetAndFetchLatests<TResult>(string cacheKey, Func<Task<IEnumerable<TResult>>> fetchFunction, double cacheValidityInMinutes = 5d)
-        {
-            IEnumerable<TResult> result = default(IEnumerable<TResult>);
-
-            var cachedResult = BlobCache.LocalMachine.GetAndFetchLatest(
-               cacheKey,
-               fetchFunction,
-               offset =>
-               {
-                   var elapsed = DateTimeOffset.Now - offset;
-                   return elapsed > TimeSpan.FromMinutes(cacheValidityInMinutes);
-               });
-
-            cachedResult.Subscribe(subscribedPosts =>
-            {
-                result = subscribedPosts;
-            });
-
-            result = await cachedResult.FirstOrDefaultAsync();
-            return result;
-        }
-
 		/// <summary>
 		/// Invalidates all.
 		/// </summary>
@@ -88,5 +58,10 @@ namespace Mobishop.Infrastructure.Repositories.Commons.Caching
 		{
 			BlobCache.LocalMachine.InvalidateAll();
 		}
+
+        public static void Shutdown()
+        {
+            BlobCache.Shutdown().Wait();
+        }
 	}
 }

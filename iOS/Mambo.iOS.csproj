@@ -191,6 +191,10 @@
       <Project>{EBF47729-9702-455F-9CD7-B608B2C68BA3}</Project>
       <Name>Mobishop.UI</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Mobishop.Infrastructure.Repositories\Mobishop.Infrastructure.Repositories.csproj">
+      <Project>{D9C41D40-CBA7-4ABE-98B3-F4FA97E79B14}</Project>
+      <Name>Mobishop.Infrastructure.Repositories</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Contents.json" />

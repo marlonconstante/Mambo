@@ -1,5 +1,6 @@
 ﻿using Akavache;
 using Foundation;
+using Mobishop.Infrastructure.Repositories.Commons.Caching;
 using Mobishop.Infrastructure.Repositories.FunctionalTests.VTex.Products;
 using UIKit;
 
@@ -10,13 +11,11 @@ namespace Mobishop.Infrastructure.Repositories.FunctionalTests.iOS
     [Register("AppDelegate")]
     public class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
     {
-
-
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
             global::Xamarin.Forms.Forms.Init();
 
-            BlobCache.ApplicationName = "MobiTests";
+            Cache.Initialize("MobiTests");
 
             var nunit = new NUnit.Runner.App
             {
@@ -26,6 +25,12 @@ namespace Mobishop.Infrastructure.Repositories.FunctionalTests.iOS
             LoadApplication(nunit);
 
             return base.FinishedLaunching(application, launchOptions);
+        }
+
+        public override void WillTerminate(UIApplication uiApplication)
+        {
+            base.WillTerminate(uiApplication);
+            Cache.Shutdown();
         }
     }
 }

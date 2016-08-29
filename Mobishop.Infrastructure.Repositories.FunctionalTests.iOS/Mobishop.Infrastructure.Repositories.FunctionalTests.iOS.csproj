@@ -188,6 +188,10 @@
       <Project>{9E9FE88D-E9F8-413F-8F46-242087A85B07}</Project>
       <Name>Mobishop.Infrastructure.Repositories.FunctionalTests</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Mobishop.Infrastructure.Repositories\Mobishop.Infrastructure.Repositories.csproj">
+      <Project>{D9C41D40-CBA7-4ABE-98B3-F4FA97E79B14}</Project>
+      <Name>Mobishop.Infrastructure.Repositories</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\refit.3.0.0\build\netstandard1.3\refit.targets" Condition="Exists('..\packages\refit.3.0.0\build\netstandard1.3\refit.targets')" />

@@ -2,6 +2,7 @@
 using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using Mobishop.Infrastructure.Repositories.Commons.Caching;
 using Mobishop.Infrastructure.Repositories.FunctionalTests.VTex.Products;
 
 namespace Mobishop.Infrastructure.Repositories.FunctionalTests.Android
@@ -13,7 +14,7 @@ namespace Mobishop.Infrastructure.Repositories.FunctionalTests.Android
         {
             base.OnCreate(savedInstanceState);
 
-            BlobCache.ApplicationName = "MobiTests";
+            Cache.Initialize("MobiTests");
 
 
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
@@ -25,6 +26,12 @@ namespace Mobishop.Infrastructure.Repositories.FunctionalTests.Android
             nunit.AddTestAssembly(typeof(VtexProductRepositoryTest).Assembly);
 
             LoadApplication(nunit);
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            Cache.Shutdown();
         }
     }
 }
