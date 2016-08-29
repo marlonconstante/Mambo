@@ -38,18 +38,37 @@ namespace Mobishop.Infrastructure.Repositories.Memory
         {
             var results = new List<ShowcaseProduct>();
 
-            for (int i = 0; i < 6; i++)
+            if (showcaseType == ShowcaseType.Offers)
             {
-                var prod = new ShowcaseProduct()
+                for (int i = 0; i < 6; i++)
                 {
-                    Id = i,
-                    CurrentPrice = i,
-                    Description = $"Description {i}",
-                    ImageUrl = $"ImageURL/{i}",
-                    Name = $"Name {i}",
-                    PreviousPrice = i
-                };
-                results.Add(prod);
+                    var prod = new ShowcaseProduct()
+                    {
+                        Id = i,
+                        CurrentPrice = i,
+                        Description = $"Description {i}",
+                        ImageUrl = $"ImageURL/{i}",
+                        Name = $"Name {i}",
+                        PreviousPrice = i
+                    };
+                    results.Add(prod);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    var prod = new ShowcaseProduct()
+                    {
+                        Id = i,
+                        CurrentPrice = i,
+                        Description = $"Description {i}",
+                        ImageUrl = $"ImageURL/{i}",
+                        Name = $"Name {i}",
+                        PreviousPrice = i
+                    };
+                    results.Add(prod);
+                }
             }
 
             return Task.FromResult((IEnumerable<ShowcaseProduct>)results);
