@@ -36,7 +36,6 @@
     <Compile Include="Commons\RestRepositoryBase.cs" />
     <Compile Include="AkavacheSqliteLinkerOverride.cs" />
     <Compile Include="Commons\IRestApiClient.cs" />
-    <Compile Include="Old\Caching\Cached.cs" />
     <Compile Include="Memory\MemoryProductRepository.cs" />
     <Compile Include="Memory\MemoryShowcaseProductRepository.cs" />
     <Compile Include="Vtex\Products\IVtexProductApi.cs" />
@@ -67,13 +66,12 @@
     <Compile Include="Chaortic\Showcase\ChaordicQuery.cs" />
     <Compile Include="Chaortic\Mappers\ChaordicShowcaseProductMapper.cs" />
     <Compile Include="NeemuChaortic\Showcase\NeemuChaorticShowcaseProductRepository.cs" />
+    <Compile Include="Commons\Caching\Cache.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commons\" />
     <Folder Include="Vtex\" />
     <Folder Include="Neemu\" />
-    <Folder Include="Old\" />
-    <Folder Include="Old\Caching\" />
     <Folder Include="Memory\" />
     <Folder Include="Vtex\Products\" />
     <Folder Include="Neemu\Showcase\" />
@@ -86,6 +84,7 @@
     <Folder Include="Chaortic\Showcase\Response\" />
     <Folder Include="NeemuChaortic\" />
     <Folder Include="NeemuChaortic\Showcase\" />
+    <Folder Include="Commons\Caching\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="HelperSharp.PCL">

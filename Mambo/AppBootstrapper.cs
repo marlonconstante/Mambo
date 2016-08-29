@@ -1,6 +1,6 @@
-﻿using Mobishop.Core.Caching;
-using Mobishop.Domain.Products;
+﻿using Mobishop.Domain.Products;
 using Mobishop.Domain.Showcases;
+using Mobishop.Infrastructure.Repositories.Commons.Caching;
 using Mobishop.Infrastructure.Repositories.Memory;
 using Mobishop.Infrastructure.Repositories.NeemuChaortic.Showcase;
 using Mobishop.Infrastructure.Repositories.Vtex.Products;
@@ -19,7 +19,7 @@ namespace Mambo
 		/// </summary>
 		public static void Initialize()
         {
-            Cached.Initialize("Mambo");
+            Cache.Initialize("Mambo");
             //RegisterMemoryRepositories();
             RegisterRestRepositories();
         }

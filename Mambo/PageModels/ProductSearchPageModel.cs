@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Reactive;
 using System.Reactive.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using FreshMvvm;
@@ -12,7 +10,6 @@ using Mambo.ViewModels;
 using Mobishop.Domain.Showcases;
 using Mobishop.Infrastructure.Framework.Collections;
 using Mobishop.Infrastructure.Framework.Repositories;
-using Mobishop.UI.Tasks;
 using PropertyChanged;
 using ReactiveUI;
 using Xamarin.Forms;
@@ -38,7 +35,6 @@ namespace Mambo.PageModels
         /// <summary>
         /// Initializes a new instance of the <see cref="T:Mambo.PageModels.ProductSearchPageModel"/> class.
         /// </summary>
-        /// <param name="searchService">Search service.</param>
         public ProductSearchPageModel()
         {
             m_showcaseService = new ShowcaseService();
@@ -72,6 +68,7 @@ namespace Mambo.PageModels
                 {
                     Debug.WriteLine(ex.Message);
                 });
+
             SearchSuggestionCommand = new Command<string>(OnSearchSuggestion);
         }
 

@@ -10,6 +10,7 @@ using Mobishop.Infrastructure.Framework.Repositories;
 using Mobishop.Infrastructure.Repositories.Chaortic.Mappers;
 using Mobishop.Infrastructure.Repositories.Chaortic.Showcase.Response;
 using Mobishop.Infrastructure.Repositories.Commons;
+using Mobishop.Infrastructure.Repositories.Commons.Caching;
 using Skahal.Infrastructure.Framework.Repositories;
 
 namespace Mobishop.Infrastructure.Repositories.Chaortic.Showcase
@@ -23,17 +24,7 @@ namespace Mobishop.Infrastructure.Repositories.Chaortic.Showcase
 
         public async Task<IEnumerable<ShowcaseProduct>> FindShowcaseProductsByShowcaseType(ShowcaseType showcaseType, Priorities priority = Priorities.Background)
         {
-            var response = await BlobCache.LocalMachine.GetAndFetchLatest<ChaorticRootObject>(
-                    Logger.GetMethodSignature(parameters: showcaseType),
-                    async () =>
-                    {
-                        return await FindShowcaseProductsByShowcaseTypeRemoteAsync(showcaseType, priority);
-                    },
-                    offset =>
-                    {
-                        TimeSpan elapsed = DateTimeOffset.Now - offset;
-                        return elapsed > new TimeSpan(0, 30, 0);
-                    }).FirstOrDefaultAsync();
+            var response = await Cache.GetAndFetchLatest(Logger.GetMethodSignature(parameters: showcaseType), () => FindShowcaseProductsByShowcaseTypeRemoteAsync(showcaseType, priority));
 
             var result = MapperHelper.ToDomainEntities(response?.Displays.FirstOrDefault().Recommendations, new ChaordicShowcaseProductMapper());
 
