@@ -90,6 +90,9 @@
     <Reference Include="HelperSharp.PCL">
       <HintPath>..\packages\Skahal.Infrastructure.Framework.Repositories.0.0.8\lib\HelperSharp.PCL.dll</HintPath>
     </Reference>
+    <Reference Include="Skahal.Infrastructure.Framework.Domain">
+      <HintPath>..\packages\Skahal.Infrastructure.Framework.Repositories.0.0.8\lib\Skahal.Infrastructure.Framework.Domain.dll</HintPath>
+    </Reference>
     <Reference Include="Skahal.Infrastructure.Framework.Repositories">
       <HintPath>..\packages\Skahal.Infrastructure.Framework.Repositories.0.0.8\lib\Skahal.Infrastructure.Framework.Repositories.dll</HintPath>
     </Reference>
@@ -149,9 +152,6 @@
     </Reference>
     <Reference Include="Refit">
       <HintPath>..\packages\refit.2.4.1\lib\Portable-Net45+NetCore45+WP8+WPA81\Refit.dll</HintPath>
-    </Reference>
-    <Reference Include="Skahal.Infrastructure.Framework.Domain">
-      <HintPath>..\packages\Skahal.Infrastructure.Framework.Domain.1.0.1\lib\Skahal.Infrastructure.Framework.Domain.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
