@@ -47,11 +47,11 @@ namespace Mambo.PageModels
 						 .Subscribe(x => SetSearchResult(x));
 
 			this.WhenAnyValue(x => x.SearchText)
-				.Throttle(TimeSpan.FromMilliseconds(500), RxApp.MainThreadScheduler)
-				.Select(x => x?.Trim())
-                .Where(x => x != null)
-				.DistinctUntilChanged()
-				.InvokeCommand(SearchCommand);
+			    .Throttle(TimeSpan.FromMilliseconds(500), RxApp.MainThreadScheduler)
+			    .Select(x => x?.Trim())
+			    .Where(x => x != null)
+			    .DistinctUntilChanged()
+			    .InvokeCommand(SearchCommand);
 
 			Observable.Merge(SearchCommand.ThrownExceptions)
 					  .SubscribeOn(RxApp.MainThreadScheduler)
