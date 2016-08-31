@@ -1,8 +1,10 @@
-﻿using Android.App;
+﻿using Acr.UserDialogs;
+using Android.App;
 using Android.Content.PM;
 using Android.OS;
 using Mobishop.Infrastructure.Repositories.Commons.Caching;
 using NControl.Controls.Droid;
+using Xamarin.Forms;
 
 namespace Mambo.Android
 {
@@ -23,6 +25,8 @@ namespace Mambo.Android
 			ToolbarResource = Resource.Layout.Toolbar;
 
             Cache.Initialize("Mambo");
+
+            UserDialogs.Init(() => (Activity)Forms.Context);
 
 			base.OnCreate(bundle);
 

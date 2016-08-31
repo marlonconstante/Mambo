@@ -1,4 +1,5 @@
-﻿using Mobishop.Domain.Products;
+﻿using Mambo.Utils;
+using Mobishop.Domain.Products;
 using Mobishop.Domain.Showcases;
 using Mobishop.Infrastructure.Repositories.Memory;
 using Mobishop.Infrastructure.Repositories.NeemuChaordic.Showcase;
@@ -20,6 +21,8 @@ namespace Mambo
 		{
 			//RegisterMemoryRepositories();
 			RegisterRestRepositories();
+
+            //Locator.CurrentMutable.RegisterLazySingleton(() => new UserDialogsService(), typeof(IUserDialogsService));
 		}
 
 		/// <summary>

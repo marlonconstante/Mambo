@@ -45,6 +45,9 @@
     <Compile Include="PageModels\ProductSearchPageModel.cs" />
     <Compile Include="DataTemplates\SearchDataTemplateSelector.cs" />
     <Compile Include="ViewModels\SearchViewModel.cs" />
+    <Compile Include="Utils\IUserDialogsService.cs" />
+    <Compile Include="Utils\UserDialogsService.cs" />
+    <Compile Include="PageModels\PageModelBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="ModernHttpClient">
@@ -143,6 +146,12 @@
     <Reference Include="NControl.Controls">
       <HintPath>..\packages\NControl.Controls.0.9.3.3\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\NControl.Controls.dll</HintPath>
     </Reference>
+    <Reference Include="Acr.UserDialogs">
+      <HintPath>..\packages\Acr.UserDialogs.6.2.0\lib\portable-win+net45+wp8+win8+wpa81\Acr.UserDialogs.dll</HintPath>
+    </Reference>
+    <Reference Include="Acr.UserDialogs.Interface">
+      <HintPath>..\packages\Acr.UserDialogs.6.2.0\lib\portable-win+net45+wp8+win8+wpa81\Acr.UserDialogs.Interface.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -153,6 +162,7 @@
     <Folder Include="PageModels\" />
     <Folder Include="DataTemplates\" />
     <Folder Include="ViewModels\" />
+    <Folder Include="Utils\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Mobishop.UI\Mobishop.UI.csproj">

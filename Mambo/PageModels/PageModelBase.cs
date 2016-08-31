@@ -1,0 +1,21 @@
+﻿using System;
+using FreshMvvm;
+using Mambo.Utils;
+using Splat;
+
+namespace Mambo.PageModels
+{
+    public class PageModelBase : FreshBasePageModel
+    {
+        protected IUserDialogsService Dialogs
+        {
+            get;
+            set;
+        }
+        public PageModelBase(IUserDialogsService userDialogService = null)
+        {
+            Dialogs = userDialogService ?? Locator.Current.GetService<IUserDialogsService>();
+        }
+    }
+}
+
