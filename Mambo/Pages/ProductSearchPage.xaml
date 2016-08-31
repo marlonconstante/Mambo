@@ -3,14 +3,12 @@
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	xmlns:templates="clr-namespace:Mambo.DataTemplates;assembly=Mambo"
-	xmlns:themes="clr-namespace:Mobishop.UI.Themes;assembly=Mobishop.UI"
 	xmlns:ncontrols="clr-namespace:NControl.Controls;assembly=NControl.Controls"
 	xmlns:controls="clr-namespace:Mobishop.UI.Controls;assembly=Mobishop.UI"
 	x:Name="productSearchPage"
 	x:Class="Mambo.Pages.ProductSearchPage">
 	<ContentPage.Resources>
-		<ResourceDictionary
-			MergedWith="themes:Standard">
+		<ResourceDictionary>
 			<DataTemplate
 				x:Key="groupHeaderTemplate">
 				<ViewCell
@@ -34,14 +32,14 @@
 						</StackLayout.GestureRecognizers>
 						<ncontrols:FontMaterialDesignLabel
 							Text="{x:Static ncontrols:FontMaterialDesignLabel.MDSearch}"
-							TextColor="{StaticResource textColor}"
+							TextColor="{DynamicResource textColor}"
 							FontSize="Large">
 						</ncontrols:FontMaterialDesignLabel>
 						<Label
 							VerticalTextAlignment="Center"
 							Text="{Binding Suggestion}"
-							TextColor="{StaticResource textColor}"
-							FontFamily="{StaticResource fontFamilyRegular}"
+							TextColor="{DynamicResource textColor}"
+							FontFamily="{DynamicResource fontFamilyRegular}"
 							FontSize="Medium">
 						</Label>
 					</StackLayout>
@@ -73,8 +71,8 @@
 							Grid.Column="1"
 							VerticalTextAlignment="Center"
 							Text="{Binding Product.Description}"
-							TextColor="{StaticResource textColor}"
-							FontFamily="{StaticResource fontFamilyRegular}"
+							TextColor="{DynamicResource textColor}"
+							FontFamily="{DynamicResource fontFamilyRegular}"
 							FontSize="Small">
 						</Label>
 						<controls:PriceLabelView
@@ -82,7 +80,7 @@
 							Grid.Column="2"
 							VerticalOptions="Center"
 							Amount="{Binding Product.CurrentPrice}"
-							TextColor="{StaticResource textColor}"
+							TextColor="{DynamicResource textColor}"
 							FontSize="Large">
 						</controls:PriceLabelView>
 					</Grid>
