@@ -32,8 +32,8 @@
     <Compile Include="Controls\PriceLabelView.xaml.cs">
       <DependentUpon>PriceLabelView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Themes\Standard.xaml.cs">
-      <DependentUpon>Standard.xaml</DependentUpon>
+    <Compile Include="Themes\StandardTheme.xaml.cs">
+      <DependentUpon>StandardTheme.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\ProductThumbView.xaml.cs">
       <DependentUpon>ProductThumbView.xaml</DependentUpon>
@@ -53,7 +53,7 @@
     <EmbeddedResource Include="Controls\PriceLabelView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Themes\Standard.xaml">
+    <EmbeddedResource Include="Themes\StandardTheme.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\ProductThumbView.xaml">

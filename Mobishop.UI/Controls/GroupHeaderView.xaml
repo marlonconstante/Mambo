@@ -6,7 +6,7 @@
 	x:Class="Mobishop.UI.Controls.GroupHeaderView">
 	<ContentView.Resources>
 		<ResourceDictionary
-			MergedWith="themes:Standard">
+			MergedWith="themes:StandardTheme">
 		</ResourceDictionary>
 	</ContentView.Resources>
 	<ContentView.Content>

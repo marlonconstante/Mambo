@@ -7,7 +7,7 @@
 	x:Class="Mobishop.UI.Controls.ProductThumbView">
 	<ContentView.Resources>
 		<ResourceDictionary
-			MergedWith="themes:Standard">
+			MergedWith="themes:StandardTheme">
 		</ResourceDictionary>
 	</ContentView.Resources>
 	<ContentView.Content>
