@@ -1,7 +1,5 @@
 ﻿using FreshMvvm;
 using Mambo.PageModels;
-using Skahal.Infrastructure.Framework.Repositories;
-using Splat;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
