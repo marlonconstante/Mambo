@@ -1,7 +1,7 @@
 ﻿using Akavache;
 using Foundation;
 using Mobishop.Infrastructure.Repositories.Commons.Caching;
-using Mobishop.Infrastructure.Repositories.FunctionalTests.VTex.Products;
+using Mobishop.Infrastructure.Repositories.FunctionalTests.Vtex.Products;
 using UIKit;
 
 namespace Mobishop.Infrastructure.Repositories.FunctionalTests.iOS
