@@ -6,7 +6,7 @@
 	x:Class="Mambo.App">
 	<Application.Resources>
 		<ResourceDictionary
-			MergedWith="themes:Standard">
+			MergedWith="themes:StandardTheme">
 		</ResourceDictionary>
 	</Application.Resources>
 </Application>
