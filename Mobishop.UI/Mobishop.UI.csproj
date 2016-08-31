@@ -38,7 +38,6 @@
     <Compile Include="Controls\ProductThumbView.xaml.cs">
       <DependentUpon>ProductThumbView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Tasks\UITaskHandler.cs" />
     <Compile Include="Controls\GroupHeaderView.xaml.cs">
       <DependentUpon>GroupHeaderView.xaml</DependentUpon>
     </Compile>
@@ -49,7 +48,6 @@
   <ItemGroup>
     <Folder Include="Controls\" />
     <Folder Include="Themes\" />
-    <Folder Include="Tasks\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Controls\PriceLabelView.xaml">
