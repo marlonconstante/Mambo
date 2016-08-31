@@ -3,7 +3,7 @@ using Android.App;
 using Android.Content.PM;
 using Android.OS;
 using Mobishop.Infrastructure.Repositories.Commons.Caching;
-using Mobishop.Infrastructure.Repositories.FunctionalTests.VTex.Products;
+using Mobishop.Infrastructure.Repositories.FunctionalTests.Vtex.Products;
 
 namespace Mobishop.Infrastructure.Repositories.FunctionalTests.Android
 {
