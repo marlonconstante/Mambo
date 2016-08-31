@@ -6,7 +6,7 @@ using Mobishop.Infrastructure.Repositories.Vtex.Products;
 using NUnit.Framework;
 using Skahal.Infrastructure.Framework.Repositories;
 
-namespace Mobishop.Infrastructure.Repositories.FunctionalTests.VTex.Products
+namespace Mobishop.Infrastructure.Repositories.FunctionalTests.Vtex.Products
 {
     [TestFixture]
     public class VtexProductRepositoryTest
