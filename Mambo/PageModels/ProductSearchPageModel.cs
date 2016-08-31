@@ -48,7 +48,8 @@ namespace Mambo.PageModels
 
 			this.WhenAnyValue(x => x.SearchText)
 				.Throttle(TimeSpan.FromMilliseconds(500), RxApp.MainThreadScheduler)
-				.Select(x => x?.Trim() ?? string.Empty)
+				.Select(x => x?.Trim())
+                .Where(x => x != null)
 				.DistinctUntilChanged()
 				.InvokeCommand(SearchCommand);
 
