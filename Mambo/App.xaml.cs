@@ -1,18 +1,16 @@
 ﻿using FreshMvvm;
 using Mambo.PageModels;
 using Mambo.Utils;
-using Skahal.Infrastructure.Framework.Repositories;
-using Splat;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Mambo
 {
-	/// <summary>
-	/// App.
-	/// </summary>
-	public partial class App : Application
+    /// <summary>
+    /// App.
+    /// </summary>
+    public partial class App : Application
 	{
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:Mambo.App"/> class.
@@ -23,7 +21,9 @@ namespace Mambo
             AppBootstrapper.Initialize();
 
             FreshIOC.Container.Register<IUserDialogsService, UserDialogsService>();
+
             var homePage = FreshPageModelResolver.ResolvePageModel<ProductSearchPageModel>();
+
 			MainPage = new FreshNavigationContainer(homePage);
 		}
 
