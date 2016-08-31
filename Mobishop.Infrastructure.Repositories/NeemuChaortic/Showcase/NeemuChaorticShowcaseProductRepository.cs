@@ -28,9 +28,9 @@ namespace Mobishop.Infrastructure.Repositories.NeemuChaortic.Showcase
             return await m_neemuRepository.FindShowcaseProductByNameAsync(name, priority);
         }
 
-        public async Task<IEnumerable<string>> FindShowcaseProductSugestionsByNameAsync(string name, Priorities priority = Priorities.Background)
+        public async Task<IEnumerable<string>> FindShowcaseProductSuggestionsByNameAsync(string name, Priorities priority = Priorities.Background)
         {
-            return await m_neemuRepository.FindShowcaseProductSugestionsByNameAsync(name, priority);
+            return await m_neemuRepository.FindShowcaseProductSuggestionsByNameAsync(name, priority);
         }
 
         public async Task<IEnumerable<ShowcaseProduct>> FindShowcaseProductsByShowcaseType(ShowcaseType showcaseType, Priorities priority = Priorities.Background)

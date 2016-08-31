@@ -101,14 +101,14 @@ namespace Mobishop.Domain.UnitTests.Showcases
         [Test]
         public async Task FindShowcaseProductSugestionsByNameAsync_Empty_EmptyList()
         {
-            var actual = await m_target.GetShowcaseProductSugestionsByNameAsync("");
+            var actual = await m_target.GetShowcaseProductSuggestionsByNameAsync("");
             Assert.AreEqual(0, actual.Count());
         }
 
         [Test]
         public async Task FindShowcaseProductSugestionsByNameAsync_Test1_2Suggestions()
         {
-            var actual = await m_target.GetShowcaseProductSugestionsByNameAsync("Test1");
+            var actual = await m_target.GetShowcaseProductSuggestionsByNameAsync("Test1");
             Assert.AreEqual(2, actual.Count());
         }
 

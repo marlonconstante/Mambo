@@ -74,7 +74,7 @@ namespace Mobishop.Infrastructure.Repositories.Memory
             return Task.FromResult((IEnumerable<ShowcaseProduct>)results);
         }
 
-        public Task<IEnumerable<string>> FindShowcaseProductSugestionsByNameAsync(string name, Priorities priority = Priorities.Background)
+        public Task<IEnumerable<string>> FindShowcaseProductSuggestionsByNameAsync(string name, Priorities priority = Priorities.Background)
         {
             IList<string> results = new List<string>();
             if (!string.IsNullOrWhiteSpace(name))

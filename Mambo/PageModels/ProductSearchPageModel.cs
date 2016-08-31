@@ -90,7 +90,7 @@ namespace Mambo.PageModels
 		/// <param name="text">Text.</param>
 		async Task<IEnumerable<SearchViewModel>> SearchAsync(string text)
 		{
-			var suggestions = await showcaseService.GetShowcaseProductSugestionsByNameAsync(text, Priorities.UserInitiated).ConfigureAwait(false);
+			var suggestions = await showcaseService.GetShowcaseProductSuggestionsByNameAsync(text, Priorities.UserInitiated).ConfigureAwait(false);
 			var products = await showcaseService.GetShowcaseProductByNameAsync(text, Priorities.UserInitiated).ConfigureAwait(false);
 
 			return suggestions.Select(x => new SearchViewModel(x)).Union(products.Select(x => new SearchViewModel(x)));
