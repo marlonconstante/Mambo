@@ -1,9 +1,9 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace Mobishop.Infrastructure.Repositories.Chaortic.Showcase.Response
+namespace Mobishop.Infrastructure.Repositories.Chaordic.Showcase.Response
 {
-    public class ChaorticImage
+    public class ChaordicImage
     {
         [JsonProperty("50x50")]
         public string ImageWith50x50 { get; set; }
@@ -23,7 +23,7 @@ namespace Mobishop.Infrastructure.Repositories.Chaortic.Showcase.Response
         [JsonProperty("500x500")]
         public string ImageWith500x500 { get; set; }
 
-        public ChaorticImage()
+        public ChaordicImage()
         {
         }
     }

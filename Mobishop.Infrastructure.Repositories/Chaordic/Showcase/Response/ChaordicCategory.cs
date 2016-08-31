@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace Mobishop.Infrastructure.Repositories.Chaortic.Showcase.Response
+namespace Mobishop.Infrastructure.Repositories.Chaordic.Showcase.Response
 {
-    public class ChaorticCategory
+    public class ChaordicCategory
     {
         [JsonProperty("id")]
         public string Id { get; set; }
@@ -15,7 +15,7 @@ namespace Mobishop.Infrastructure.Repositories.Chaortic.Showcase.Response
         [JsonProperty("parents")]
         public List<string> Parents { get; set; }
 
-        public ChaorticCategory()
+        public ChaordicCategory()
         {
         }
     }

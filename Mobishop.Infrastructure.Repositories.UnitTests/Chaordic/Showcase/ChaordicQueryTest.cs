@@ -1,9 +1,9 @@
 ﻿using System;
 using Mobishop.Domain.Showcases;
-using Mobishop.Infrastructure.Repositories.Chaortic;
+using Mobishop.Infrastructure.Repositories.Chaordic;
 using NUnit.Framework;
 
-namespace Mobishop.Infrastructure.Repositories.UnitTests.Chaortic.Showcase
+namespace Mobishop.Infrastructure.Repositories.UnitTests.Chaordic.Showcase
 {
     [TestFixture]
     public class ChaordicQueryTest

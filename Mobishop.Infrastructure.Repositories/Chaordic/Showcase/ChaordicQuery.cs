@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using Mobishop.Domain.Showcases;
-using Mobishop.Infrastructure.Repositories.Chaortic.Showcase.Request;
+using Mobishop.Infrastructure.Repositories.Chaordic.Showcase.Request;
 using Newtonsoft.Json;
 
-namespace Mobishop.Infrastructure.Repositories.Chaortic
+namespace Mobishop.Infrastructure.Repositories.Chaordic
 {
     public static class ChaordicQuery
     {

@@ -7,13 +7,13 @@ using Akavache;
 using Mobishop.Domain.Showcases;
 using Mobishop.Infrastructure.Framework.Logging;
 using Mobishop.Infrastructure.Framework.Repositories;
-using Mobishop.Infrastructure.Repositories.Chaortic.Mappers;
-using Mobishop.Infrastructure.Repositories.Chaortic.Showcase.Response;
+using Mobishop.Infrastructure.Repositories.Chaordic.Mappers;
+using Mobishop.Infrastructure.Repositories.Chaordic.Showcase.Response;
 using Mobishop.Infrastructure.Repositories.Commons;
 using Mobishop.Infrastructure.Repositories.Commons.Caching;
 using Skahal.Infrastructure.Framework.Repositories;
 
-namespace Mobishop.Infrastructure.Repositories.Chaortic.Showcase
+namespace Mobishop.Infrastructure.Repositories.Chaordic.Showcase
 {
     public class ChaordicShowcaseProductRepository : RestRepositoryBase<ShowcaseProduct, IChaordicShowcaseApi>
     {
@@ -31,7 +31,7 @@ namespace Mobishop.Infrastructure.Repositories.Chaortic.Showcase
             return result;
         }
 
-        public async Task<ChaorticRootObject> FindShowcaseProductsByShowcaseTypeRemoteAsync(ShowcaseType showcaseType, Priorities priority = Priorities.Background)
+        public async Task<ChaordicRootObject> FindShowcaseProductsByShowcaseTypeRemoteAsync(ShowcaseType showcaseType, Priorities priority = Priorities.Background)
         {
             var results = await ExecuteApiRequest((arg) => GetClientWithPriority(priority).FetchShowcase(GetResourceNameForShowcase(showcaseType), ChaordicQuery.Build()));
 

@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 
 
-namespace Mobishop.Infrastructure.Repositories.Chaortic.Showcase.Request
+namespace Mobishop.Infrastructure.Repositories.Chaordic.Showcase.Request
 {
     public class Identity
     {

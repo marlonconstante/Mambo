@@ -39,8 +39,8 @@
     <Compile Include="Neemu\Mappers\NeemuSearchSuggestionMapperTest.cs" />
     <Compile Include="Neemu\Mappers\NeemuShowcaseProductMapperTest.cs" />
     <Compile Include="Vtex\Mappers\VtexProductMapperTest.cs" />
-    <Compile Include="Chaortic\Showcase\ChaordicQueryTest.cs" />
-    <Compile Include="Chaortic\Mapper\ChaordicShowcaseProductMapperTest.cs" />
+    <Compile Include="Chaordic\Showcase\ChaordicQueryTest.cs" />
+    <Compile Include="Chaordic\Mapper\ChaordicShowcaseProductMapperTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -50,9 +50,9 @@
     <Folder Include="Neemu\" />
     <Folder Include="Neemu\Mappers\" />
     <Folder Include="Vtex\Mappers\" />
-    <Folder Include="Chaortic\" />
-    <Folder Include="Chaortic\Showcase\" />
-    <Folder Include="Chaortic\Mapper\" />
+    <Folder Include="Chaordic\" />
+    <Folder Include="Chaordic\Showcase\" />
+    <Folder Include="Chaordic\Mapper\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Mobishop.Domain\Mobishop.Domain.csproj">

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace Mobishop.Infrastructure.Repositories.Chaortic.Showcase.Response
+namespace Mobishop.Infrastructure.Repositories.Chaordic.Showcase.Response
 {
-    public class ChaorticRootObject
+    public class ChaordicRootObject
     {
         [JsonProperty("ok")]
         public bool Ok { get; set; }
@@ -13,9 +13,9 @@ namespace Mobishop.Infrastructure.Repositories.Chaortic.Showcase.Response
         public string Feature { get; set; }
 
         [JsonProperty("displays")]
-        public List<ChaorticDisplay> Displays { get; set; }
+        public List<ChaordicDisplay> Displays { get; set; }
 
-        public ChaorticRootObject()
+        public ChaordicRootObject()
         {
         }
     }

@@ -1,9 +1,9 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace Mobishop.Infrastructure.Repositories.Chaortic.Showcase.Response
+namespace Mobishop.Infrastructure.Repositories.Chaordic.Showcase.Response
 {
-    public class ChaorticTag
+    public class ChaordicTag
     {
         [JsonProperty("name")]
         public string Name { get; set; }
@@ -11,7 +11,7 @@ namespace Mobishop.Infrastructure.Repositories.Chaortic.Showcase.Response
         [JsonProperty("id")]
         public string Id { get; set; }
 
-        public ChaorticTag()
+        public ChaordicTag()
         {
         }
     }

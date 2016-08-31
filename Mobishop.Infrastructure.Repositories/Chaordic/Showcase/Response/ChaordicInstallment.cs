@@ -1,9 +1,9 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace Mobishop.Infrastructure.Repositories.Chaortic.Showcase.Response
+namespace Mobishop.Infrastructure.Repositories.Chaordic.Showcase.Response
 {
-    public class ChaorticInstallment
+    public class ChaordicInstallment
     {
         [JsonProperty("count")]
         public int Count { get; set; }
@@ -11,7 +11,7 @@ namespace Mobishop.Infrastructure.Repositories.Chaortic.Showcase.Response
         [JsonProperty("price")]
         public string Price { get; set; }
 
-        public ChaorticInstallment()
+        public ChaordicInstallment()
         {
         }
     }

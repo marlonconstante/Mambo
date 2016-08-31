@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Globalization;
 using Mobishop.Domain.Showcases;
-using Mobishop.Infrastructure.Repositories.Chaortic.Showcase.Response;
+using Mobishop.Infrastructure.Repositories.Chaordic.Showcase.Response;
 using Mobishop.Infrastructure.Repositories.Commons;
 
-namespace Mobishop.Infrastructure.Repositories.Chaortic.Mappers
+namespace Mobishop.Infrastructure.Repositories.Chaordic.Mappers
 {
-    public class ChaordicShowcaseProductMapper : IMapper<ShowcaseProduct, ChaorticRecommendation>
+    public class ChaordicShowcaseProductMapper : IMapper<ShowcaseProduct, ChaordicRecommendation>
     {
         public ChaordicShowcaseProductMapper()
         {
         }
 
-        public ShowcaseProduct ToDomainEntity(ChaorticRecommendation repositoryEntity)
+        public ShowcaseProduct ToDomainEntity(ChaordicRecommendation repositoryEntity)
         {
             if (repositoryEntity == null)
                 return null;
@@ -32,12 +32,12 @@ namespace Mobishop.Infrastructure.Repositories.Chaortic.Mappers
             return result;
         }
 
-        string GetImageForScreenSize(ChaorticRecommendation repositoryEntity)
+        string GetImageForScreenSize(ChaordicRecommendation repositoryEntity)
         {
             return repositoryEntity.Images.ImageWith500x500;
         }
 
-        public ChaorticRecommendation ToRepositoryEntity(ShowcaseProduct domainEntity)
+        public ChaordicRecommendation ToRepositoryEntity(ShowcaseProduct domainEntity)
         {
             throw new NotImplementedException();
         }

@@ -2,22 +2,22 @@
 using System.Threading.Tasks;
 using Mobishop.Domain.Showcases;
 using Mobishop.Infrastructure.Framework.Repositories;
-using Mobishop.Infrastructure.Repositories.NeemuChaortic.Showcase;
+using Mobishop.Infrastructure.Repositories.NeemuChaordic.Showcase;
 using NUnit.Framework;
 using Skahal.Infrastructure.Framework.Repositories;
 
-namespace Mobishop.Infrastructure.Repositories.FunctionalTests.NeemuChaortic.Showcase
+namespace Mobishop.Infrastructure.Repositories.FunctionalTests.NeemuChaordic.Showcase
 {
     [TestFixture]
-    public class NeemuChaorticShowcaseProductRepositoryTest
+    public class NeemuChaordicShowcaseProductRepositoryTest
     {
-        NeemuChaorticShowcaseProductRepository m_target;
+        NeemuChaordicShowcaseProductRepository m_target;
 
         [SetUp]
         public void Setup()
         {
             var unitOfWork = new MemoryUnitOfWork();
-            m_target = new NeemuChaorticShowcaseProductRepository(unitOfWork);
+            m_target = new NeemuChaordicShowcaseProductRepository(unitOfWork);
         }
 
         [Test]

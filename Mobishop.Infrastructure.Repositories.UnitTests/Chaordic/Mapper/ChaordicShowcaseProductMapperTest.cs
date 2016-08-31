@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using Mobishop.Infrastructure.Repositories.Chaortic.Mappers;
-using Mobishop.Infrastructure.Repositories.Chaortic.Showcase.Response;
+using Mobishop.Infrastructure.Repositories.Chaordic.Mappers;
+using Mobishop.Infrastructure.Repositories.Chaordic.Showcase.Response;
 using NUnit.Framework;
 
-namespace Mobishop.Infrastructure.Repositories.UnitTests.Chaortic.Mapper
+namespace Mobishop.Infrastructure.Repositories.UnitTests.Chaordic.Mapper
 {
     [TestFixture]
     public class ChaordicShowcaseProductMapperTest
@@ -21,12 +21,12 @@ namespace Mobishop.Infrastructure.Repositories.UnitTests.Chaortic.Mapper
         public void ToDomainEntity_NeemuSearchResult_String()
         {
 
-            var source = new ChaorticRecommendation()
+            var source = new ChaordicRecommendation()
             {
                 ApiKey = "ApiKey",
-                Categories = new List<ChaorticCategory>()
+                Categories = new List<ChaordicCategory>()
                 {
-                    new ChaorticCategory()
+                    new ChaordicCategory()
                     {
                         Id = "1",
                         Name = "TagName",
@@ -36,7 +36,7 @@ namespace Mobishop.Infrastructure.Repositories.UnitTests.Chaortic.Mapper
                             "parent2"
                         }
                     },
-                    new ChaorticCategory()
+                    new ChaordicCategory()
                     {
                         Id = "2",
                         Name = "TagName2",
@@ -49,7 +49,7 @@ namespace Mobishop.Infrastructure.Repositories.UnitTests.Chaortic.Mapper
                 },
                 DaysOnTop = "10",
                 Id = "1",
-                Images = new ChaorticImage()
+                Images = new ChaordicImage()
                 {
                     ImageWith128x128 = "ImageWith128x128",
                     ImageWith230x230 = "ImageWith230x230",
@@ -58,7 +58,7 @@ namespace Mobishop.Infrastructure.Repositories.UnitTests.Chaortic.Mapper
                     ImageWith50x50 = "ImageWith50x50",
                     ImageWith70x70 = "ImageWith70x70"
                 },
-                Installment = new ChaorticInstallment()
+                Installment = new ChaordicInstallment()
                 {
                     Count = 1,
                     Price = "Price"
@@ -68,9 +68,9 @@ namespace Mobishop.Infrastructure.Repositories.UnitTests.Chaortic.Mapper
                 Price = "R$ 8,01",
                 SimilarityWeight = 1,
                 Status = "Status",
-                Tags = new List<ChaorticTag>()
+                Tags = new List<ChaordicTag>()
                 {
-                    new ChaorticTag()
+                    new ChaordicTag()
                     {
                         Id = "11",
                         Name = "Tag"

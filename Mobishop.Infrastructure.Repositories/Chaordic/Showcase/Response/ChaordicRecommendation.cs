@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace Mobishop.Infrastructure.Repositories.Chaortic.Showcase.Response
+namespace Mobishop.Infrastructure.Repositories.Chaordic.Showcase.Response
 {
-    public class ChaorticRecommendation
+    public class ChaordicRecommendation
     {
         [JsonProperty("id")]
         public string Id { get; set; }
@@ -16,7 +16,7 @@ namespace Mobishop.Infrastructure.Repositories.Chaortic.Showcase.Response
         public string Url { get; set; }
 
         [JsonProperty("images")]
-        public ChaorticImage Images { get; set; }
+        public ChaordicImage Images { get; set; }
 
         [JsonProperty("status")]
         public string Status { get; set; }
@@ -25,16 +25,16 @@ namespace Mobishop.Infrastructure.Repositories.Chaortic.Showcase.Response
         public string Price { get; set; }
 
         [JsonProperty("categories")]
-        public List<ChaorticCategory> Categories { get; set; }
+        public List<ChaordicCategory> Categories { get; set; }
 
         [JsonProperty("installment")]
-        public ChaorticInstallment Installment { get; set; }
+        public ChaordicInstallment Installment { get; set; }
 
         [JsonProperty("oldPrice")]
         public string OldPrice { get; set; }
 
         [JsonProperty("tags")]
-        public List<ChaorticTag> Tags { get; set; }
+        public List<ChaordicTag> Tags { get; set; }
 
         [JsonProperty("apiKey")]
         public string ApiKey { get; set; }
@@ -48,7 +48,7 @@ namespace Mobishop.Infrastructure.Repositories.Chaortic.Showcase.Response
         [JsonProperty("similarityWeight")]
         public double SimilarityWeight { get; set; }
 
-        public ChaorticRecommendation()
+        public ChaordicRecommendation()
         {
         }
     }

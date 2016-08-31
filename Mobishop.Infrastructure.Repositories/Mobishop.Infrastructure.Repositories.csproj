@@ -51,21 +51,21 @@
     <Compile Include="Vtex\Mappers\VtexProductMapper.cs" />
     <Compile Include="Neemu\NeemuShowcaseProduct.cs" />
     <Compile Include="Commons\MapperHelper.cs" />
-    <Compile Include="Chaortic\Showcase\ChaordicShowcaseProductRepository.cs" />
-    <Compile Include="Chaortic\Showcase\IChaordicShowcaseApi.cs" />
-    <Compile Include="Chaortic\Showcase\Request\Identity.cs" />
-    <Compile Include="Chaortic\Showcase\Request\Page.cs" />
-    <Compile Include="Chaortic\Showcase\Request\Request.cs" />
-    <Compile Include="Chaortic\Showcase\Response\ChaorticRecommendation.cs" />
-    <Compile Include="Chaortic\Showcase\Response\ChaorticRootObject.cs" />
-    <Compile Include="Chaortic\Showcase\Response\ChaorticCategory.cs" />
-    <Compile Include="Chaortic\Showcase\Response\ChaorticDisplay.cs" />
-    <Compile Include="Chaortic\Showcase\Response\ChaorticImage.cs" />
-    <Compile Include="Chaortic\Showcase\Response\ChaorticInstallment.cs" />
-    <Compile Include="Chaortic\Showcase\Response\ChaorticTag.cs" />
-    <Compile Include="Chaortic\Showcase\ChaordicQuery.cs" />
-    <Compile Include="Chaortic\Mappers\ChaordicShowcaseProductMapper.cs" />
-    <Compile Include="NeemuChaortic\Showcase\NeemuChaorticShowcaseProductRepository.cs" />
+    <Compile Include="Chaordic\Showcase\ChaordicShowcaseProductRepository.cs" />
+    <Compile Include="Chaordic\Showcase\IChaordicShowcaseApi.cs" />
+    <Compile Include="Chaordic\Showcase\Request\Identity.cs" />
+    <Compile Include="Chaordic\Showcase\Request\Page.cs" />
+    <Compile Include="Chaordic\Showcase\Request\Request.cs" />
+    <Compile Include="Chaordic\Showcase\Response\ChaordicRecommendation.cs" />
+    <Compile Include="Chaordic\Showcase\Response\ChaordicRootObject.cs" />
+    <Compile Include="Chaordic\Showcase\Response\ChaordicCategory.cs" />
+    <Compile Include="Chaordic\Showcase\Response\ChaordicDisplay.cs" />
+    <Compile Include="Chaordic\Showcase\Response\ChaordicImage.cs" />
+    <Compile Include="Chaordic\Showcase\Response\ChaordicInstallment.cs" />
+    <Compile Include="Chaordic\Showcase\Response\ChaordicTag.cs" />
+    <Compile Include="Chaordic\Showcase\ChaordicQuery.cs" />
+    <Compile Include="Chaordic\Mappers\ChaordicShowcaseProductMapper.cs" />
+    <Compile Include="NeemuChaordic\Showcase\NeemuChaordicShowcaseProductRepository.cs" />
     <Compile Include="Commons\Caching\Cache.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -77,13 +77,13 @@
     <Folder Include="Neemu\Showcase\" />
     <Folder Include="Neemu\Mappers\" />
     <Folder Include="Vtex\Mappers\" />
-    <Folder Include="Chaortic\" />
-    <Folder Include="Chaortic\Showcase\" />
-    <Folder Include="Chaortic\Mappers\" />
-    <Folder Include="Chaortic\Showcase\Request\" />
-    <Folder Include="Chaortic\Showcase\Response\" />
-    <Folder Include="NeemuChaortic\" />
-    <Folder Include="NeemuChaortic\Showcase\" />
+    <Folder Include="Chaordic\" />
+    <Folder Include="Chaordic\Showcase\" />
+    <Folder Include="Chaordic\Mappers\" />
+    <Folder Include="Chaordic\Showcase\Request\" />
+    <Folder Include="Chaordic\Showcase\Response\" />
+    <Folder Include="NeemuChaordic\" />
+    <Folder Include="NeemuChaordic\Showcase\" />
     <Folder Include="Commons\Caching\" />
   </ItemGroup>
   <ItemGroup>

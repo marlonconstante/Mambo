@@ -4,21 +4,20 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Mobishop.Domain.Showcases;
 using Mobishop.Infrastructure.Framework.Repositories;
-using Mobishop.Infrastructure.Repositories.Chaortic.Showcase;
+using Mobishop.Infrastructure.Repositories.Chaordic.Showcase;
 using Mobishop.Infrastructure.Repositories.Neemu.Showcase;
 using Skahal.Infrastructure.Framework.Repositories;
 
-namespace Mobishop.Infrastructure.Repositories.NeemuChaortic.Showcase
+namespace Mobishop.Infrastructure.Repositories.NeemuChaordic.Showcase
 {
-    public class NeemuChaorticShowcaseProductRepository : IShowcaseProductRepository
+    public class NeemuChaordicShowcaseProductRepository : IShowcaseProductRepository
     {
-        ChaordicShowcaseProductRepository m_chaorticRepository;
+        ChaordicShowcaseProductRepository m_chaordicRepository;
         NeemuShowcaseProductRepository m_neemuRepository;
 
-        public NeemuChaorticShowcaseProductRepository(IUnitOfWork unitOfWork = null)
+        public NeemuChaordicShowcaseProductRepository(IUnitOfWork unitOfWork = null)
         {
-
-            m_chaorticRepository = new ChaordicShowcaseProductRepository(unitOfWork);
+            m_chaordicRepository = new ChaordicShowcaseProductRepository(unitOfWork);
             m_neemuRepository = new NeemuShowcaseProductRepository(unitOfWork);
             
         }
@@ -35,7 +34,7 @@ namespace Mobishop.Infrastructure.Repositories.NeemuChaortic.Showcase
 
         public async Task<IEnumerable<ShowcaseProduct>> FindShowcaseProductsByShowcaseType(ShowcaseType showcaseType, Priorities priority = Priorities.Background)
         {
-            return await m_chaorticRepository.FindShowcaseProductsByShowcaseType(showcaseType, priority);
+            return await m_chaordicRepository.FindShowcaseProductsByShowcaseType(showcaseType, priority);
         }
 
 
