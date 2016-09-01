@@ -26,7 +26,7 @@ namespace Mobishop.Infrastructure.Repositories.Memory
             s_lastKey = 0;
         }
 
-        public Task<IEnumerable<ShowcaseProduct>> FindShowcaseProductByNameAsync(string name, Priorities priority = Priorities.Background)
+        public Task<IEnumerable<ShowcaseProduct>> FindShowcaseProductSuggestionsByNameAsync(string name, Priorities priority = Priorities.Background)
         {
             IEnumerable<ShowcaseProduct> results = new List<ShowcaseProduct>();
             results = Entities.Where(p => p.Name.Contains(name) && !string.IsNullOrWhiteSpace(name));
@@ -74,7 +74,7 @@ namespace Mobishop.Infrastructure.Repositories.Memory
             return Task.FromResult((IEnumerable<ShowcaseProduct>)results);
         }
 
-        public Task<IEnumerable<string>> FindShowcaseProductSuggestionsByNameAsync(string name, Priorities priority = Priorities.Background)
+        public Task<IEnumerable<string>> FindShowcaseProductNameSuggestionsByNameAsync(string name, Priorities priority = Priorities.Background)
         {
             IList<string> results = new List<string>();
             if (!string.IsNullOrWhiteSpace(name))
@@ -85,6 +85,14 @@ namespace Mobishop.Infrastructure.Repositories.Memory
             }
 
             return Task.FromResult((IEnumerable<string>)results);
+        }
+
+        public Task<IEnumerable<ShowcaseProduct>> FindShowcaseProductByNameAsync(string name, Priorities priority = Priorities.Background)
+        {
+            IEnumerable<ShowcaseProduct> results = new List<ShowcaseProduct>();
+            results = Entities.Where(p => p.Name.Contains(name) && !string.IsNullOrWhiteSpace(name));
+
+            return Task.FromResult(results);
         }
     }
 }

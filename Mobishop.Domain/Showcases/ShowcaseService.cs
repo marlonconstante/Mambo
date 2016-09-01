@@ -15,19 +15,24 @@ namespace Mobishop.Domain.Showcases
             m_showcaseProductRepository = showcaseProductRepository ?? Locator.Current.GetService<IShowcaseProductRepository>();
         }
 
-        public async Task<IEnumerable<ShowcaseProduct>> GetShowcaseProductByNameAsync(string name, Priorities priority = Priorities.Background)
-        {
-            return await m_showcaseProductRepository.FindShowcaseProductByNameAsync(name, priority);
-        }
-
-        public async Task<IEnumerable<string>> GetShowcaseProductSuggestionsByNameAsync(string name, Priorities priority = Priorities.Background)
+        public async Task<IEnumerable<ShowcaseProduct>> GetShowcaseProductSuggestionsByNameAsync(string name, Priorities priority = Priorities.Background)
         {
             return await m_showcaseProductRepository.FindShowcaseProductSuggestionsByNameAsync(name, priority);
+        }
+
+        public async Task<IEnumerable<string>> GetShowcaseProductNameSuggestionsByNameAsync(string name, Priorities priority = Priorities.Background)
+        {
+            return await m_showcaseProductRepository.FindShowcaseProductNameSuggestionsByNameAsync(name, priority);
         }
 
         public async Task<IEnumerable<ShowcaseProduct>> GetShowcaseProductsByShowcaseType(ShowcaseType showcaseType, Priorities priority = Priorities.Background)
         {
             return await m_showcaseProductRepository.FindShowcaseProductsByShowcaseType(showcaseType, priority);
+        }
+
+        public async Task<IEnumerable<ShowcaseProduct>> GetShowcaseProductsByNameAsync(string name, Priorities priority = Priorities.Background)
+        {
+            return await m_showcaseProductRepository.FindShowcaseProductByNameAsync(name, priority);
         }
     }
 }

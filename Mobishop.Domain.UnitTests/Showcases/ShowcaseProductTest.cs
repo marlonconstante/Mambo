@@ -62,14 +62,14 @@ namespace Mobishop.Domain.UnitTests.Showcases
         [Test]
         public async Task GetProductByName_Empty_EmptyList()
         {
-            var actual = await m_target.GetShowcaseProductByNameAsync("");
+            var actual = await m_target.GetShowcaseProductSuggestionsByNameAsync("");
             Assert.AreEqual(0, actual.Count());
         }
 
         [Test]
         public async Task GetProductByName_OneLetter_AllWordsWithThatLetter()
         {
-            var actual = await m_target.GetShowcaseProductByNameAsync("o");
+            var actual = await m_target.GetShowcaseProductSuggestionsByNameAsync("o");
             Assert.AreEqual(5, actual.Count());
             Assert.IsNotEmpty(actual.FirstOrDefault().Name);
         }
@@ -77,7 +77,7 @@ namespace Mobishop.Domain.UnitTests.Showcases
         [Test]
         public async Task GetProductByName_StartWith_AllWordsThatStartsWith()
         {
-            var actual = await m_target.GetShowcaseProductByNameAsync("Qu");
+            var actual = await m_target.GetShowcaseProductSuggestionsByNameAsync("Qu");
             Assert.AreEqual(2, actual.Count());
             Assert.IsNotEmpty(actual.FirstOrDefault().Name);
         }
@@ -85,7 +85,7 @@ namespace Mobishop.Domain.UnitTests.Showcases
         [Test]
         public async Task GetProductByName_EndWith_AllWordsThatSEndsWith()
         {
-            var actual = await m_target.GetShowcaseProductByNameAsync("ro");
+            var actual = await m_target.GetShowcaseProductSuggestionsByNameAsync("ro");
             Assert.AreEqual(2, actual.Count());
             Assert.IsNotEmpty(actual.FirstOrDefault().Name);
 
@@ -94,21 +94,21 @@ namespace Mobishop.Domain.UnitTests.Showcases
         [Test]
         public async Task GetProductByName_NonExistentWord_Empty()
         {
-            var actual = await m_target.GetShowcaseProductByNameAsync("Oitavo");
+            var actual = await m_target.GetShowcaseProductSuggestionsByNameAsync("Oitavo");
             Assert.AreEqual(0, actual.Count());
         }
 
         [Test]
         public async Task FindShowcaseProductSugestionsByNameAsync_Empty_EmptyList()
         {
-            var actual = await m_target.GetShowcaseProductSuggestionsByNameAsync("");
+            var actual = await m_target.GetShowcaseProductNameSuggestionsByNameAsync("");
             Assert.AreEqual(0, actual.Count());
         }
 
         [Test]
         public async Task FindShowcaseProductSugestionsByNameAsync_Test1_2Suggestions()
         {
-            var actual = await m_target.GetShowcaseProductSuggestionsByNameAsync("Test1");
+            var actual = await m_target.GetShowcaseProductNameSuggestionsByNameAsync("Test1");
             Assert.AreEqual(2, actual.Count());
         }
 
@@ -121,5 +121,38 @@ namespace Mobishop.Domain.UnitTests.Showcases
             Assert.AreEqual("Name 0", actual[0].Name);
             Assert.AreEqual("Name 1", actual[1].Name);
         }
+
+        [Test]
+        public async Task GetShowcaseProductsByNameAsync_Empty_EmptyList()
+        {
+            var actual = await m_target.GetShowcaseProductsByNameAsync("");
+            Assert.AreEqual(0, actual.Count());
+        }
+
+        [Test]
+        public async Task GetShowcaseProductsByNameAsync_OneLetter_AllWordsWithThatLetter()
+        {
+            var actual = await m_target.GetShowcaseProductsByNameAsync("o");
+            Assert.AreEqual(5, actual.Count());
+            Assert.IsNotEmpty(actual.FirstOrDefault().Name);
+        }
+
+        [Test]
+        public async Task GetShowcaseProductsByNameAsync_StartWith_AllWordsThatStartsWith()
+        {
+            var actual = await m_target.GetShowcaseProductsByNameAsync("Qu");
+            Assert.AreEqual(2, actual.Count());
+            Assert.IsNotEmpty(actual.FirstOrDefault().Name);
+        }
+
+        [Test]
+        public async Task GetShowcaseProductsByNameAsync_EndWith_AllWordsThatSEndsWith()
+        {
+            var actual = await m_target.GetShowcaseProductsByNameAsync("ro");
+            Assert.AreEqual(2, actual.Count());
+            Assert.IsNotEmpty(actual.FirstOrDefault().Name);
+
+        }
+
     }
 }

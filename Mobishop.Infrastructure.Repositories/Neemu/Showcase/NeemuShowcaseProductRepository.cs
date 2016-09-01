@@ -23,7 +23,7 @@ namespace Mobishop.Infrastructure.Repositories.Neemu.Showcase
 
         }
 
-        public async Task<IEnumerable<ShowcaseProduct>> FindShowcaseProductByNameAsync(string name, Priorities priority = Priorities.Background)
+        public async Task<IEnumerable<ShowcaseProduct>> FindShowcaseProductSuggestionsByNameAsync(string name, Priorities priority = Priorities.Background)
         {
             var searchResult = await Cache.GetAndFetchLatest(GetCacheKey(name), () => FindSearchResultRemoteAsync(name, priority));
 
@@ -32,7 +32,7 @@ namespace Mobishop.Infrastructure.Repositories.Neemu.Showcase
             return result;
         }
 
-        public async Task<IEnumerable<string>> FindShowcaseProductSuggestionsByNameAsync(string name, Priorities priority = Priorities.Background)
+        public async Task<IEnumerable<string>> FindShowcaseProductNameSuggestionsByNameAsync(string name, Priorities priority = Priorities.Background)
         {
             var searchResult = await Cache.GetAndFetchLatest(GetCacheKey(name), () => FindSearchResultRemoteAsync(name, priority));
 

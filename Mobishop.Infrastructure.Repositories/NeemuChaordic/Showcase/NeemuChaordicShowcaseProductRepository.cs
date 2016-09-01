@@ -22,14 +22,14 @@ namespace Mobishop.Infrastructure.Repositories.NeemuChaordic.Showcase
             
         }
 
-        public async Task<IEnumerable<ShowcaseProduct>> FindShowcaseProductByNameAsync(string name, Priorities priority = Priorities.Background)
-        {
-            return await m_neemuRepository.FindShowcaseProductByNameAsync(name, priority);
-        }
-
-        public async Task<IEnumerable<string>> FindShowcaseProductSuggestionsByNameAsync(string name, Priorities priority = Priorities.Background)
+        public async Task<IEnumerable<ShowcaseProduct>> FindShowcaseProductSuggestionsByNameAsync(string name, Priorities priority = Priorities.Background)
         {
             return await m_neemuRepository.FindShowcaseProductSuggestionsByNameAsync(name, priority);
+        }
+
+        public async Task<IEnumerable<string>> FindShowcaseProductNameSuggestionsByNameAsync(string name, Priorities priority = Priorities.Background)
+        {
+            return await m_neemuRepository.FindShowcaseProductNameSuggestionsByNameAsync(name, priority);
         }
 
         public async Task<IEnumerable<ShowcaseProduct>> FindShowcaseProductsByShowcaseType(ShowcaseType showcaseType, Priorities priority = Priorities.Background)
@@ -37,8 +37,43 @@ namespace Mobishop.Infrastructure.Repositories.NeemuChaordic.Showcase
             return await m_chaordicRepository.FindShowcaseProductsByShowcaseType(showcaseType, priority);
         }
 
+        public Task<IEnumerable<ShowcaseProduct>> FindShowcaseProductByNameAsync(string name, Priorities priority = Priorities.Background)
+        {
+            throw new NotImplementedException();
+        }
+
 
         #region Not Implemented
+        public void SetUnitOfWork(IUnitOfWork unitOfWork)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ShowcaseProduct> FindByAsync(object key, bool syncBeforeFind = true)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<ShowcaseProduct>> FindAllAsync(int offset, int limit, Expression<Func<ShowcaseProduct, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<ShowcaseProduct>> FindAllAscendingAsync<TOrderByKey>(int offset, int limit, Expression<Func<ShowcaseProduct, bool>> filter, Expression<Func<ShowcaseProduct, TOrderByKey>> orderBy)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<ShowcaseProduct>> FindAllDescendingAsync<TOrderByKey>(int offset, int limit, Expression<Func<ShowcaseProduct, bool>> filter, Expression<Func<ShowcaseProduct, TOrderByKey>> orderBy)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<long> CountAllAsync(Expression<Func<ShowcaseProduct, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Add(ShowcaseProduct item)
         {
             throw new NotImplementedException();
@@ -49,41 +84,11 @@ namespace Mobishop.Infrastructure.Repositories.NeemuChaordic.Showcase
             throw new NotImplementedException();
         }
 
-        public Task<long> CountAllAsync(Expression<Func<ShowcaseProduct, bool>> filter)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<IEnumerable<ShowcaseProduct>> FindAllAscendingAsync<TOrderByKey>(int offset, int limit, Expression<Func<ShowcaseProduct, bool>> filter, Expression<Func<ShowcaseProduct, TOrderByKey>> orderBy)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<IEnumerable<ShowcaseProduct>> FindAllAsync(int offset, int limit, Expression<Func<ShowcaseProduct, bool>> filter)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<IEnumerable<ShowcaseProduct>> FindAllDescendingAsync<TOrderByKey>(int offset, int limit, Expression<Func<ShowcaseProduct, bool>> filter, Expression<Func<ShowcaseProduct, TOrderByKey>> orderBy)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ShowcaseProduct> FindByAsync(object key, bool syncBeforeFind = true)
-        {
-            throw new NotImplementedException();
-        }
-
         public void Remove(ShowcaseProduct item)
         {
             throw new NotImplementedException();
         }
-
-        public void SetUnitOfWork(IUnitOfWork unitOfWork)
-        {
-            throw new NotImplementedException();
-        }
-        #endregion
+        #endregion Not Implemented
     }
 }
 
