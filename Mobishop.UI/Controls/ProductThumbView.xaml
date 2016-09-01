@@ -12,13 +12,13 @@
 			<Label
 				x:Name="NameLabel"
 				HorizontalTextAlignment="Center"
-				FontFamily="{StaticResource fontFamilyLight}"
+				FontFamily="{DynamicResource fontFamilyLight}"
 				FontSize="Micro">
 			</Label>
 			<controls:PriceLabelView
 				x:Name="AmountLabel"
 				HorizontalOptions="Center"
-				TextColor="{StaticResource textColor}"
+				TextColor="{DynamicResource textColor}"
 				FontSize="Large">
 			</controls:PriceLabelView>
 		</StackLayout>

@@ -5,22 +5,22 @@
 	x:Class="Mobishop.UI.Controls.GroupHeaderView">
 	<ContentView.Content>
 		<StackLayout
-			BackgroundColor="{StaticResource headerBackgroundColor}"
+			BackgroundColor="{DynamicResource headerBackgroundColor}"
 			Spacing="0">
 			<BoxView
-				Color="{StaticResource separatorColor}"
+				Color="{DynamicResource separatorColor}"
 				HeightRequest="1">
 			</BoxView>
 			<Label
 				x:Name="TitleLabel"
 				VerticalOptions="CenterAndExpand"
 				TranslationX="15"
-				TextColor="{StaticResource textColor}"
-				FontFamily="{StaticResource fontFamilyMedium}"
+				TextColor="{DynamicResource textColor}"
+				FontFamily="{DynamicResource fontFamilyMedium}"
 				FontSize="Small">
 			</Label>
 			<BoxView
-				Color="{StaticResource separatorColor}"
+				Color="{DynamicResource separatorColor}"
 				HeightRequest="1">
 			</BoxView>
 		</StackLayout>

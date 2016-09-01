@@ -11,19 +11,19 @@
 			<Label
 				x:Name="SymbolLabel"
 				VerticalTextAlignment="End"
-				FontFamily="{StaticResource fontFamilyRegular}">
+				FontFamily="{DynamicResource fontFamilyRegular}">
 			</Label>
 			<Label
 				x:Name="IntegerLabel"
-				FontFamily="{StaticResource fontFamilyMedium}">
+				FontFamily="{DynamicResource fontFamilyMedium}">
 			</Label>
 			<Label
 				x:Name="SeparatorLabel"
-				FontFamily="{StaticResource fontFamilyMedium}">
+				FontFamily="{DynamicResource fontFamilyMedium}">
 			</Label>
 			<Label
 				x:Name="DecimalLabel"
-				FontFamily="{StaticResource fontFamilyMedium}">
+				FontFamily="{DynamicResource fontFamilyMedium}">
 			</Label>
 		</StackLayout>
 	</ContentView.Content>
