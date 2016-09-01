@@ -48,8 +48,7 @@ namespace Mambo.PageModels
 
 			this.WhenAnyValue(x => x.SearchText)
 			    .Throttle(TimeSpan.FromMilliseconds(500), RxApp.MainThreadScheduler)
-			    .Select(x => x?.Trim())
-			    .Where(x => x != null)
+			    .Select(x => x?.Trim() ?? string.Empty)
 			    .DistinctUntilChanged()
 			    .InvokeCommand(SearchCommand);
 
@@ -72,15 +71,21 @@ namespace Mambo.PageModels
 		}
 
 		/// <summary>
+		/// Ons the search text changed.
+		/// </summary>
+		void OnSearchTextChanged()
+		{
+			Suggestions.Clear();
+			Products.Clear();
+		}
+
+		/// <summary>
 		/// Sets the search result.
 		/// </summary>
 		/// <param name="results">Results.</param>
 		void SetSearchResult(IEnumerable<SearchViewModel> results)
 		{
-			Suggestions.Clear();
 			Suggestions.AddRange(results.Where(x => x.ContainsSuggestion));
-
-			Products.Clear();
 			Products.AddRange(results.Where(x => x.ContainsProduct));
 		}
 
