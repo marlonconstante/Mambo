@@ -2,13 +2,7 @@
 <ContentView
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-	xmlns:themes="clr-namespace:Mobishop.UI.Themes;assembly=Mobishop.UI"
 	x:Class="Mobishop.UI.Controls.PriceLabelView">
-	<ContentView.Resources>
-		<ResourceDictionary
-			MergedWith="themes:StandardTheme">
-		</ResourceDictionary>
-	</ContentView.Resources>
 	<ContentView.Content>
 		<StackLayout
 			VerticalOptions="Start"
