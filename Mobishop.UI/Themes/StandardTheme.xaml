@@ -35,4 +35,12 @@
 		x:Key="headerBackgroundColor">
 		#f5f5f5
 	</Color>
+	<Color
+		x:Key="statusBarBackgroundColor">
+		#263b7f
+	</Color>
+	<Color
+		x:Key="navigationBarBackgroundColor">
+		#344d94
+	</Color>
 </ResourceDictionary>

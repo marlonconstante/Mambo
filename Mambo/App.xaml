@@ -7,6 +7,14 @@
 	<Application.Resources>
 		<ResourceDictionary
 			MergedWith="themes:StandardTheme">
+			<Color
+				x:Key="statusBarBackgroundColor">
+				#c11a20
+			</Color>
+			<Color
+				x:Key="navigationBarBackgroundColor">
+				#e31b22
+			</Color>
 		</ResourceDictionary>
 	</Application.Resources>
 </Application>
