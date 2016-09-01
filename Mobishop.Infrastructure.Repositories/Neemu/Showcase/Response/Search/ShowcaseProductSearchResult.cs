@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace Mobishop.Infrastructure.Repositories.Neemu.Showcase.Response.Search
 {
-    public class SearchRootObject
+    public class ShowcaseProductSearchResult
     {
         [JsonProperty("searchInfo")]
         public SearchInfo SearchInfo { get; set; }

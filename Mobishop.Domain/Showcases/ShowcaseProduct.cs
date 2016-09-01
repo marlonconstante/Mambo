@@ -58,6 +58,11 @@ namespace Mobishop.Domain.Showcases
             get;
             set;
         }
+
+        public string ToUpper()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

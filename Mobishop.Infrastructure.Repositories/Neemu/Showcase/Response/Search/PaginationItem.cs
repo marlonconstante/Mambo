@@ -5,37 +5,37 @@ namespace Mobishop.Infrastructure.Repositories.Neemu.Showcase.Response.Search
 {
     public class PaginationItem
     {
-        [JsonProperty("hasPagination")]
+        [JsonProperty("pageNumber")]
         public int PageNumber { get; set; }
 
-        [JsonProperty("hasPagination")]
+        [JsonProperty("isFirst")]
         public bool IsFirst { get; set; }
 
-        [JsonProperty("hasPagination")]
+        [JsonProperty("link")]
         public string Link { get; set; }
 
-        [JsonProperty("hasPagination")]
+        [JsonProperty("active")]
         public bool Active { get; set; }
 
-        [JsonProperty("hasPagination")]
+        [JsonProperty("isPrevious")]
         public bool? IsPrevious { get; set; }
 
-        [JsonProperty("hasPagination")]
+        [JsonProperty("previous")]
         public string Previous { get; set; }
 
-        [JsonProperty("hasPagination")]
+        [JsonProperty("next")]
         public string Next { get; set; }
 
-        [JsonProperty("hasPagination")]
+        [JsonProperty("selected")]
         public bool? Selected { get; set; }
 
-        [JsonProperty("hasPagination")]
+        [JsonProperty("isPageNumber")]
         public bool? IsPageNumber { get; set; }
 
-        [JsonProperty("hasPagination")]
+        [JsonProperty("isNext")]
         public bool? IsNext { get; set; }
 
-        [JsonProperty("hasPagination")]
+        [JsonProperty("isLast")]
         public bool? IsLast { get; set; }
     }
 }

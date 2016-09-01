@@ -37,10 +37,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Neemu\Mappers\NeemuSearchSuggestionMapperTest.cs" />
-    <Compile Include="Neemu\Mappers\NeemuShowcaseProductMapperTest.cs" />
+    <Compile Include="Neemu\Mappers\NeemuSuggestionProductShowcaseProductMapperTest.cs" />
     <Compile Include="Vtex\Mappers\VtexProductMapperTest.cs" />
     <Compile Include="Chaordic\Showcase\ChaordicQueryTest.cs" />
     <Compile Include="Chaordic\Mapper\ChaordicShowcaseProductMapperTest.cs" />
+    <Compile Include="Neemu\Mappers\NeemuShowcaseProductMapperTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
