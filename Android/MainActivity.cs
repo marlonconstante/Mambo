@@ -22,12 +22,12 @@ namespace Mambo.Android
 			TabLayoutResource = Resource.Layout.Tabbar;
 			ToolbarResource = Resource.Layout.Toolbar;
 
-			Cache.Initialize("Mambo");
-
 			base.OnCreate(bundle);
 
 			global::Xamarin.Forms.Forms.Init(this, bundle);
 			NControls.Init();
+
+			Cache.Initialize("Mambo");
 
 			LoadApplication(new App());
 		}
