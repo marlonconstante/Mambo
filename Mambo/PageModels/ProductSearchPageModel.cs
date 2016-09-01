@@ -47,21 +47,24 @@ namespace Mambo.PageModels
 
             SearchCommand = ReactiveCommand.CreateFromTask<string, IEnumerable<SearchViewModel>>((text) => SearchAsync(text));
             SearchCommand.SubscribeOn(RxApp.MainThreadScheduler)
-                         .Subscribe(x => SetSearchResult(x));
-
+                         .Subscribe(x => SetSearchResult(x))
+                         .DisposeWith(subscriptionDisposables);
+                
             this.WhenAnyValue(x => x.SearchText)
                 .Throttle(TimeSpan.FromMilliseconds(500), RxApp.MainThreadScheduler)
                 .Select(x => x?.Trim())
                 .Where(x => x != null)
                 .DistinctUntilChanged()
-                .InvokeCommand(SearchCommand);
+                .InvokeCommand(SearchCommand)
+                 .DisposeWith(subscriptionDisposables);
 
             Observable.Merge(SearchCommand.ThrownExceptions)
                       .SubscribeOn(RxApp.MainThreadScheduler)
                       .Subscribe(ex =>
                       {
                           Dialogs.ShowError(ex.Message);
-                      });
+                      })
+                      .DisposeWith(subscriptionDisposables);
 
             SearchSuggestionCommand = new Command<string>(OnSearchSuggestion);
         }

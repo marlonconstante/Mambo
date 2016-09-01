@@ -48,6 +48,7 @@
     <Compile Include="Utils\IUserDialogsService.cs" />
     <Compile Include="Utils\UserDialogsService.cs" />
     <Compile Include="PageModels\PageModelBase.cs" />
+    <Compile Include="Utils\IObservableExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="ModernHttpClient">
