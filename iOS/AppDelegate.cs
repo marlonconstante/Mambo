@@ -22,7 +22,7 @@ namespace Mambo.iOS
 			global::Xamarin.Forms.Forms.Init();
 			NControls.Init();
 
-            Cache.Initialize("Mambo");
+			Cache.Initialize("Mambo");
 
 			// Code for starting up the Xamarin Test Cloud Agent
 #if ENABLE_TEST_CLOUD
@@ -34,10 +34,15 @@ namespace Mambo.iOS
 			return base.FinishedLaunching(app, options);
 		}
 
-        public override void WillTerminate(UIApplication uiApplication)
-        {
-            base.WillTerminate(uiApplication);
-            Cache.Shutdown();
-        }
+		/// <summary>
+		/// Wills the terminate.
+		/// </summary>
+		/// <param name="app">App.</param>
+		public override void WillTerminate(UIApplication app)
+		{
+			base.WillTerminate(app);
+
+			Cache.Shutdown();
+		}
 	}
 }

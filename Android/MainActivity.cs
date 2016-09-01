@@ -22,7 +22,7 @@ namespace Mambo.Android
 			TabLayoutResource = Resource.Layout.Tabbar;
 			ToolbarResource = Resource.Layout.Toolbar;
 
-            Cache.Initialize("Mambo");
+			Cache.Initialize("Mambo");
 
 			base.OnCreate(bundle);
 
@@ -32,10 +32,14 @@ namespace Mambo.Android
 			LoadApplication(new App());
 		}
 
-        protected override void OnDestroy()
-        {
-            base.OnDestroy();
-            Cache.Shutdown();
-        }
+		/// <summary>
+		/// Ons the destroy.
+		/// </summary>
+		protected override void OnDestroy()
+		{
+			base.OnDestroy();
+
+			Cache.Shutdown();
+		}
 	}
 }
