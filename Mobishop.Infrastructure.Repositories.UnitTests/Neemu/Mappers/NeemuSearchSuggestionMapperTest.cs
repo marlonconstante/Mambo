@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using Mobishop.Infrastructure.Repositories.Neemu;
-using Mobishop.Infrastructure.Repositories.Neemu.Mappers;
+﻿using Mobishop.Infrastructure.Repositories.Neemu.Mappers;
+using Mobishop.Infrastructure.Repositories.Neemu.Showcase.Response.SuggestionSearch;
 using NUnit.Framework;
 
 namespace Mobishop.Infrastructure.Repositories.UnitTests.Neemu.Mappers

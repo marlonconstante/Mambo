@@ -1,7 +1,6 @@
-﻿using System;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
-namespace Mobishop.Infrastructure.Repositories.Neemu
+namespace Mobishop.Infrastructure.Repositories.Neemu.Showcase.Response.SuggestionSearch
 {
     public class NeemuSuggestion
     {

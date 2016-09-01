@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
-using System.Reactive.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Akavache;
 using Mobishop.Domain.Showcases;
 using Mobishop.Infrastructure.Framework.Repositories;
 using Mobishop.Infrastructure.Repositories.Commons;
 using Mobishop.Infrastructure.Repositories.Commons.Caching;
 using Mobishop.Infrastructure.Repositories.Neemu.Mappers;
+using Mobishop.Infrastructure.Repositories.Neemu.Showcase.Response.SuggestionSearch;
 using Skahal.Infrastructure.Framework.Repositories;
 
 namespace Mobishop.Infrastructure.Repositories.Neemu.Showcase

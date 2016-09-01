@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using Mobishop.Domain.Showcases;
+﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace Mobishop.Infrastructure.Repositories.Neemu
+namespace Mobishop.Infrastructure.Repositories.Neemu.Showcase.Response.SuggestionSearch
 {
     /// <summary>
     /// Search result.

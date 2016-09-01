@@ -42,14 +42,11 @@
     <Compile Include="Neemu\Showcase\INeemuShowcaseApi.cs" />
     <Compile Include="Vtex\Products\VtexProductRepository.cs" />
     <Compile Include="Neemu\Showcase\NeemuShowcaseProductRepository.cs" />
-    <Compile Include="Neemu\NeemuSuggestionSearchResult.cs" />
     <Compile Include="Vtex\VtexProduct.cs" />
     <Compile Include="Neemu\Mappers\NeemuShowcaseProductMapper.cs" />
     <Compile Include="Commons\IMapper.cs" />
     <Compile Include="Neemu\Mappers\NeemuSearchSuggestionMapper.cs" />
-    <Compile Include="Neemu\NeemuSuggestion.cs" />
     <Compile Include="Vtex\Mappers\VtexProductMapper.cs" />
-    <Compile Include="Neemu\NeemuShowcaseProduct.cs" />
     <Compile Include="Commons\MapperHelper.cs" />
     <Compile Include="Chaordic\Showcase\ChaordicShowcaseProductRepository.cs" />
     <Compile Include="Chaordic\Showcase\IChaordicShowcaseApi.cs" />
@@ -67,6 +64,26 @@
     <Compile Include="Chaordic\Mappers\ChaordicShowcaseProductMapper.cs" />
     <Compile Include="NeemuChaordic\Showcase\NeemuChaordicShowcaseProductRepository.cs" />
     <Compile Include="Commons\Caching\Cache.cs" />
+    <Compile Include="Neemu\Showcase\Response\SuggestionSearch\NeemuSuggestionSearchResult.cs" />
+    <Compile Include="Neemu\Showcase\Response\SuggestionSearch\NeemuShowcaseProduct.cs" />
+    <Compile Include="Neemu\Showcase\Response\SuggestionSearch\NeemuSuggestion.cs" />
+    <Compile Include="Neemu\Showcase\Response\Search\SearchRootObject.cs" />
+    <Compile Include="Neemu\Showcase\Response\Search\SearchInfo.cs" />
+    <Compile Include="Neemu\Showcase\Response\Search\ExtraAttributes.cs" />
+    <Compile Include="Neemu\Showcase\Response\Search\Product.cs" />
+    <Compile Include="Neemu\Showcase\Response\Search\ProductsInfo.cs" />
+    <Compile Include="Neemu\Showcase\Response\Search\Item.cs" />
+    <Compile Include="Neemu\Showcase\Response\Search\ResultsPerPage.cs" />
+    <Compile Include="Neemu\Showcase\Response\Search\Item2.cs" />
+    <Compile Include="Neemu\Showcase\Response\Search\SortingTypes.cs" />
+    <Compile Include="Neemu\Showcase\Response\Search\PaginationItem.cs" />
+    <Compile Include="Neemu\Showcase\Response\Search\Pagination.cs" />
+    <Compile Include="Neemu\Showcase\Response\Search\QuickFilter.cs" />
+    <Compile Include="Neemu\Showcase\Response\Search\Lvalore.cs" />
+    <Compile Include="Neemu\Showcase\Response\Search\Range.cs" />
+    <Compile Include="Neemu\Showcase\Response\Search\Filter2.cs" />
+    <Compile Include="Neemu\Showcase\Response\Search\Filter.cs" />
+    <Compile Include="Neemu\Showcase\Response\Search\TotalProducts.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commons\" />
@@ -85,6 +102,10 @@
     <Folder Include="NeemuChaordic\" />
     <Folder Include="NeemuChaordic\Showcase\" />
     <Folder Include="Commons\Caching\" />
+    <Folder Include="Neemu\Showcase\Request\" />
+    <Folder Include="Neemu\Showcase\Response\" />
+    <Folder Include="Neemu\Showcase\Response\SuggestionSearch\" />
+    <Folder Include="Neemu\Showcase\Response\Search\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="HelperSharp.PCL">

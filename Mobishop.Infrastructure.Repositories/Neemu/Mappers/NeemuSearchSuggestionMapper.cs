@@ -1,5 +1,6 @@
 ﻿using System;
 using Mobishop.Infrastructure.Repositories.Commons;
+using Mobishop.Infrastructure.Repositories.Neemu.Showcase.Response.SuggestionSearch;
 
 namespace Mobishop.Infrastructure.Repositories.Neemu.Mappers
 {

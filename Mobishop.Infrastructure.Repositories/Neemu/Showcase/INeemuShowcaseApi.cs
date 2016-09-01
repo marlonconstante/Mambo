@@ -1,7 +1,6 @@
-﻿using System;
-using System.Threading.Tasks;
-using Mobishop.Domain.Showcases;
+﻿using System.Threading.Tasks;
 using Mobishop.Infrastructure.Repositories.Commons;
+using Mobishop.Infrastructure.Repositories.Neemu.Showcase.Response.SuggestionSearch;
 using Refit;
 
 namespace Mobishop.Infrastructure.Repositories.Neemu.Showcase
@@ -14,6 +13,9 @@ namespace Mobishop.Infrastructure.Repositories.Neemu.Showcase
         /// <returns>The complete.</returns>
         /// <param name="query">Query.</param>
         [Get("/autocomplete/search?q={query}&type=1")]
+        Task<NeemuSuggestionSearchResult> FetchNeemuSuggestionSearchResults(string query);
+
+        [Get("/api/search?q={query}")]
         Task<NeemuSuggestionSearchResult> FetchNeemuSearchResults(string query);
     }
 }
