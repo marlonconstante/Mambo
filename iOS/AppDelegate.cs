@@ -2,6 +2,8 @@
 using Mobishop.Infrastructure.Repositories.Commons.Caching;
 using NControl.Controls.iOS;
 using UIKit;
+using Xamarin.Forms;
+using Xamarin.Forms.Platform.iOS;
 
 namespace Mambo.iOS
 {
@@ -29,7 +31,11 @@ namespace Mambo.iOS
 			Xamarin.Calabash.Start();
 #endif
 
-			LoadApplication(new App());
+			var app = new App();
+			LoadApplication(app);
+
+			var statusBarBackgroundColor = (Color) app.Resources["statusBarBackgroundColor"];
+			SetStatusBarBackgroundColor(uiApplication, statusBarBackgroundColor.ToUIColor());
 
 			return base.FinishedLaunching(uiApplication, options);
 		}
@@ -43,6 +49,19 @@ namespace Mambo.iOS
 			base.WillTerminate(uiApplication);
 
 			Cache.Shutdown();
+		}
+
+		/// <summary>
+		/// Sets the color of the status bar background.
+		/// </summary>
+		/// <param name="uiApplication">User interface application.</param>
+		/// <param name="backgroundColor">Background color.</param>
+		void SetStatusBarBackgroundColor(UIApplication uiApplication, UIColor backgroundColor)
+		{
+			var statusBarWindow = uiApplication.ValueForKey(new NSString("statusBarWindow"));
+			var statusBar = statusBarWindow.ValueForKey(new NSString("statusBar"));
+
+			(statusBar as UIView).BackgroundColor = backgroundColor;
 		}
 	}
 }
