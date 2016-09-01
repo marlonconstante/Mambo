@@ -3,6 +3,8 @@ using Android.Content.PM;
 using Android.OS;
 using Mobishop.Infrastructure.Repositories.Commons.Caching;
 using NControl.Controls.Droid;
+using Xamarin.Forms;
+using Xamarin.Forms.Platform.Android;
 
 namespace Mambo.Android
 {
@@ -29,7 +31,11 @@ namespace Mambo.Android
 
 			Cache.Initialize("Mambo");
 
-			LoadApplication(new App());
+			var app = new App();
+			LoadApplication(app);
+
+			var statusBarBackgroundColor = (Color) app.Resources["statusBarBackgroundColor"];
+			Window.SetStatusBarColor(statusBarBackgroundColor.ToAndroid());
 		}
 
 		/// <summary>
