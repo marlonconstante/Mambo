@@ -15,9 +15,9 @@ namespace Mobishop.Infrastructure.Repositories.FunctionalTests.iOS
 		/// Finisheds the launching.
 		/// </summary>
 		/// <returns><c>true</c>, if launching was finisheded, <c>false</c> otherwise.</returns>
-		/// <param name="app">App.</param>
+		/// <param name="uiApplication">User interface application.</param>
 		/// <param name="options">Options.</param>
-		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
+		public override bool FinishedLaunching(UIApplication uiApplication, NSDictionary options)
 		{
 			global::Xamarin.Forms.Forms.Init();
 
@@ -29,16 +29,16 @@ namespace Mobishop.Infrastructure.Repositories.FunctionalTests.iOS
 			nunit.AddTestAssembly(typeof(VtexProductRepositoryTest).Assembly);
 			LoadApplication(nunit);
 
-			return base.FinishedLaunching(app, options);
+			return base.FinishedLaunching(uiApplication, options);
 		}
 
 		/// <summary>
 		/// Wills the terminate.
 		/// </summary>
-		/// <param name="app">App.</param>
-		public override void WillTerminate(UIApplication app)
+		/// <param name="uiApplication">User interface application.</param>
+		public override void WillTerminate(UIApplication uiApplication)
 		{
-			base.WillTerminate(app);
+			base.WillTerminate(uiApplication);
 
 			Cache.Shutdown();
 		}

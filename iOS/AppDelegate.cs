@@ -14,10 +14,10 @@ namespace Mambo.iOS
 		/// <summary>
 		/// Finisheds the launching.
 		/// </summary>
-		/// <returns>The launching.</returns>
-		/// <param name="app">App.</param>
+		/// <returns><c>true</c>, if launching was finisheded, <c>false</c> otherwise.</returns>
+		/// <param name="uiApplication">User interface application.</param>
 		/// <param name="options">Options.</param>
-		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
+		public override bool FinishedLaunching(UIApplication uiApplication, NSDictionary options)
 		{
 			global::Xamarin.Forms.Forms.Init();
 			NControls.Init();
@@ -31,16 +31,16 @@ namespace Mambo.iOS
 
 			LoadApplication(new App());
 
-			return base.FinishedLaunching(app, options);
+			return base.FinishedLaunching(uiApplication, options);
 		}
 
 		/// <summary>
 		/// Wills the terminate.
 		/// </summary>
-		/// <param name="app">App.</param>
-		public override void WillTerminate(UIApplication app)
+		/// <param name="uiApplication">User interface application.</param>
+		public override void WillTerminate(UIApplication uiApplication)
 		{
-			base.WillTerminate(app);
+			base.WillTerminate(uiApplication);
 
 			Cache.Shutdown();
 		}
