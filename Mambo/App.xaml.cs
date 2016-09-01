@@ -20,7 +20,9 @@ namespace Mambo
             AppBootstrapper.Initialize();
 
 			var homePage = FreshPageModelResolver.ResolvePageModel<ProductSearchPageModel>();
-			MainPage = new FreshNavigationContainer(homePage);
+			MainPage = new FreshNavigationContainer(homePage) {
+				BarBackgroundColor = (Color) Resources["navigationBarBackgroundColor"]
+			};
 		}
 
 		/// <summary>
