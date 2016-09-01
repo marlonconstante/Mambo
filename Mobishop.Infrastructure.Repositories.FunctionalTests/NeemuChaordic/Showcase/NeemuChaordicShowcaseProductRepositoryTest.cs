@@ -21,7 +21,7 @@ namespace Mobishop.Infrastructure.Repositories.FunctionalTests.NeemuChaordic.Sho
         }
 
         [Test]
-        public async Task FindShowcaseProductByNameAsync_Carne_ShowcaseProductWithCarne()
+        public async Task FindShowcaseProductSuggestionByNameAsync_Carne_ShowcaseProductWithCarne()
         {
             var name = "carne";
             var actual = await m_target.FindShowcaseProductSuggestionsByNameAsync(name, Priorities.UserInitiated);
@@ -34,7 +34,7 @@ namespace Mobishop.Infrastructure.Repositories.FunctionalTests.NeemuChaordic.Sho
         }
 
         [Test]
-        public async Task FindShowcaseProductSugestionsByNameAsync_Carne_SuggestionsWithCarne()
+        public async Task FindShowcaseProductNameSugestionsByNameAsync_Carne_SuggestionsWithCarne()
         {
             var name = "carne";
             var actual = await m_target.FindShowcaseProductNameSuggestionsByNameAsync(name, Priorities.UserInitiated);
@@ -44,7 +44,7 @@ namespace Mobishop.Infrastructure.Repositories.FunctionalTests.NeemuChaordic.Sho
         }
 
         [Test]
-        public async Task FindShowcaseProductSugestionsByNameAsync_XPTOXPO_EmptySuggestionList()
+        public async Task FindShowcaseProductNameSugestionsByNameAsync_XPTOXPO_EmptySuggestionList()
         {
             var name = "XPTOXPO";
             var actual = await m_target.FindShowcaseProductNameSuggestionsByNameAsync(name, Priorities.UserInitiated);
@@ -54,7 +54,7 @@ namespace Mobishop.Infrastructure.Repositories.FunctionalTests.NeemuChaordic.Sho
         }
 
         [Test]
-        public async Task FindProductAndUseCacheToFindSuggestion_Carne_ProductsAndSuggestions()
+        public async Task FindShowcaseProductSuggestions_Carne_ProductsAndSuggestionsUsedCache()
         {
             var name = "carne";
             var actual = await m_target.FindShowcaseProductSuggestionsByNameAsync(name, Priorities.UserInitiated);
@@ -92,5 +92,17 @@ namespace Mobishop.Infrastructure.Repositories.FunctionalTests.NeemuChaordic.Sho
             Assert.IsTrue(actual.Count() > 0);
         }
 
+        [Test]
+        public async Task FindShowcaseProductByNameAsync_Carne_ShowcaseProductWithCarne()
+        {
+            var name = "carne";
+            var actual = await m_target.FindShowcaseProductByNameAsync(name, Priorities.UserInitiated);
+
+            Assert.That(actual.Select(p => p.Id), Has.All.GreaterThan(0L));
+            Assert.That(actual.Select(p => p.Description.ToLower()), Has.All.Contains(name));
+            Assert.That(actual.Select(p => p.PreviousPrice), Has.All.GreaterThan(0d));
+            Assert.That(actual.Select(p => p.CurrentPrice), Has.All.GreaterThan(0d));
+            Assert.That(actual.Select(p => p.ImageUrl), Has.All.Not.Empty);
+        }
     }
 }

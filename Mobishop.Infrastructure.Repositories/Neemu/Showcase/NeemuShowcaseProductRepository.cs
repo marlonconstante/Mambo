@@ -46,9 +46,24 @@ namespace Mobishop.Infrastructure.Repositories.Neemu.Showcase
             return string.Concat(m_searchCacheKey, name);
         }
 
-        async Task<NeemuSearchResult> FindSearchResultRemoteAsync(string name, Priorities priority = Priorities.Background)
+        async Task<NeemuSuggestionSearchResult> FindSearchResultRemoteAsync(string name, Priorities priority = Priorities.Background)
         {
-            var results = await ExecuteApiRequest((arg) => GetClientWithPriority(priority).FindNeemuSearchResults(name));
+            var results = await ExecuteApiRequest((arg) => GetClientWithPriority(priority).FetchNeemuSearchResults(name));
+            return results;
+        }
+
+        public async Task<IEnumerable<ShowcaseProduct>> FindShowcaseProductByNameAsync(string name, Priorities priority = Priorities.Background)
+        {
+            var searchResult = await Cache.GetAndFetchLatest(GetCacheKey(name), () => FindSearchResultRemoteAsync(name, priority));
+
+            var result = MapperHelper.ToDomainEntities(searchResult?.Products, new NeemuShowcaseProductMapper());
+
+            return result;
+        }
+
+        async Task<NeemuSuggestionSearchResult> FindShowcaseSearchResultRemoteAsync(string name, Priorities priority = Priorities.Background)
+        {
+            var results = await ExecuteApiRequest((arg) => GetClientWithPriority(priority).FetchNeemuSearchResults(name));
             return results;
         }
 

@@ -42,7 +42,7 @@
     <Compile Include="Neemu\Showcase\INeemuShowcaseApi.cs" />
     <Compile Include="Vtex\Products\VtexProductRepository.cs" />
     <Compile Include="Neemu\Showcase\NeemuShowcaseProductRepository.cs" />
-    <Compile Include="Neemu\NeemuSearchResult.cs" />
+    <Compile Include="Neemu\NeemuSuggestionSearchResult.cs" />
     <Compile Include="Vtex\VtexProduct.cs" />
     <Compile Include="Neemu\Mappers\NeemuShowcaseProductMapper.cs" />
     <Compile Include="Commons\IMapper.cs" />

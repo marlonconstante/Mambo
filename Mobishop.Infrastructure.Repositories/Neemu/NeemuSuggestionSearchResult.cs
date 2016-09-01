@@ -8,7 +8,7 @@ namespace Mobishop.Infrastructure.Repositories.Neemu
     /// <summary>
     /// Search result.
     /// </summary>
-    public class NeemuSearchResult
+    public class NeemuSuggestionSearchResult
     {
         /// <summary>
         /// Gets or sets the suggestions.
