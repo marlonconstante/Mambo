@@ -15,7 +15,8 @@
 		<StackLayout>
 			<ffimageloading:CachedImage
 				HorizontalOptions="Center"
-					LoadingPlaceholder="placeholder.png"
+				DownsampleUseDipUnits="true"
+				TransparencyEnabled="false"
 				x:Name="ImageView">
 			</ffimageloading:CachedImage>
 			<Label
