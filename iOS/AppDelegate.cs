@@ -1,4 +1,6 @@
-﻿using Foundation;
+﻿using System;
+using FFImageLoading;
+using Foundation;
 using Mobishop.Infrastructure.Repositories.Commons.Caching;
 using NControl.Controls.iOS;
 using UIKit;
@@ -19,6 +21,8 @@ namespace Mambo.iOS
 		/// <param name="options">Options.</param>
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 		{
+            FFImageLoading.Forms.Touch.CachedImageRenderer.Init();
+
 			global::Xamarin.Forms.Forms.Init();
 			NControls.Init();
 
@@ -30,6 +34,16 @@ namespace Mambo.iOS
 #endif
 
 			LoadApplication(new App());
+
+            var config = new FFImageLoading.Config.Configuration()
+            {
+                VerboseLogging = false,
+                VerbosePerformanceLogging = false,
+                VerboseMemoryCacheLogging = false,
+                VerboseLoadingCancelledLogging = false,
+                Logger = new FFImageCustomLogger(),
+            };
+            ImageService.Instance.Initialize(config);
 
 			return base.FinishedLaunching(app, options);
 		}

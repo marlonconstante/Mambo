@@ -1,7 +1,9 @@
-﻿using Acr.UserDialogs;
+﻿using System;
+using Acr.UserDialogs;
 using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using FFImageLoading;
 using Mobishop.Infrastructure.Repositories.Commons.Caching;
 using NControl.Controls.Droid;
 using Xamarin.Forms;
@@ -30,7 +32,20 @@ namespace Mambo.Android
 
 			base.OnCreate(bundle);
 
-			global::Xamarin.Forms.Forms.Init(this, bundle);
+            FFImageLoading.Forms.Droid.CachedImageRenderer.Init();
+
+            var config = new FFImageLoading.Config.Configuration()
+            {
+                VerboseLogging = false,
+                VerbosePerformanceLogging = false,
+                VerboseMemoryCacheLogging = false,
+                VerboseLoadingCancelledLogging = false,
+                Logger = new FFImageCustomLogger(),
+            };
+            ImageService.Instance.Initialize(config);
+
+
+            Forms.Init(this, bundle);
 			NControls.Init();
 
 			LoadApplication(new App());
