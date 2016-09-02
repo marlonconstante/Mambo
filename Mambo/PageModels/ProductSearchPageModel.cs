@@ -49,7 +49,7 @@ namespace Mambo.PageModels
             SearchCommand.SubscribeOn(RxApp.MainThreadScheduler)
                          .Subscribe(x => SetSearchResult(x))
                          .DisposeWith(subscriptionDisposables);
-                
+
             this.WhenAnyValue(x => x.SearchText)
                 .Throttle(TimeSpan.FromMilliseconds(500), RxApp.MainThreadScheduler)
                 .Select(x => x?.Trim())
@@ -66,16 +66,16 @@ namespace Mambo.PageModels
                       })
                       .DisposeWith(subscriptionDisposables);
 
-            SearchSuggestionCommand = new Command<string>(OnSearchSuggestion);
+            SearchSuggestionCommand = new Command<string>(async (q) => await OnSearchSuggestion(q));
         }
 
         /// <summary>
         /// Ons the search suggestion.
         /// </summary>
         /// <param name="query">Query.</param>
-        void OnSearchSuggestion(string query)
+        async Task OnSearchSuggestion(string query)
         {
-            SearchText = query;
+            await CoreMethods.PushPageModel<ProductSearchGridResultPageModel>(query);
         }
 
         /// <summary>

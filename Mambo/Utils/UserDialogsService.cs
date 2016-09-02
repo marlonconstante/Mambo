@@ -16,7 +16,13 @@ namespace Mambo.Utils
 
         public void ShowLoading(string title)
         {
-            UserDialogs.Instance.ShowLoading(title);
+            title = !string.IsNullOrEmpty(title) ? title : "Carregando...";
+            UserDialogs.Instance.ShowLoading(title, MaskType.Gradient);
+        }
+
+        public void HideLoading()
+        {
+            UserDialogs.Instance.HideLoading();
         }
     }
 }

@@ -20,7 +20,12 @@ namespace Mambo.Utils
         /// Shows the loading Dialog.
         /// </summary>
         /// <param name="title">Loading message title.</param>
-        void ShowLoading(string title);
+        void ShowLoading(string title = "");
+
+        /// <summary>
+        /// Hides the loading.
+        /// </summary>
+        void HideLoading();
     }
 }
 
