@@ -15,7 +15,7 @@
 		</ResourceDictionary>
 	</ContentPage.Resources>
 	<ContentPage.Content>
-		<ListView HasUnevenRows="true" IsGroupingEnabled="false" SeparatorVisibility="None" ItemTemplate="{StaticResource productTemplate}" ItemsSource="{Binding ProductList}">
+		<ListView CachingStrategy="RecycleElement" HasUnevenRows="true" IsGroupingEnabled="false" SeparatorVisibility="None" ItemTemplate="{StaticResource productTemplate}" ItemsSource="{Binding ProductList}">
 		</ListView>
 	</ContentPage.Content>
 </ContentPage>
