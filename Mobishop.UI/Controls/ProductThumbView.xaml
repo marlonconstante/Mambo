@@ -17,6 +17,7 @@
 				HorizontalOptions="Center"
 				DownsampleUseDipUnits="true"
 				TransparencyEnabled="false"
+				FadeAnimationEnabled="true"
 				x:Name="ImageView">
 			</ffimageloading:CachedImage>
 			<Label
