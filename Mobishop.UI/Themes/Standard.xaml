@@ -35,4 +35,8 @@
 		x:Key="headerBackgroundColor">
 		#f5f5f5
 	</Color>
+	<Color
+		x:Key="cellBackgroundColor">
+		#ffffff
+	</Color>
 </ResourceDictionary>
