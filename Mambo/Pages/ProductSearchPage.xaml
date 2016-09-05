@@ -33,13 +33,13 @@
 						</StackLayout.GestureRecognizers>
 						<ncontrols:FontMaterialDesignLabel
 							Text="{x:Static ncontrols:FontMaterialDesignLabel.MDSearch}"
-							TextColor="{DynamicResource textColor}"
+							TextColor="{DynamicResource primaryTextColor}"
 							FontSize="Large">
 						</ncontrols:FontMaterialDesignLabel>
 						<Label
 							VerticalTextAlignment="Center"
 							Text="{Binding Suggestion}"
-							TextColor="{DynamicResource textColor}"
+							TextColor="{DynamicResource primaryTextColor}"
 							FontFamily="{DynamicResource fontFamilyRegular}"
 							FontSize="Medium">
 						</Label>
@@ -72,7 +72,7 @@
 							Grid.Column="1"
 							VerticalTextAlignment="Center"
 							Text="{Binding Product.Description}"
-							TextColor="{DynamicResource textColor}"
+							TextColor="{DynamicResource primaryTextColor}"
 							FontFamily="{DynamicResource fontFamilyRegular}"
 							FontSize="Small">
 						</Label>
@@ -81,7 +81,7 @@
 							Grid.Column="2"
 							VerticalOptions="Center"
 							Amount="{Binding Product.CurrentPrice}"
-							TextColor="{DynamicResource textColor}"
+							TextColor="{DynamicResource primaryTextColor}"
 							FontSize="Large">
 						</controls:PriceLabelView>
 					</Grid>

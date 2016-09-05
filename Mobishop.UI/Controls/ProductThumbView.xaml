@@ -18,7 +18,7 @@
 			<controls:PriceLabelView
 				x:Name="AmountLabel"
 				HorizontalOptions="Center"
-				TextColor="{DynamicResource textColor}"
+				TextColor="{DynamicResource primaryTextColor}"
 				FontSize="Large">
 			</controls:PriceLabelView>
 		</StackLayout>

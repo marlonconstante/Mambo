@@ -24,8 +24,20 @@
 		x:Key="searchBarStyle"
 		TargetType="SearchBar">
 		<Setter
+			Property="FontFamily"
+			Value="{DynamicResource fontFamilyRegular}" />
+		<Setter
 			Property="TextColor"
-			Value="{DynamicResource textColor}" />
+			Value="{DynamicResource primaryTextColor}" />
+		<Setter
+			Property="PlaceholderColor"
+			Value="{DynamicResource secondaryTextColor}" />
+		<Setter
+			Property="CancelButtonColor"
+			Value="{DynamicResource barTextColor}" />
+		<Setter
+			Property="BackgroundColor"
+			Value="{DynamicResource navigationBarBackgroundColor}" />
 	</Style>
 	<OnPlatform
 		x:Key="fontFamilyLight"
@@ -48,8 +60,12 @@
 		iOS="HelveticaNeue-Bold"
 		Android="sans-serif-black" />
 	<Color
-		x:Key="textColor">
+		x:Key="primaryTextColor">
 		#4d4d4d
+	</Color>
+	<Color
+		x:Key="secondaryTextColor">
+		#a3a3a3
 	</Color>
 	<Color
 		x:Key="barTextColor">
