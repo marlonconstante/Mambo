@@ -61,6 +61,13 @@
 							<ColumnDefinition
 								Width="Auto" />
 						</Grid.ColumnDefinitions>
+
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer
+								Command="{Binding Path=BindingContext.SelectProductCommand, Source={x:Reference productSearchPage}}"
+								CommandParameter="{Binding Product}" />
+						</Grid.GestureRecognizers>
+						
 						<Image
 							Grid.Row="0"
 							Grid.Column="0"

@@ -23,7 +23,6 @@ namespace Mobishop.Infrastructure.Repositories.UnitTests.Neemu.Mappers
                 Id = 1,
                 PreviousPrice = 10,
                 CurrentPrice = 11,
-                Description = "Description",
                 ImageUrl = "http://image.url",
                 Name = "Name"
             };
@@ -33,7 +32,6 @@ namespace Mobishop.Infrastructure.Repositories.UnitTests.Neemu.Mappers
             Assert.AreEqual(neemuProduct.Id, actual.Id);
             Assert.AreEqual(neemuProduct.PreviousPrice, actual.PreviousPrice);
             Assert.AreEqual(neemuProduct.CurrentPrice, actual.CurrentPrice);
-            Assert.AreEqual(neemuProduct.Description, actual.Description);
             Assert.AreEqual(neemuProduct.ImageUrl, actual.ImageUrl);
             Assert.AreEqual(neemuProduct.Name, actual.Name);
 

@@ -39,4 +39,8 @@
 		x:Key="cellBackgroundColor">
 		#ffffff
 	</Color>
+	<Color
+		x:Key="pageBackgroundColor">
+		#ffffff
+	</Color>
 </ResourceDictionary>

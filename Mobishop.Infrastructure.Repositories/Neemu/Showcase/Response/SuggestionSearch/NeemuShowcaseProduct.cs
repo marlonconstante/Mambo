@@ -19,19 +19,8 @@ namespace Mobishop.Infrastructure.Repositories.Neemu.Showcase.Response.Suggestio
         /// Gets or sets the name.
         /// </summary>
         /// <value>The name.</value>
-        [JsonProperty("productName")]
-        public string Name
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        /// Gets or sets the description.
-        /// </summary>
-        /// <value>The description.</value>
         [JsonProperty("descricao")]
-        public string Description
+        public string Name
         {
             get;
             set;

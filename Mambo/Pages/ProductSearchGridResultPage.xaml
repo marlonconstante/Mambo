@@ -1,5 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:templates="clr-namespace:Mambo.DataTemplates;assembly=Mambo" xmlns:themes="clr-namespace:Mobishop.UI.Themes;assembly=Mobishop.UI" xmlns:ncontrols="clr-namespace:NControl.Controls;assembly=NControl.Controls" xmlns:controls="clr-namespace:Mobishop.UI.Controls;assembly=Mobishop.UI" x:Name="productSearchGridResultPage" x:Class="Mambo.Pages.ProductSearchGridResultPage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		xmlns:templates="clr-namespace:Mambo.DataTemplates;assembly=Mambo" 
+		xmlns:themes="clr-namespace:Mobishop.UI.Themes;assembly=Mobishop.UI" 
+		xmlns:ncontrols="clr-namespace:NControl.Controls;assembly=NControl.Controls" 
+		xmlns:controls="clr-namespace:Mobishop.UI.Controls;assembly=Mobishop.UI" 
+		x:Name="productSearchGridResultPage" 
+		x:Class="Mambo.Pages.ProductSearchGridResultPage">
 	<ContentPage.Resources>
 		<ResourceDictionary MergedWith="themes:Standard">
 			<DataTemplate x:Key="productTemplate">
@@ -12,7 +19,11 @@
 							<ColumnDefinition Width="*" />
 							<ColumnDefinition Width="*" />
 						</Grid.ColumnDefinitions>
-						<controls:ProductThumbView ImageSource="{Binding FirstProduct.ImageUrl}" Name="{Binding FirstProduct.Name}" Amount="{Binding FirstProduct.CurrentPrice}" Margin="10" Grid.Row="0" Grid.Column="0" />
+						<controls:ProductThumbView ImageSource="{Binding FirstProduct.ImageUrl}" Name="{Binding FirstProduct.Name}" Amount="{Binding FirstProduct.CurrentPrice}" Margin="10" Grid.Row="0" Grid.Column="0">
+							<controls:PriceLabelView.GestureRecognizers>
+								<TapGestureRecognizer Command="{Binding Path=BindingContext.SearchSuggestionCommand, Source={x:Reference productSearchPage}}" CommandParameter="{Binding Suggestion}" />
+							</controls:PriceLabelView.GestureRecognizers>
+						</controls:ProductThumbView>
 						<controls:ProductThumbView ImageSource="{Binding SecondProduct.ImageUrl}" Name="{Binding SecondProduct.Name}" Amount="{Binding SecondProduct.CurrentPrice}" Margin="10" Grid.Row="0" Grid.Column="1" />
 					</Grid>
 				</ViewCell>

@@ -67,6 +67,17 @@ namespace Mambo.PageModels
                       .DisposeWith(subscriptionDisposables);
 
             SearchSuggestionCommand = new Command<string>(async (q) => await OnSearchSuggestion(q));
+            SelectProductCommand = new Command<ShowcaseProduct>(async (p) => await OnProductSelect(p));
+        }
+
+        /// <summary>
+        /// Ons the product select.
+        /// </summary>
+        /// <returns>The product select.</returns>
+        /// <param name="product">Product.</param>
+        async Task OnProductSelect(ShowcaseProduct product)
+        {
+            await CoreMethods.PushPageModel<ProductDetailsPageModel>(product);
         }
 
         /// <summary>
@@ -163,6 +174,16 @@ namespace Mambo.PageModels
         /// </summary>
         /// <value>The search suggestion command.</value>
         public ICommand SearchSuggestionCommand
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Gets the select product command.
+        /// </summary>
+        /// <value>The select product command.</value>
+        public ICommand SelectProductCommand
         {
             get;
             private set;

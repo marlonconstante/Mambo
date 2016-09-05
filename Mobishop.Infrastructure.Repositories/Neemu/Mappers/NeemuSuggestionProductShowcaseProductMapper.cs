@@ -18,7 +18,7 @@ namespace Mobishop.Infrastructure.Repositories.Neemu.Mappers
                 Name = repositoryEntity.Name,
                 PreviousPrice = repositoryEntity.PreviousPrice,
                 CurrentPrice = repositoryEntity.CurrentPrice,
-                Description = repositoryEntity.Description,
+                Description = "",
                 ImageUrl = repositoryEntity.ImageUrl
             };
 

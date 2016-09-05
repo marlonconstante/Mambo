@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		xmlns:templates="clr-namespace:Mambo.DataTemplates;assembly=Mambo"
+		xmlns:themes="clr-namespace:Mobishop.UI.Themes;assembly=Mobishop.UI"
+		xmlns:ncontrols="clr-namespace:NControl.Controls;assembly=NControl.Controls"
+		x:Class="Mobishop.UI.Controls.QuantitySelectorView">
+	<ContentView.Content>
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="*" /> 
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="1*" />
+				<ColumnDefinition Width="3*" />
+				<ColumnDefinition Width="1*" />
+			</Grid.ColumnDefinitions>
+			<ncontrols:FontAwesomeLabel x:Name="MinusButton" Text="\U0000F056" />
+			<Label x:Name="QuantityLabel" />
+			<ncontrols:FontAwesomeLabel x:Name="PlusButton" Text="\U0000F055" />
+		</Grid>
+	</ContentView.Content>
+</ContentView>

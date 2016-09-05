@@ -42,6 +42,9 @@
     <Compile Include="Controls\GroupHeaderView.xaml.cs">
       <DependentUpon>GroupHeaderView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\QuantitySelectorView.xaml.cs">
+      <DependentUpon>QuantitySelectorView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -62,6 +65,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\GroupHeaderView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\QuantitySelectorView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

@@ -1,5 +1,58 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Mambo.Pages.ProductDetailsPage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		xmlns:themes="clr-namespace:Mobishop.UI.Themes;assembly=Mobishop.UI" 
+		xmlns:controls="clr-namespace:Mobishop.UI.Controls;assembly=Mobishop.UI" 
+		xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" 
+		x:Class="Mambo.Pages.ProductDetailsPage"
+		BackgroundColor="{StaticResource pageBackgroundColor}">
+	<ContentPage.Resources>
+		<ResourceDictionary MergedWith="themes:Standard" />
+	</ContentPage.Resources>
 	<ContentPage.Content>
+		<StackLayout Margin="10">
+			<ffimageloading:CachedImage HorizontalOptions="Center" DownsampleUseDipUnits="true" TransparencyEnabled="false" FadeAnimationEnabled="true" x:Name="ImageView" Source="{Binding ImageUrl}" />
+			<Label Text="{Binding Category}" />
+			<Label Text="{Binding Name}" />
+			<!-- Iniciio linha de preços -->
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="*" />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="1*" />
+					<ColumnDefinition Width="1*" />
+				</Grid.ColumnDefinitions>
+				<!-- Celular com preço anterior -->
+				<Grid Grid.Row="0" Grid.Column="0">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="1*" />
+						<RowDefinition Height="1*" />
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="*" />
+					</Grid.ColumnDefinitions>
+					<Label Text="Preço Anterior:" Grid.Row="0" Grid.Column="0" />
+					<Label Text="{Binding OriginalPrice}" Grid.Row="1" Grid.Column="0" />
+					
+					<Label Text="Tag" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" VerticalOptions="Center" />
+				</Grid>
+				<controls:PriceLabelView VerticalOptions="Center" Grid.Row="0" Grid.Column="1" Amount="{Binding CurrentPrice}" />
+			</Grid>
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="*" />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="1*" />
+					<ColumnDefinition Width="4*" />
+				</Grid.ColumnDefinitions>
+				<controls:QuantitySelectorView Minimum="1" Maximum="99" Quantity="1" Grid.Row="0" Grid.Column="0" />
+				<Button Text="Adicionar na Cesta" Grid.Row="0" Grid.Column="1" />
+			</Grid>
+			<Label Text="Descrição" />
+			<Label Text="{Binding Description}" />
+		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>
