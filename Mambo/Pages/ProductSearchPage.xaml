@@ -97,6 +97,7 @@
 		<StackLayout
 			Spacing="0">
 			<SearchBar
+				Style="{DynamicResource searchBarStyle}"
 				Text="{Binding SearchText}">
 			</SearchBar>
 			<ListView

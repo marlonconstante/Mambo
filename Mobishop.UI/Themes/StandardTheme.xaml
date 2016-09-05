@@ -13,6 +13,13 @@
 			Property="BarBackgroundColor"
 			Value="{DynamicResource navigationBarBackgroundColor}" />
 	</Style>
+	<Style
+		x:Key="searchBarStyle"
+		TargetType="SearchBar">
+		<Setter
+			Property="TextColor"
+			Value="{DynamicResource textColor}" />
+	</Style>
 	<OnPlatform
 		x:Key="fontFamilyLight"
 		x:TypeArguments="x:String"
