@@ -47,10 +47,10 @@ namespace Mambo.PageModels
 						 .Subscribe(x => SetSearchResult(x));
 
 			this.WhenAnyValue(x => x.SearchText)
-			    .Throttle(TimeSpan.FromMilliseconds(500), RxApp.MainThreadScheduler)
-			    .Select(x => x?.Trim() ?? string.Empty)
-			    .DistinctUntilChanged()
-			    .InvokeCommand(SearchCommand);
+				.Throttle(TimeSpan.FromMilliseconds(500), RxApp.MainThreadScheduler)
+				.Select(x => x?.Trim() ?? string.Empty)
+				.DistinctUntilChanged()
+				.InvokeCommand(SearchCommand);
 
 			Observable.Merge(SearchCommand.ThrownExceptions)
 					  .SubscribeOn(RxApp.MainThreadScheduler)
@@ -110,6 +110,15 @@ namespace Mambo.PageModels
 			get;
 			set;
 		}
+
+		/// <summary>
+		/// Gets or sets the search placeholder.
+		/// </summary>
+		/// <value>The search placeholder.</value>
+		public string SearchPlaceholder {
+			get;
+			set;
+		} = "Buscar produto";
 
 		/// <summary>
 		/// Gets or sets the search result items.

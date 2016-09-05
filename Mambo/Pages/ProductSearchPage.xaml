@@ -99,6 +99,7 @@
 			Spacing="0">
 			<SearchBar
 				Style="{DynamicResource searchBarStyle}"
+				Placeholder="{Binding SearchPlaceholder}"
 				Text="{Binding SearchText}">
 			</SearchBar>
 			<ListView
