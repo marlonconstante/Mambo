@@ -28,10 +28,10 @@
 			Value="{DynamicResource fontFamilyRegular}" />
 		<Setter
 			Property="TextColor"
-			Value="{DynamicResource primaryTextColor}" />
+			Value="{DynamicResource searchBarTextColor}" />
 		<Setter
 			Property="PlaceholderColor"
-			Value="{DynamicResource secondaryTextColor}" />
+			Value="{DynamicResource searchBarPlaceholderColor}" />
 		<Setter
 			Property="CancelButtonColor"
 			Value="{DynamicResource barTextColor}" />
@@ -59,6 +59,16 @@
 		x:TypeArguments="x:String"
 		iOS="HelveticaNeue-Bold"
 		Android="sans-serif-black" />
+	<OnPlatform
+		x:Key="searchBarTextColor"
+		x:TypeArguments="Color"
+		iOS="#4d4d4d"
+		Android="#ffffff" />
+	<OnPlatform
+		x:Key="searchBarPlaceholderColor"
+		x:TypeArguments="Color"
+		iOS="#a3a3a3"
+		Android="#ffddde" />
 	<Color
 		x:Key="primaryTextColor">
 		#4d4d4d
