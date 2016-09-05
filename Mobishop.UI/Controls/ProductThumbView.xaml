@@ -1,37 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentView
-	xmlns="http://xamarin.com/schemas/2014/forms"
-	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-	xmlns:themes="clr-namespace:Mobishop.UI.Themes;assembly=Mobishop.UI"
-	xmlns:controls="clr-namespace:Mobishop.UI.Controls;assembly=Mobishop.UI"
-	xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-	x:Class="Mobishop.UI.Controls.ProductThumbView">
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:themes="clr-namespace:Mobishop.UI.Themes;assembly=Mobishop.UI" xmlns:controls="clr-namespace:Mobishop.UI.Controls;assembly=Mobishop.UI" xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" x:Class="Mobishop.UI.Controls.ProductThumbView">
 	<ContentView.Resources>
-		<ResourceDictionary
-			MergedWith="themes:Standard">
+		<ResourceDictionary MergedWith="themes:Standard">
 		</ResourceDictionary>
 	</ContentView.Resources>
 	<ContentView.Content>
-		<StackLayout>
-			<ffimageloading:CachedImage
-				HorizontalOptions="Center"
-				DownsampleUseDipUnits="true"
-				TransparencyEnabled="false"
-				FadeAnimationEnabled="true"
-				x:Name="ImageView">
-			</ffimageloading:CachedImage>
-			<Label
-				x:Name="NameLabel"
-				HorizontalTextAlignment="Center"
-				FontFamily="{StaticResource fontFamilyLight}"
-				FontSize="Micro">
-			</Label>
-			<controls:PriceLabelView
-				x:Name="AmountLabel"
-				HorizontalOptions="Center"
-				TextColor="{StaticResource textColor}"
-				FontSize="Large">
-			</controls:PriceLabelView>
-		</StackLayout>
+		<Grid BackgroundColor="{StaticResource cellBackgroundColor}">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="4*" />
+				<RowDefinition Height="1*" />
+				<RowDefinition Height="1*" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+			<ffimageloading:CachedImage HorizontalOptions="Center" DownsampleUseDipUnits="true" TransparencyEnabled="false" FadeAnimationEnabled="true" x:Name="ImageView" Grid.Row="0" Grid.Column="0" />
+			<Label x:Name="NameLabel" HorizontalTextAlignment="Center" FontFamily="{StaticResource fontFamilyLight}" FontSize="Micro" Grid.Row="1" Grid.Column="0" />
+			<controls:PriceLabelView x:Name="AmountLabel" HorizontalOptions="Center" TextColor="{StaticResource textColor}" FontSize="Large" Grid.Row="2" Grid.Column="0" />
+		</Grid>
 	</ContentView.Content>
 </ContentView>
