@@ -7100,10 +7100,10 @@ namespace Mambo.Android
 			public const int CardView_Light = 2131296282;
 			
 			// aapt resource value: 0x7f090172
-			public const int MyTheme = 2131296626;
+			public const int CustomTheme = 2131296626;
 			
 			// aapt resource value: 0x7f090173
-			public const int MyTheme_Base = 2131296627;
+			public const int CustomTheme_Base = 2131296627;
 			
 			// aapt resource value: 0x7f09004b
 			public const int Platform_AppCompat = 2131296331;
