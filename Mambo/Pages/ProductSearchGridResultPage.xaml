@@ -4,12 +4,17 @@
 		<ResourceDictionary MergedWith="themes:Standard">
 			<DataTemplate x:Key="productTemplate">
 				<ViewCell>
-					<StackLayout Orientation="Horizontal" Spacing="10" BackgroundColor="{StaticResource cellBackgroundColor}">
-						<controls:ProductThumbView ImageSource="{Binding FirstProduct.ImageUrl}" Name="{Binding FirstProduct.Name}" Amount="{Binding FirstProduct.CurrentPrice}" Margin="10">
-						</controls:ProductThumbView>
-						<controls:ProductThumbView ImageSource="{Binding SecondProduct.ImageUrl}" Name="{Binding SecondProduct.Name}" Amount="{Binding SecondProduct.CurrentPrice}" Margin="10">
-						</controls:ProductThumbView>
-					</StackLayout>
+					<Grid BackgroundColor="{StaticResource cellBackgroundColor}">
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*" />
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="*" />
+						</Grid.ColumnDefinitions>
+						<controls:ProductThumbView ImageSource="{Binding FirstProduct.ImageUrl}" Name="{Binding FirstProduct.Name}" Amount="{Binding FirstProduct.CurrentPrice}" Margin="10" Grid.Row="0" Grid.Column="0" />
+						<controls:ProductThumbView ImageSource="{Binding SecondProduct.ImageUrl}" Name="{Binding SecondProduct.Name}" Amount="{Binding SecondProduct.CurrentPrice}" Margin="10" Grid.Row="0" Grid.Column="1" />
+					</Grid>
 				</ViewCell>
 			</DataTemplate>
 		</ResourceDictionary>

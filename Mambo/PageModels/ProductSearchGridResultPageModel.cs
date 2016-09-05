@@ -34,7 +34,7 @@ namespace Mambo.PageModels
 
             m_searchQuery = initData.ToString();
 
-            var products = (await m_showcaseService.GetShowcaseProductsByNameAsync(m_searchQuery, Priorities.UserInitiated)).ToList();
+            var products = (await m_showcaseService.GetShowcaseProductsByNameAsync(m_searchQuery, Priorities.UserInitiated)).Take(14).ToList();
 
             for (int i = 0; i < products.Count; i = i + 2)
             {
