@@ -21,8 +21,7 @@ namespace Mambo
 
 			var homePage = FreshPageModelResolver.ResolvePageModel<ProductSearchPageModel>();
 			MainPage = new FreshNavigationContainer(homePage) {
-				BarTextColor = (Color) Resources["barTextColor"],
-				BarBackgroundColor = (Color) Resources["navigationBarBackgroundColor"]
+				Style = (Style) Resources["navigationBarStyle"]
 			};
 		}
 

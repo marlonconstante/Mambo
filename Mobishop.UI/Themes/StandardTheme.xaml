@@ -3,6 +3,16 @@
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	x:Class="Mobishop.UI.Themes.StandardTheme">
+	<Style
+		x:Key="navigationBarStyle"
+		TargetType="NavigationPage">
+		<Setter
+			Property="BarTextColor"
+			Value="{DynamicResource barTextColor}" />
+		<Setter
+			Property="BarBackgroundColor"
+			Value="{DynamicResource navigationBarBackgroundColor}" />
+	</Style>
 	<OnPlatform
 		x:Key="fontFamilyLight"
 		x:TypeArguments="x:String"
