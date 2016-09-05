@@ -32,9 +32,9 @@ namespace Mambo.PageModels
         {
             base.Init(initData);
 
-            m_searchQuery = initData.ToString();
+            m_searchQuery = initData?.ToString();
 
-            var products = (await m_showcaseService.GetShowcaseProductsByNameAsync(m_searchQuery, Priorities.UserInitiated)).Take(14).ToList();
+            var products = (await m_showcaseService.GetShowcaseProductsByNameAsync(m_searchQuery, Priorities.UserInitiated)).ToList();
 
             for (int i = 0; i < products.Count; i = i + 2)
             {
