@@ -103,6 +103,7 @@
 				Text="{Binding SearchText}">
 			</SearchBar>
 			<ListView
+				Style="{DynamicResource listViewStyle}"
 				HasUnevenRows="true"
 				IsGroupingEnabled="true"
 				GroupHeaderTemplate="{StaticResource groupHeaderTemplate}"

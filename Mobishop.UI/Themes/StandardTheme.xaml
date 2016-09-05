@@ -39,6 +39,13 @@
 			Property="BackgroundColor"
 			Value="{DynamicResource navigationBarBackgroundColor}" />
 	</Style>
+	<Style
+		x:Key="listViewStyle"
+		TargetType="ListView">
+		<Setter
+			Property="SeparatorColor"
+			Value="{DynamicResource separatorColor}" />
+	</Style>
 	<OnPlatform
 		x:Key="fontFamilyLight"
 		x:TypeArguments="x:String"
