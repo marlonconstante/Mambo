@@ -31,7 +31,6 @@ namespace Mambo
 		/// <returns>The start.</returns>
 		protected override void OnStart()
         {
-
         }
 
         /// <summary>
