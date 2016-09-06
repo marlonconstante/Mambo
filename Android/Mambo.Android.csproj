@@ -196,6 +196,12 @@
     <AndroidResource Include="Resources\drawable-xhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\MamboDelivery.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\MamboDelivery.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\MamboDelivery.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\MamboDelivery.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\MamboDelivery.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\MamboDelivery.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
