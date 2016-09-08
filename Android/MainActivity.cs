@@ -31,11 +31,7 @@ namespace Mambo.Android
 
 			Cache.Initialize("Mambo");
 
-			var app = new App();
-			LoadApplication(app);
-
-			var statusBarBackgroundColor = (Color) app.Resources["statusBarBackgroundColor"];
-			Window.SetStatusBarColor(statusBarBackgroundColor.ToAndroid());
+			LoadApplication(new App());
 		}
 
 		/// <summary>
