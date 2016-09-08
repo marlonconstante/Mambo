@@ -3,8 +3,6 @@ using Android.Content.PM;
 using Android.OS;
 using Mobishop.Infrastructure.Repositories.Commons.Caching;
 using NControl.Controls.Droid;
-using Xamarin.Forms;
-using Xamarin.Forms.Platform.Android;
 
 namespace Mambo.Android
 {
