@@ -208,6 +208,13 @@
     <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-76.png" />
     <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-76%402x.png" />
     <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon-83.5%402x.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Default-414w-736h%403x.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Default-375w-667h%402x.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Default-414w-736h-Landscape%403x.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Default%402x.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Default-568h%402x.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Default.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
