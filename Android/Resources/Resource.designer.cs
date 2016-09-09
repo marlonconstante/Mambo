@@ -6185,9 +6185,6 @@ namespace Mambo.Android
 			// aapt resource value: 0x7f0b002b
 			public const int showTitle = 2131427371;
 			
-			// aapt resource value: 0x7f0b0098
-			public const int sliding_tabs = 2131427480;
-			
 			// aapt resource value: 0x7f0b006c
 			public const int snackbar_action = 2131427436;
 			
@@ -6223,6 +6220,9 @@ namespace Mambo.Android
 			
 			// aapt resource value: 0x7f0b0026
 			public const int tabMode = 2131427366;
+			
+			// aapt resource value: 0x7f0b0098
+			public const int tabs = 2131427480;
 			
 			// aapt resource value: 0x7f0b0095
 			public const int text = 2131427477;
