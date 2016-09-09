@@ -41,6 +41,7 @@
     <Compile Include="Controls\GroupHeaderView.xaml.cs">
       <DependentUpon>GroupHeaderView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\CustomNavigationPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
