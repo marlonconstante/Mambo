@@ -51,5 +51,11 @@
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mobishop.UI\Mobishop.UI.csproj">
+      <Project>{EBF47729-9702-455F-9CD7-B608B2C68BA3}</Project>
+      <Name>Mobishop.UI</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
