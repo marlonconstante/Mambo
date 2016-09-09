@@ -209,6 +209,7 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\MamboDelivery.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\MamboDelivery.png" />
     <AndroidResource Include="Resources\values\colors.xml" />
+    <AndroidResource Include="Resources\layout\Splash.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

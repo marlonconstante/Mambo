@@ -6510,13 +6510,16 @@ namespace Mambo.Android
 			public const int select_dialog_singlechoice_material = 2130903093;
 			
 			// aapt resource value: 0x7f030036
-			public const int support_simple_spinner_dropdown_item = 2130903094;
+			public const int Splash = 2130903094;
 			
 			// aapt resource value: 0x7f030037
-			public const int Tabbar = 2130903095;
+			public const int support_simple_spinner_dropdown_item = 2130903095;
 			
 			// aapt resource value: 0x7f030038
-			public const int Toolbar = 2130903096;
+			public const int Tabbar = 2130903096;
+			
+			// aapt resource value: 0x7f030039
+			public const int Toolbar = 2130903097;
 			
 			static Layout()
 			{
@@ -7117,11 +7120,11 @@ namespace Mambo.Android
 			// aapt resource value: 0x7f09001a
 			public const int CardView_Light = 2131296282;
 			
-			// aapt resource value: 0x7f090172
-			public const int CustomTheme = 2131296626;
-			
 			// aapt resource value: 0x7f090173
-			public const int CustomTheme_Base = 2131296627;
+			public const int CustomTheme = 2131296627;
+			
+			// aapt resource value: 0x7f090174
+			public const int CustomTheme_Base = 2131296628;
 			
 			// aapt resource value: 0x7f09004b
 			public const int Platform_AppCompat = 2131296331;
@@ -7194,6 +7197,9 @@ namespace Mambo.Android
 			
 			// aapt resource value: 0x7f090069
 			public const int RtlUnderlay_Widget_AppCompat_ActionButton_Overflow = 2131296361;
+			
+			// aapt resource value: 0x7f090172
+			public const int SplashTheme = 2131296626;
 			
 			// aapt resource value: 0x7f0900ea
 			public const int TextAppearance_AppCompat = 2131296490;
