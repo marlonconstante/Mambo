@@ -31,11 +31,11 @@
 								Command="{Binding Path=BindingContext.SearchSuggestionCommand, Source={x:Reference productSearchPage}}"
 								CommandParameter="{Binding Suggestion}" />
 						</StackLayout.GestureRecognizers>
-						<iconize:IconLabel
-							Text="md-search"
-							TextColor="{DynamicResource primaryTextColor}"
-							FontSize="Large">
-						</iconize:IconLabel>
+						<iconize:IconImage
+							Icon="md-search"
+							IconColor="{DynamicResource primaryTextColor}"
+							IconSize="22">
+						</iconize:IconImage>
 						<Label
 							VerticalTextAlignment="Center"
 							Text="{Binding Suggestion}"
