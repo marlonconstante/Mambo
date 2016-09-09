@@ -1,6 +1,14 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <resources>
 	<style
+		name="SplashTheme"
+		parent="CustomTheme.Base">
+		<item
+			name="android:windowBackground">@layout/Splash</item>
+		<item
+			name="android:windowFullscreen">true</item>
+	</style>
+	<style
 		name="CustomTheme"
 		parent="CustomTheme.Base">
 	</style>
