@@ -7,7 +7,7 @@ namespace Mambo.Android
 	/// <summary>
 	/// Main application.
 	/// </summary>
-	[Application(Name = "Mambo.MainApplication")]
+	[Application(Label = "Mambo", Icon = "@drawable/icon", Theme = "@style/SplashTheme")]
 	public class MainApplication : Application
 	{
 		/// <summary>
