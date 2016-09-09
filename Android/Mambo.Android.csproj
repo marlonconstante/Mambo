@@ -188,6 +188,10 @@
       <Project>{D9C41D40-CBA7-4ABE-98B3-F4FA97E79B14}</Project>
       <Name>Mobishop.Infrastructure.Repositories</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Mobishop.UI.Android\Mobishop.UI.Android.csproj">
+      <Project>{8D7A9D71-54BE-4C3A-AE73-7F4F588D714A}</Project>
+      <Name>Mobishop.UI.Android</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
