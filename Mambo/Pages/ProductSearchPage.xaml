@@ -24,8 +24,13 @@
 				<ViewCell>
 					<StackLayout
 						Orientation="Horizontal"
-						Spacing="10"
 						Padding="15, 10, 5, 10">
+						<StackLayout.Spacing>
+							<OnPlatform
+								x:TypeArguments="Thickness"
+								iOS="5"
+								Android="10" />
+						</StackLayout.Spacing>
 						<StackLayout.GestureRecognizers>
 							<TapGestureRecognizer
 								Command="{Binding Path=BindingContext.SearchSuggestionCommand, Source={x:Reference productSearchPage}}"
