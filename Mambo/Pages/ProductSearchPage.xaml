@@ -4,8 +4,8 @@
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	xmlns:templates="clr-namespace:Mambo.DataTemplates;assembly=Mambo"
-	xmlns:ncontrols="clr-namespace:NControl.Controls;assembly=NControl.Controls"
 	xmlns:controls="clr-namespace:Mobishop.UI.Controls;assembly=Mobishop.UI"
+	xmlns:iconize="clr-namespace:FormsPlugin.Iconize;assembly=FormsPlugin.Iconize"
 	x:Name="productSearchPage"
 	x:Class="Mambo.Pages.ProductSearchPage">
 	<ContentPage.Resources>
@@ -31,11 +31,11 @@
 								Command="{Binding Path=BindingContext.SearchSuggestionCommand, Source={x:Reference productSearchPage}}"
 								CommandParameter="{Binding Suggestion}" />
 						</StackLayout.GestureRecognizers>
-						<ncontrols:FontMaterialDesignLabel
-							Text="{x:Static ncontrols:FontMaterialDesignLabel.MDSearch}"
+						<iconize:IconLabel
+							Text="md-search"
 							TextColor="{DynamicResource primaryTextColor}"
 							FontSize="Large">
-						</ncontrols:FontMaterialDesignLabel>
+						</iconize:IconLabel>
 						<Label
 							VerticalTextAlignment="Center"
 							Text="{Binding Suggestion}"
