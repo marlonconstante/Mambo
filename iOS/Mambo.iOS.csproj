@@ -193,6 +193,9 @@
     <Reference Include="FormsPlugin.Iconize.iOS">
       <HintPath>..\packages\Xam.FormsPlugin.Iconize.1.0.10\lib\Xamarin.iOS10\FormsPlugin.Iconize.iOS.dll</HintPath>
     </Reference>
+    <Reference Include="Plugin.Iconize.Material.iOS">
+      <HintPath>..\packages\Xam.Plugin.Iconize.Material.1.0.10\lib\Xamarin.iOS10\Plugin.Iconize.Material.iOS.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Mambo\Mambo.csproj">

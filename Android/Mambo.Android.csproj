@@ -171,6 +171,9 @@
     <Reference Include="FormsPlugin.Iconize.Droid">
       <HintPath>..\packages\Xam.FormsPlugin.Iconize.1.0.10\lib\MonoAndroid10\FormsPlugin.Iconize.Droid.dll</HintPath>
     </Reference>
+    <Reference Include="Plugin.Iconize.Material.Droid">
+      <HintPath>..\packages\Xam.Plugin.Iconize.Material.1.0.10\lib\MonoAndroid10\Plugin.Iconize.Material.Droid.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Mambo\Mambo.csproj">
