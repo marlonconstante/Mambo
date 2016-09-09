@@ -22,6 +22,7 @@ namespace Mambo.iOS
 		public override bool FinishedLaunching(UIApplication uiApplication, NSDictionary options)
 		{
 			global::Xamarin.Forms.Forms.Init();
+			FormsPlugin.Iconize.iOS.IconControls.Init();
 			NControls.Init();
 
 			Cache.Initialize("Mambo");
