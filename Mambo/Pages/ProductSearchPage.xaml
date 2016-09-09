@@ -102,11 +102,10 @@
 	<ContentPage.Content>
 		<StackLayout
 			Spacing="0">
-			<SearchBar
-				Style="{DynamicResource searchBarStyle}"
+			<controls:CustomSearchBar
 				Placeholder="{Binding SearchPlaceholder}"
 				Text="{Binding SearchText}">
-			</SearchBar>
+			</controls:CustomSearchBar>
 			<ListView
 				Style="{DynamicResource listViewStyle}"
 				HasUnevenRows="true"
