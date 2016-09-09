@@ -21,6 +21,8 @@ namespace Mambo.iOS
 		/// <param name="options">Options.</param>
 		public override bool FinishedLaunching(UIApplication uiApplication, NSDictionary options)
 		{
+			Plugin.Iconize.Iconize.With(new Plugin.Iconize.Fonts.MaterialModule());
+
 			global::Xamarin.Forms.Forms.Init();
 			FormsPlugin.Iconize.iOS.IconControls.Init();
 			NControls.Init();

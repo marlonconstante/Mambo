@@ -25,6 +25,8 @@ namespace Mambo.Android
 		public override void OnCreate()
 		{
 			base.OnCreate();
+
+			Plugin.Iconize.Iconize.With(new Plugin.Iconize.Fonts.MaterialModule());
 		}
 	}
 }
