@@ -1,5 +1,6 @@
 ﻿using FreshMvvm;
 using Mambo.PageModels;
+using Mobishop.UI.Controls;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -17,12 +18,10 @@ namespace Mambo
 		public App()
 		{
 			InitializeComponent();
-            AppBootstrapper.Initialize();
+			AppBootstrapper.Initialize();
 
 			var homePage = FreshPageModelResolver.ResolvePageModel<ProductSearchPageModel>();
-			MainPage = new FreshNavigationContainer(homePage) {
-				Style = (Style) Resources["navigationBarStyle"]
-			};
+			MainPage = new CustomNavigationPage(homePage);
 		}
 
 		/// <summary>
@@ -30,14 +29,14 @@ namespace Mambo
 		/// </summary>
 		/// <returns>The start.</returns>
 		protected override void OnStart()
-        {
-        }
+		{
+		}
 
-        /// <summary>
-        /// Ons the sleep.
-        /// </summary>
-        /// <returns>The sleep.</returns>
-        protected override void OnSleep()
+		/// <summary>
+		/// Ons the sleep.
+		/// </summary>
+		/// <returns>The sleep.</returns>
+		protected override void OnSleep()
 		{
 		}
 
