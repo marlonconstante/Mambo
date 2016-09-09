@@ -210,6 +210,10 @@
       <Project>{D9C41D40-CBA7-4ABE-98B3-F4FA97E79B14}</Project>
       <Name>Mobishop.Infrastructure.Repositories</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Mobishop.UI.iOS\Mobishop.UI.iOS.csproj">
+      <Project>{9F6058E2-5372-412D-8DED-5AC99FB11610}</Project>
+      <Name>Mobishop.UI.iOS</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Contents.json" />
