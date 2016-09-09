@@ -25,6 +25,7 @@ namespace Mambo.iOS
 
 			global::Xamarin.Forms.Forms.Init();
 			FormsPlugin.Iconize.iOS.IconControls.Init();
+			Mobishop.UI.iOS.Controls.Init();
 			NControls.Init();
 
 			Cache.Initialize("Mambo");
