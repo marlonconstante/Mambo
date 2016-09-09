@@ -26,7 +26,7 @@ namespace Mambo.Android
 			base.OnCreate(bundle);
 
 			global::Xamarin.Forms.Forms.Init(this, bundle);
-			FormsPlugin.Iconize.Droid.IconControls.Init();
+			FormsPlugin.Iconize.Droid.IconControls.Init(Resource.Id.toolbar, Resource.Id.tabs);
 			NControls.Init();
 
 			Cache.Initialize("Mambo");
