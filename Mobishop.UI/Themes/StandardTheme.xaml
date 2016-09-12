@@ -66,6 +66,10 @@
 		x:TypeArguments="x:String"
 		iOS="HelveticaNeue-Bold"
 		Android="sans-serif-black" />
+	<x:String
+		x:Key="titleIconImageName">
+		Logo.png
+	</x:String>
 	<Color
 		x:Key="searchBarTextColor">
 		#ffffff

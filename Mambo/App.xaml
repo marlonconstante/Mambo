@@ -7,6 +7,10 @@
 	<Application.Resources>
 		<ResourceDictionary
 			MergedWith="themes:StandardTheme">
+			<x:String
+				x:Key="titleIconImageName">
+				MamboDelivery.png
+			</x:String>
 			<Color
 				x:Key="statusBarBackgroundColor">
 				#c11a20
