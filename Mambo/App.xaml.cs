@@ -1,6 +1,6 @@
 ﻿using FreshMvvm;
+using Mambo.Navigations;
 using Mambo.PageModels;
-using Mobishop.UI.Controls;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -21,7 +21,7 @@ namespace Mambo
 			AppBootstrapper.Initialize();
 
 			var homePage = FreshPageModelResolver.ResolvePageModel<HomePageModel>();
-			MainPage = new CustomNavigationPage(homePage);
+			MainPage = new BasketNavigationPage(homePage);
 		}
 
 		/// <summary>
