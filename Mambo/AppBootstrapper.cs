@@ -1,4 +1,5 @@
-﻿using Mobishop.Domain.Products;
+﻿using System.Globalization;
+using Mobishop.Domain.Products;
 using Mobishop.Domain.Showcases;
 using Mobishop.Infrastructure.Repositories.Memory;
 using Mobishop.Infrastructure.Repositories.NeemuChaordic.Showcase;
@@ -18,6 +19,8 @@ namespace Mambo
 		/// </summary>
 		public static void Initialize()
 		{
+			CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("pt-BR");
+
 			//RegisterMemoryRepositories();
 			RegisterRestRepositories();
 		}
