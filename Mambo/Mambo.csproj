@@ -45,6 +45,7 @@
     <Compile Include="PageModels\ProductSearchPageModel.cs" />
     <Compile Include="DataTemplates\SearchDataTemplateSelector.cs" />
     <Compile Include="ViewModels\SearchViewModel.cs" />
+    <Compile Include="Navigations\BasketNavigationPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="ModernHttpClient">
@@ -159,6 +160,7 @@
     <Folder Include="PageModels\" />
     <Folder Include="DataTemplates\" />
     <Folder Include="ViewModels\" />
+    <Folder Include="Navigations\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Mobishop.UI\Mobishop.UI.csproj">
