@@ -66,16 +66,14 @@
 		x:TypeArguments="x:String"
 		iOS="HelveticaNeue-Bold"
 		Android="sans-serif-black" />
-	<OnPlatform
-		x:Key="searchBarTextColor"
-		x:TypeArguments="Color"
-		iOS="#4d4d4d"
-		Android="#ffffff" />
-	<OnPlatform
-		x:Key="searchBarPlaceholderColor"
-		x:TypeArguments="Color"
-		iOS="#a3a3a3"
-		Android="#ffffff" />
+	<Color
+		x:Key="searchBarTextColor">
+		#ffffff
+	</Color>
+	<Color
+		x:Key="searchBarPlaceholderColor">
+		#ffffff
+	</Color>
 	<Color
 		x:Key="primaryTextColor">
 		#4d4d4d
