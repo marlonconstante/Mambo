@@ -91,6 +91,10 @@
 		#cccccc
 	</Color>
 	<Color
+		x:Key="highlightedColor">
+		#f88f1c
+	</Color>
+	<Color
 		x:Key="headerBackgroundColor">
 		#f5f5f5
 	</Color>

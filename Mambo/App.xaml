@@ -15,6 +15,10 @@
 				x:Key="navigationBarBackgroundColor">
 				#e31b22
 			</Color>
+			<Color
+				x:Key="highlightedColor">
+				#ffcc1d
+			</Color>
 			<OnPlatform
 				x:Key="searchBarPlaceholderColor"
 				x:TypeArguments="Color"
