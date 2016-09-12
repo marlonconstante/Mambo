@@ -18,7 +18,7 @@
 			<OnPlatform
 				x:Key="searchBarPlaceholderColor"
 				x:TypeArguments="Color"
-				iOS="#a3a3a3"
+				iOS="#fae7e8"
 				Android="#fff0f0" />
 		</ResourceDictionary>
 	</Application.Resources>
