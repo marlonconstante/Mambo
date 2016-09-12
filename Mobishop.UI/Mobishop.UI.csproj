@@ -43,6 +43,7 @@
     </Compile>
     <Compile Include="Controls\CustomNavigationPage.cs" />
     <Compile Include="Controls\CustomSearchBar.cs" />
+    <Compile Include="Controls\CustomPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
