@@ -1,11 +1,11 @@
-﻿using Xamarin.Forms;
+﻿using Mobishop.UI.Controls;
 
 namespace Mambo.Pages
 {
 	/// <summary>
 	/// Home page.
 	/// </summary>
-	public partial class HomePage : ContentPage
+	public partial class HomePage : CustomPage
 	{
 		/// <summary>
 		/// Initializes a new instance of the <see cref="T:Mambo.Pages.HomePage"/> class.
