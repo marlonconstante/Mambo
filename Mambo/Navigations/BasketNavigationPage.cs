@@ -16,11 +16,13 @@ namespace Mambo.Navigations
 		public BasketNavigationPage(Page page) : base(page)
 		{
 			ToolbarItems.Add(new IconToolbarItem {
-				Icon = "md-search"
+				Icon = "md-search",
+				IconColor = Color.White
 			});
 
 			ToolbarItems.Add(new IconToolbarItem {
-				Icon = "md-shopping-cart"
+				Icon = "md-shopping-cart",
+				IconColor = Color.White
 			});
 		}
 	}
